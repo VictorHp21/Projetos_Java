@@ -2,20 +2,15 @@ package Model.entities;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.Objects;
 
 public class Cliente implements Serializable {
     private Integer Id;
     private String Nome;
-    private Date DataNascimento;
-    private String endereco;
-    private String telefone;
 
-    public Cliente(Integer id, String nome, Date dataNascimento, String endereco, String telefone) {
-        Id = id;
+    public Cliente(String nome, Integer id) {
         Nome = nome;
-        DataNascimento = dataNascimento;
-        this.endereco = endereco;
-        this.telefone = telefone;
+        Id = id;
     }
 
     public Integer getId() {
@@ -34,27 +29,23 @@ public class Cliente implements Serializable {
         Nome = nome;
     }
 
-    public Date getDataNascimento() {
-        return DataNascimento;
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        Cliente cliente = (Cliente) o;
+        return Objects.equals(Id, cliente.Id) && Objects.equals(Nome, cliente.Nome);
     }
 
-    public void setDataNascimento(Date dataNascimento) {
-        DataNascimento = dataNascimento;
+    @Override
+    public int hashCode() {
+        return Objects.hash(Id, Nome);
     }
 
-    public String getEndereco() {
-        return endereco;
-    }
-
-    public void setEndereco(String endereco) {
-        this.endereco = endereco;
-    }
-
-    public String getTelefone() {
-        return telefone;
-    }
-
-    public void setTelefone(String telefone) {
-        this.telefone = telefone;
+    @Override
+    public String toString() {
+        return "Cliente{" +
+                "Id=" + Id +
+                ", Nome='" + Nome + '\'' +
+                '}';
     }
 }
