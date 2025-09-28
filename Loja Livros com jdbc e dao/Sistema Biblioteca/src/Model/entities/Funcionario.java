@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.Objects;
 
-public class Fucionario implements Serializable {
+public class Funcionario implements Serializable {
     private Integer Id;
     private String Nome;
     private Date DataNascimento;
@@ -13,17 +13,15 @@ public class Fucionario implements Serializable {
 
     private Departamento departamento;
 
-    public Fucionario() {}
+    public Funcionario(){}
 
-
-    public Fucionario(Integer id, String nome, Date dataNascimento, Double salario, Departamento departamento) {
+    public Funcionario(Integer id, String nome, Date dataNascimento, Double salario, Departamento departamento) {
         Id = id;
         Nome = nome;
         DataNascimento = dataNascimento;
         this.salario = salario;
         this.departamento = departamento;
     }
-
 
     public Integer getId() {
         return Id;
@@ -68,18 +66,18 @@ public class Fucionario implements Serializable {
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
-        Fucionario that = (Fucionario) o;
-        return Objects.equals(Nome, that.Nome);
+        Funcionario that = (Funcionario) o;
+        return Objects.equals(Id, that.Id) && Objects.equals(Nome, that.Nome);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(Nome);
+        return Objects.hash(Id, Nome);
     }
 
     @Override
     public String toString() {
-        return "Fucionario{" +
+        return "Funcionario{" +
                 "Id=" + Id +
                 ", Nome='" + Nome + '\'' +
                 ", DataNascimento=" + DataNascimento +

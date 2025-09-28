@@ -12,7 +12,7 @@ public class Vendas implements Serializable {
 
     private Cliente cliente;
 
-    private Fucionario fucionario;
+    private Funcionario funcionario;
 
     private List<ItemVenda> itens;
 
@@ -20,14 +20,12 @@ public class Vendas implements Serializable {
         this.itens = new ArrayList<>();
     }
 
-    public Vendas(Integer id, Date data_venda, Double valor, Cliente cliente, Fucionario fucionario, List<ItemVenda> itens) {
+    public Vendas(Integer id, List<ItemVenda> itens, Funcionario funcionario, Cliente cliente, Double valor, Date data_venda) {
         Id = id;
-        this.data_venda = data_venda;
-        this.valor = valor;
+        this.itens = itens;
+        this.funcionario = funcionario;
         this.cliente = cliente;
-        this.fucionario = fucionario;
-        this.itens = new ArrayList<>();
+        this.valor = valor;
+        this.data_venda = data_venda;
     }
-
-
 }
