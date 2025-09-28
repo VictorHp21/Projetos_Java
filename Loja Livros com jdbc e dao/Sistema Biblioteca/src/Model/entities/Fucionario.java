@@ -1,30 +1,29 @@
 package Model.entities;
 
+import java.io.Serializable;
+import java.util.Date;
 import java.util.Objects;
 
-public class Fucionario {
+public class Fucionario implements Serializable {
     private Integer Id;
     private String Nome;
-    private String Endereco;
-    private String Telefone;
-    private String Cpf;
+    private Date DataNascimento;
     private Double salario;
-    private String cargo;
+
 
     private Departamento departamento;
 
     public Fucionario() {}
 
-    public Fucionario(Integer id, String nome, String endereco, String telefone, String cpf, Double salario, String cargo, Departamento departamento) {
+
+    public Fucionario(Integer id, String nome, Date dataNascimento, Double salario, Departamento departamento) {
         Id = id;
         Nome = nome;
-        Endereco = endereco;
-        Telefone = telefone;
-        Cpf = cpf;
+        DataNascimento = dataNascimento;
         this.salario = salario;
-        this.cargo = cargo;
         this.departamento = departamento;
     }
+
 
     public Integer getId() {
         return Id;
@@ -42,28 +41,12 @@ public class Fucionario {
         Nome = nome;
     }
 
-    public String getEndereco() {
-        return Endereco;
+    public Date getDataNascimento() {
+        return DataNascimento;
     }
 
-    public void setEndereco(String endereco) {
-        Endereco = endereco;
-    }
-
-    public String getTelefone() {
-        return Telefone;
-    }
-
-    public void setTelefone(String telefone) {
-        Telefone = telefone;
-    }
-
-    public String getCpf() {
-        return Cpf;
-    }
-
-    public void setCpf(String cpf) {
-        Cpf = cpf;
+    public void setDataNascimento(Date dataNascimento) {
+        DataNascimento = dataNascimento;
     }
 
     public Double getSalario() {
@@ -72,14 +55,6 @@ public class Fucionario {
 
     public void setSalario(Double salario) {
         this.salario = salario;
-    }
-
-    public String getCargo() {
-        return cargo;
-    }
-
-    public void setCargo(String cargo) {
-        this.cargo = cargo;
     }
 
     public Departamento getDepartamento() {
@@ -100,5 +75,16 @@ public class Fucionario {
     @Override
     public int hashCode() {
         return Objects.hashCode(Nome);
+    }
+
+    @Override
+    public String toString() {
+        return "Fucionario{" +
+                "Id=" + Id +
+                ", Nome='" + Nome + '\'' +
+                ", DataNascimento=" + DataNascimento +
+                ", salario=" + salario +
+                ", departamento=" + departamento +
+                '}';
     }
 }

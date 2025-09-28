@@ -8,10 +8,13 @@ CREATE TABLE LIVROS (
 id_livro int auto_increment not null,
 nome varchar(40),
 autor varchar(40),
-preco decimal(10,2),
+preco decimal(10,2), 
 categoria varchar(30),
 primary key (id_livro)
 );
+
+alter table livrosvendas
+add column quantidade int;
 
 CREATE TABLE FUNCIONARIOS (
 id_funcionario int auto_increment not null,
@@ -46,6 +49,18 @@ CREATE TABLE VENDAS (
     FOREIGN KEY (id_funcionario) REFERENCES FUNCIONARIOS(id_funcionario)
 );
 
+-- tabela intermediária para guardar os itens que estão saindo na venda
+
+CREATE TABLE ITENS_VENDA (
+    id_item INT AUTO_INCREMENT NOT NULL,
+    id_venda INT NOT NULL,
+    id_livro INT NOT NULL,
+    quantidade INT NOT NULL,
+    PRIMARY KEY (id_item),
+    FOREIGN KEY (id_venda) REFERENCES VENDAS(id_venda),
+    FOREIGN KEY (id_livro) REFERENCES LIVROS(id_livro)
+);
+
 CREATE TABLE GERENTE (
     id_gerente INT AUTO_INCREMENT NOT NULL,
     nome_gerente VARCHAR(100) NOT NULL,
@@ -55,3 +70,5 @@ CREATE TABLE GERENTE (
     FOREIGN KEY (id_departamento) REFERENCES DEPARTAMENTO(id_departamento)
 );
 
+alter table GERENTE ADD COLUMN 
+salario decimal(10,2);

@@ -8,16 +8,15 @@ public class Livro implements Serializable {
     private Integer Id;
     private String Nome;
     private String Autor;
-    private Date DataPublicacao;
-    private String Genero;
+    private String Categoria;
     private double Preco;
     private int Quantidade;
 
-    public Livro(String nome, String autor, Date dataPublicacao, String genero, double preco, int quantidade) {
+    public Livro(Integer id, String nome, String autor, String categoria, double preco, int quantidade) {
+        Id = id;
         Nome = nome;
         Autor = autor;
-        DataPublicacao = dataPublicacao;
-        Genero = genero;
+        Categoria = categoria;
         Preco = preco;
         Quantidade = quantidade;
     }
@@ -46,20 +45,12 @@ public class Livro implements Serializable {
         Autor = autor;
     }
 
-    public Date getDataPublicacao() {
-        return DataPublicacao;
+    public String getCategoria() {
+        return Categoria;
     }
 
-    public void setDataPublicacao(Date dataPublicacao) {
-        DataPublicacao = dataPublicacao;
-    }
-
-    public String getGenero() {
-        return Genero;
-    }
-
-    public void setGenero(String genero) {
-        Genero = genero;
+    public void setCategoria(String categoria) {
+        Categoria = categoria;
     }
 
     public double getPreco() {
@@ -96,8 +87,7 @@ public class Livro implements Serializable {
                 "Id=" + Id +
                 ", Nome='" + Nome + '\'' +
                 ", Autor='" + Autor + '\'' +
-                ", DataPublicacao=" + DataPublicacao +
-                ", Genero='" + Genero + '\'' +
+                ", Categoria='" + Categoria + '\'' +
                 ", Preco=" + Preco +
                 ", Quantidade=" + Quantidade +
                 '}';
