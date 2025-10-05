@@ -15,7 +15,7 @@ public class Main {
         }
 
         for (int i = 0; i < n; i++) {
-            if (isPalindrome(num) == true) {
+            if (isPalindrome(num)) {
                 System.out.println("Yes, it a palindrome");
                 break;
             } else {
