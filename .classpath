@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="Conversor_unidades_moedas/src"/>
+	<classpathentry kind="src" path="Exercicios Leetcode/Longest Common Prefix/src"/>
+	<classpathentry kind="src" path="Exercicios Leetcode/Longest Substring wt repeating characters/src"/>
+	<classpathentry kind="src" path="Exercicios Leetcode/Palindrome/src"/>
+	<classpathentry kind="src" path="Exercicios Leetcode/PalindromeWtString/src"/>
+	<classpathentry kind="src" path="Exercicios Leetcode/Plus one/src"/>
+	<classpathentry kind="src" path="Exercicios Leetcode/Remove Duplicates from sorted List/src"/>
+	<classpathentry kind="src" path="Exercicios Leetcode/RomanToInt/src"/>
+	<classpathentry kind="src" path="Exercicios Leetcode/Serch insert Position/src"/>
+	<classpathentry kind="src" path="Exercicios Leetcode/String to integer _atoi_/src"/>
+	<classpathentry kind="src" path="Exercicios Leetcode/TwoSum/src"/>
+	<classpathentry kind="src" path="Game da advinhacao/src"/>
+	<classpathentry kind="src" path="Jogo_de_Adivinhacao/src"/>
+	<classpathentry kind="src" path="Loja Livros com jdbc e dao/Sistema Biblioteca/src"/>
+	<classpathentry kind="src" path="Sistema_login_Hash/src"/>
+	<classpathentry kind="src" path="To_do_List/src"/>
+	<classpathentry kind="output" path="Conversor_unidades_moedas/out/production/Conversor_unidades_moedas"/>
+</classpath>
