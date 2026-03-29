@@ -12,13 +12,18 @@ public class Main {
 
         Scanner s = new Scanner(System.in);
 
-        DateTimeFormatter dtm =  DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        DateTimeFormatter dtm = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
         System.out.println("Digite sua data de nascimento: ");
         String nascimentoTexto = s.nextLine();
         LocalDate nascimento = LocalDate.parse(nascimentoTexto, dtm);
 
-        // ChronoUnit.DAYS.between -- obs: use este para calcular dia exatos (considerandos anos bissextos)
+        /* Anotações para consulta:
+        ChronoUnit.DAYS.between -- obs: use este para calcular dia exatos (considerandos anos bissextos)
+
+        Valores que podem dar erro
+        utileze Period para valores exatos:
+         */
 
 
         // de forma n exata
@@ -35,8 +40,7 @@ public class Main {
         int idademeses = (int) (idadeDias / 30);
         int idadeAnos = (int) (idadeDias / 365);
 
-        Valores que podem dar erro
-        utileze Period para valores exatos:
+
          */
 
         Period periodo = Period.between(nascimento, hoje);
@@ -45,7 +49,7 @@ public class Main {
         int meses = periodo.getMonths();
         int dias = periodo.getDays();
 
-        System.out.println("Sua idade em anos: " + anos + "\nSua idade em meses : " + meses  + "\nSua" +
+        System.out.println("Sua idade em anos: " + anos + "\nSua idade em meses : " + meses + "\nSua" +
                 " idade em " +
                 "dias :" +
                 " " + dias);
@@ -53,9 +57,6 @@ public class Main {
         System.out.println("Idade em dias totais: " + idadeDias);
 
         System.out.println("Idade em meses totais (aproximadamente) " + (idadeDias / 30));
-
-
-
 
 
     }
