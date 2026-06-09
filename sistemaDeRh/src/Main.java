@@ -166,6 +166,10 @@ public class Main {
                         System.out.println("Data inválida! use o formato: (dia/mes/ano)");
                     }
 
+                    Empresa empresaEscolhida = null;
+
+                    // colocar um metodo para buscar uma empresa por nome e depois cadastrar o funcionario neste empresa para so depois editar o status do mesmo nesta empresa
+
                     System.out.println("Este funcionário ainda esta na empresa " + empresaEscolhida + "? \n" +
                             "1 - Sim\n" +
                             "2 - Não");
@@ -247,8 +251,8 @@ public class Main {
 
                     System.out.println(listarEmpresasCadastradas(empresas));
 
-                    System.out.println("Digite os 4 primeiros digitos da empresa escolhida");
-                    int cnpjEmp = s.nextInt();
+                    System.out.println("Digite os  digitos da empresa escolhida");
+                    String cnpjEmp = s.nextLine();
 
 
 
@@ -273,7 +277,7 @@ public class Main {
                     System.out.println(listarEmpresasCadastradas(empresas));
 
                     System.out.println("Digite os 4 primeiros digitos da empresa escolhida");
-                     cnpjEmp = s.nextInt();
+                     cnpjEmp = s.nextLine();
 
                     empBuscaSistema = buscarEmpresa(empresas, cnpjEmp);
 
@@ -299,7 +303,7 @@ public class Main {
                     System.out.println(listarEmpresasCadastradas(empresas));
 
                     System.out.println("Digite os 4 primeiros digitos da empresa escolhida");
-                    cnpjEmp = s.nextInt();
+                    cnpjEmp = s.nextLine();
 
                     empBuscaSistema = buscarEmpresa(empresas, cnpjEmp);
 
@@ -334,8 +338,8 @@ public class Main {
 
                     System.out.println(listarEmpresasCadastradas(empresas));
 
-                    System.out.println("Digite os 4 primeiros digitos da empresa escolhida");
-                    cnpjEmp = s.nextInt();
+                    System.out.println("Digite o cnpj da empresa escolhida");
+                    cnpjEmp = s.nextLine();
 
                     empBuscaSistema = buscarEmpresa(empresas, cnpjEmp);
 
@@ -398,8 +402,8 @@ public class Main {
 
                     System.out.println(listarEmpresasCadastradas(empresas));
 
-                    System.out.println("Digite os 4 primeiros digitos da empresa escolhida");
-                    cnpjEmp = s.nextInt();
+                    System.out.println("Digite o cnpj da empresa escolhida");
+                    cnpjEmp = s.nextLine();
 
                     empBuscaSistema = buscarEmpresa(empresas, cnpjEmp);
 
@@ -429,6 +433,34 @@ public class Main {
                     System.out.println(listarEmpresasCadastradas(empresas));
 
                     System.out.println();
+
+                    break;
+
+
+                case 11:
+
+                    System.out.println("Digite o nome da empresa: ");
+                    String nomeEmpresa = s.nextLine();
+
+                    System.out.println("Digite o cnpj da empresa: ");
+                    String cnpjEmpresa = s.nextLine();
+
+
+
+                    if (!cnpjEmpresa.matches("\\d+")) {
+                        throw new cpfInvalidoException("CPF deve conter apenas números.");
+                    } else if (cnpjEmpresa.length() < 14) {
+                        throw new cpfInvalidoException("CNPJ inválido, digite um CNPJ com 14 caracteres.");
+                    } else if (empresaEstaCadastrada(empresas, cnpjEmpresa)) {
+                        throw new RuntimeException("CNPJ já cadastrado");
+                    }
+
+                    Empresa novaEmpresa = new Empresa(nomeEmpresa, cnpjEmpresa);
+
+                    empresas.add(novaEmpresa);
+
+                    System.out.println("Empresa cadastrada com sucesso! ");
+
 
                     break;
 
@@ -481,7 +513,7 @@ public class Main {
         return retornoEmpresas;
     }
 
-    public static Empresa buscarEmpresa(List<Empresa> empresas, int cnpjEmp){
+    public static Empresa buscarEmpresa(List<Empresa> empresas, String cnpjEmp){
 
         Empresa empBusca = null;
 
@@ -493,6 +525,21 @@ public class Main {
         }
 
         return empBusca;
+    }
+
+    public static boolean empresaEstaCadastrada(List<Empresa> empresas, String cnpjEmp){
+
+        Boolean empExiste = false;
+
+
+        for(Empresa emp: empresas){
+            if(emp.getCnpj().equals(cnpjEmp)){
+                empExiste = true;
+            }
+        }
+
+        return empExiste;
+
     }
 
     public static StringBuilder relatorios(List<Empresa> empresas){
