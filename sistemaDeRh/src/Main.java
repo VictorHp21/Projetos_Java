@@ -50,7 +50,7 @@ public class Main {
         File arquivoFuncionarios = new File("pasta_funcionários/funcionarios.txt");
 
 
-        carregarFuncionarios(funcionarioList, arquivoFuncionarios);
+        carregarFuncionarios(funcionarioList, arquivoFuncionarios); // alterar este metodo abaixo
 
 
         int op = 0;
@@ -432,7 +432,7 @@ public class Main {
 
                 case 9:
 
-                    carregarFuncionarios(funcionarioList, arquivoFuncionarios);
+                    carregarFuncionarios(funcionarioList, arquivoFuncionarios); // alterar este metodo abaixo
 
                     System.out.println("Funcionários do arquivo de texto carregados no sistema com sucesso!");
 
