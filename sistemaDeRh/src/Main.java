@@ -28,7 +28,7 @@ public class Main {
 
         List<Empresa> empresas = new ArrayList<>();
 
-        List<Funcionario> funcionarioList = new ArrayList<>();
+        //List<Funcionario> funcionarioList = new ArrayList<>(); // removendo lista de funcionarios do main pois cada empresa conta com sua própria lista de funcionários
 
         DateTimeFormatter formatoData = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
@@ -116,7 +116,7 @@ public class Main {
                         default:
                             throw new RuntimeException("Escolha uma opção válida!");
 
-                            break;
+
 
                     }
 
@@ -147,7 +147,7 @@ public class Main {
                         default:
                             throw new RuntimeException("Escolha uma opção válida!");
 
-                            break;
+
 
                     }
 
@@ -166,11 +166,29 @@ public class Main {
                         System.out.println("Data inválida! use o formato: (dia/mes/ano)");
                     }
 
-                    Empresa empresaEscolhida = null;
+
 
                     // colocar um metodo para buscar uma empresa por nome e depois cadastrar o funcionario neste empresa para so depois editar o status do mesmo nesta empresa
 
-                    System.out.println("Este funcionário ainda esta na empresa " + empresaEscolhida + "? \n" +
+                    System.out.println("Escolha a empresa que deseja cadastrar este funcionário: ");
+
+                    System.out.println(listarEmpresasCadastradas(empresas));
+
+                    System.out.println("Digite o nome da empresa que deseja cadastrar este funcionário: ");
+                    String nomeEmpEscolhida = s.nextLine();
+
+                    Empresa empresaEscolhidaCadastro = null;
+
+                    empresaEscolhidaCadastro = buscarEmpresaCadastradaSistemaPorNome(empresas, nomeEmpEscolhida);
+
+                    if(empresaEscolhidaCadastro == null){
+                        throw new RuntimeException("Erro escolha uma empresa cadastrada no sistema!!");
+                    }
+
+
+
+
+                    System.out.println("Este funcionário ainda esta na empresa " + empresaEscolhidaCadastro.getNome() + "? \n" +
                             "1 - Sim\n" +
                             "2 - Não");
                     int statusFunc = s.nextInt();
@@ -184,29 +202,27 @@ public class Main {
                     }
 
 
-                    // ADICIONAR LÓGICA PARA SALVAR FUNCIONÁRIO NA CLASSE CERTA(CLASSES FILHAS) A DEPENDER DO ENUM
-
-
                     
                     if(cargo == Cargo.VENDEDOR){
                         Vendedor f = new Vendedor((long) IdGenerator.getNextId(), idade, cpf, cargo, nome, salario,
                                 departamento, dataContratacao, statusContratacao);
 
-                        funcionarioList.add(f);
+                        empresaEscolhidaCadastro.adicionarFuncionario(f);
+
 
                         System.out.println("Vendedor cadastrado com sucesso");
                     } else if (cargo == Cargo.CAIXA) {
                         Caixa f = new Caixa((long) IdGenerator.getNextId(), idade, cpf, cargo, nome, salario,
                                 departamento, dataContratacao, statusContratacao);
 
-                        funcionarioList.add(f);
+                        empresaEscolhidaCadastro.adicionarFuncionario(f);
 
                         System.out.println("Caixa cadastrado com sucesso");
                     } else {
                         Gerente f = new Gerente((long) IdGenerator.getNextId(), idade, cpf, cargo, nome, salario,
                                 departamento, dataContratacao, statusContratacao);
 
-                        funcionarioList.add(f);
+                        empresaEscolhidaCadastro.adicionarFuncionario(f);
 
                         System.out.println("Gerente cadastrado com sucesso");
                     }
@@ -221,15 +237,15 @@ public class Main {
 
                     System.out.println("Escolha uma opção abaixo: ");
 
-                    System.out.println("1 - Funcionários salvos temporariamente");
+                    System.out.println("1 - Empresas e funcionários salvos temporariamente");
 
-                    System.out.println("2 - Salvos no arquivo de texto");
+                    System.out.println("2 - Salvos no arquivo de texto: ");
 
-                    int opFuncionario = s.nextInt();
+                    int opListar = s.nextInt();
 
-                    if(opFuncionario == 1){
-                        listarFuncionários(funcionarioList);
-                    } else if (opFuncionario == 2) {
+                    if(opListar == 1){
+                        listarFuncionariosEEmpresas(empresas);
+                    } else if (opListar == 2) {
                         leitorArquivo(arquivoFuncionarios);
                     }
 
@@ -237,8 +253,7 @@ public class Main {
 
                 case 3:
 
-                   salvarFuncionariosNoArquivo(funcionarioList, arquivoFuncionarios);
-
+                   salvarEmpresasEFuncionariosNoArquivo(empresas, arquivoFuncionarios);
 
 
                     break;
@@ -380,7 +395,7 @@ public class Main {
                         default:
                             throw new RuntimeException("Escolha uma opção válida!");
 
-                            break;
+
 
                     }
 
@@ -487,8 +502,8 @@ public class Main {
     public static void menu(){
         System.out.println("******** Escolha uma das opções abaixo ********");
         System.out.println("1 - Cadastrar Funcionário");
-        System.out.println("2 - Ver funcionários cadastrados");
-        System.out.println("3 - Salvar funcionários no arquivo de texto");
+        System.out.println("2 - Ver empresas e funcionários  cadastrados");
+        System.out.println("3 - Salvar empresas e funcionários no arquivo de texto");
         System.out.println("4- Buscar funcionário");
         System.out.println("5- Remover funcionário");
         System.out.println("6 - Atualizar salário");
@@ -496,7 +511,8 @@ public class Main {
         System.out.println("8 - Mostrar folha salarial");
         System.out.println("9 - Carregar funcionários salvos");
         System.out.println("10 - Relatórios");
-        System.out.println("11 - Cadastrar empresa"); // adicionar os outros metodo de crud de empresa e demais necessários
+        System.out.println("11 - Cadastrar empresa");
+
         System.out.println("12 - Sair\n");
     }
 
@@ -586,32 +602,62 @@ public class Main {
 
     }
 
-    public static void salvarFuncionariosNoArquivo(List<Funcionario>funcionarioList, File arquivoFuncionarios){
+
+    public static void salvarEmpresasEFuncionariosNoArquivo(List<Empresa> empresas, File arquivoFuncionarios){
         try (BufferedWriter bw = new BufferedWriter(new FileWriter(arquivoFuncionarios, true))){
             // uso do true acima para não apagar oq ja estiver escrito no arquivo de txt
 
-            for(Funcionario func: funcionarioList){
-                String nomeF = func.getNome();
-                //Double salarioF = func.getSalario();
+            List<Funcionario> funcionariosEmpresa = null;
 
-                String cpfFunc = func.getCpf();
+            for(Empresa empresaAsalvar: empresas){
 
-                if(buscarFuncionarioNoArquivoPorCpf(arquivoFuncionarios, cpfFunc)){
-                    System.out.println("Funcionário: " + nomeF + " já cadastrado");
-                } else {
-                    bw.write(func.getId() + ";" +
-                            func.getNome() + ";" +
-                            func.getIdade() + ";" +
-                            func.getCpf() + ";" +
-                            func.getCargo() + ";" +
-                            func.getDepartamento() + ";" +
-                            func.getSalario() + ";" +
-                            func.getDataContratacao() + ";" +
-                            func.isStatusDaContratacao());
+                String nomeEmpresa = empresaAsalvar.getNome();
+
+                String cnpjEmpresa = empresaAsalvar.getCnpj();
+
+
+                funcionariosEmpresa = empresaAsalvar.getFuncionarios();
+
+                if(buscarEmpresaNoArquivoPorCnpj(arquivoFuncionarios, cnpjEmpresa)){
+                    System.out.println("Empresa: " + nomeEmpresa + " já cadastrada no arquivo de texto");
+                } else{
+                    bw.write("NOME DA EMPRESA: " + nomeEmpresa + ";" +
+                            "CNPJ: " + cnpjEmpresa + ";"
+                    );
+
                     bw.newLine();
+
+                    for(Funcionario func: funcionariosEmpresa){
+
+                        String nomeF = func.getNome();
+
+
+                        String cpfFunc = func.getCpf();
+
+                        if(buscarFuncionarioNoArquivoPorCpf(arquivoFuncionarios, cpfFunc)){
+                            System.out.println("Funcionário: " + nomeF + " já cadastrado");
+                        } else {
+                            bw.write(func.getId() + ";" +
+                                    func.getNome() + ";" +
+                                    func.getIdade() + ";" +
+                                    func.getCpf() + ";" +
+                                    func.getCargo() + ";" +
+                                    func.getDepartamento() + ";" +
+                                    func.getSalario() + ";" +
+                                    func.getDataContratacao() + ";" +
+                                    func.isStatusDaContratacao());
+                            bw.newLine();
+                        }
+
+                        System.out.println("Empresas e Funcionários salvos no arquivo de texto com sucesso");
+
+
                 }
 
-                System.out.println("Funcionários salvos no arquivo de texto com sucesso");
+
+            }
+
+
 
             }
 
@@ -624,7 +670,7 @@ public class Main {
 
     public static void listarFuncionários(List<Funcionario>funcionarioList){
 
-        System.out.println("---- Funcionários cadastrados -----");
+        System.out.println("----- Funcionários cadastrados -----");
 
         int ind = 1;
 
@@ -639,6 +685,45 @@ public class Main {
             ind++;
 
         }
+
+    }
+
+    public static void listarFuncionariosEEmpresas(List<Empresa> empresas){
+
+        System.out.println("----- Empresas e funcionários cadastrados no sistema -----");
+
+        int indEmp = 1;
+
+
+
+        for(Empresa emp: empresas){
+            System.out.println("\nEmpresa " + indEmp);
+
+            System.out.println(emp.getNome().toUpperCase());
+
+            System.out.println("CNPJ: " + emp.getCnpj());
+
+            System.out.println("Funcionários desta empresa: ");
+
+            int indFunc = 1;
+
+            List<Funcionario> funcionariosEmp = emp.getFuncionarios();
+
+            for(Funcionario func: funcionariosEmp){
+                System.out.println("\nFuncionário " + indFunc);
+
+                System.out.println("Nome: " + func.getNome());
+
+                System.out.println("Sálario: " + func.getSalario());
+
+                indFunc++;
+            }
+
+            indEmp++;
+        }
+
+
+
 
     }
 
@@ -666,6 +751,44 @@ public class Main {
         return false;
     }
 
+    public static boolean buscarEmpresaNoArquivoPorCnpj(File arquivo, String cnpj) throws IOException {
+
+
+
+        try (BufferedReader br = new BufferedReader(new FileReader(arquivo))) {
+
+            String linha;
+
+            while ((linha = br.readLine()) != null) {
+
+                if (linha.equalsIgnoreCase("CNPJ: " + cnpj)) {
+                    return true;
+                }
+            }
+
+
+        } catch (IOException e){
+            System.out.println("Erro ao ler arquivo de funcionários\n");
+            System.out.println(e.getMessage());
+        }
+
+        return false;
+    }
+
+
+    public static Empresa buscarEmpresaCadastradaSistemaPorNome(List<Empresa> empresas, String nomeEmpresa){
+
+        Empresa empresaEncontrada = null;
+
+        for(Empresa empBusca: empresas){
+            if(empBusca.getNome().equalsIgnoreCase(nomeEmpresa)){
+                empresaEncontrada = empBusca;
+            }
+        }
+
+        return empresaEncontrada;
+    }
+
 
 
     public static void leitorArquivo(File arquivo){
@@ -675,7 +798,7 @@ public class Main {
             String linha;
 
 
-            System.out.println("Funcionários salvos no arquivo de texto");
+            System.out.println("Empresas e Funcionários salvos no arquivo de texto");
 
             while((linha = br.readLine()) != null){
                 System.out.println(linha);
@@ -686,7 +809,7 @@ public class Main {
 
 
         } catch (IOException e){
-            System.out.println("Erro ao ler arquivo de funcionários\n");
+            System.out.println("Erro ao ler arquivo de empresas/funcionários\n");
             System.out.println(e.getMessage());
         }
 
@@ -705,6 +828,8 @@ public class Main {
 
 
     // metodo para carregar funcionários ao iniciar o programa
+
+    // Alterar este metodo para carregar cada empresa e seus respectivos funcionários do arquivo!!!
 
     public static void carregarFuncionarios(
             List<Funcionario> funcionarios,
