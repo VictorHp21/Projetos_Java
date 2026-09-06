@@ -34,6 +34,11 @@ public class Interface extends JFrame implements ActionListener {
         setTitle("Urna eletrônica");
         ctn = getContentPane();
         ctn.setLayout(null);
+        //
+
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+
 
         lbCandidato = new JLabel("Candidatos");
         lbCandidato.setBounds(10,10,100,25);
