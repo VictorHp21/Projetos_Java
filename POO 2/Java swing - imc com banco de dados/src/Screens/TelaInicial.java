@@ -62,6 +62,8 @@ public class TelaInicial extends JFrame implements ActionListener {
     private JButton btnCadastrar;
     private JButton btnRemover;
     private JButton btnAlterar;
+    private JButton btnListagem;
+    private JButton btnRelatorio;
 
     // botões final
 
@@ -79,7 +81,7 @@ public class TelaInicial extends JFrame implements ActionListener {
 
 
     public TelaInicial() {
-        setSize(600, 700);
+        setSize(680, 700);
         setTitle("Sistema de cadastro");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         ctn = getContentPane();
@@ -129,6 +131,9 @@ public class TelaInicial extends JFrame implements ActionListener {
         btnCalcularIMC = new JButton("Calcular IMC");
         btnCadastrar = new JButton("Cadastrar");
         btnRemover = new JButton("Remover");
+        btnAlterar = new JButton("Alterar");
+        btnListagem = new JButton("Listar");
+        btnRelatorio = new JButton("Relatório");
         // final botôes texto
 
 
@@ -146,49 +151,65 @@ public class TelaInicial extends JFrame implements ActionListener {
 
         // encaixando elementos na tela
         lbNome.setBounds(10, 10, 100, 25);
-        txtNome.setBounds(130, 10, 200, 25);
+        txtNome.setBounds(150, 10, 200, 25);
 
         lbEndereco.setBounds(10, 50, 100, 25);
-        txtEndereco.setBounds(130, 50, 200, 25);
+        txtEndereco.setBounds(150, 50, 200, 25);
 
         lbTelefone.setBounds(10, 90, 100, 25);
-        txtTelefone.setBounds(130, 90, 200, 25);
+        txtTelefone.setBounds(150, 90, 200, 25);
 
         lbCpf.setBounds(10, 130, 100, 25);
-        txtCpf.setBounds(130, 130, 200, 25);
+        txtCpf.setBounds(150, 130, 200, 25);
+
+        // Tipo sanguineo e fator RH bounds
 
         tipoSanguineo.setBounds(10, 160, 100, 25);
-        cbTipoS.setBounds(130, 160, 60, 25);
+        cbTipoS.setBounds(150, 160, 60, 25);
 
-        lbFatorRH.setBounds(198, 160, 68, 25);
-        cbFatorRh.setBounds(280, 160, 49, 25);
+        lbFatorRH.setBounds(230, 160, 68, 25);
+        cbFatorRh.setBounds(300, 160, 49, 25);
+
+        // ------------------------------------------------------------
 
         lbCurso.setBounds(10, 200, 100, 25);
-        cbCurso.setBounds(130, 200, 200, 25);
+        cbCurso.setBounds(150, 200, 200, 25);
 
         lbContatoEmergencia.setBounds(10, 240, 100, 25);
-        txtContatoEmergencia.setBounds(130, 240, 200, 25);
+        txtContatoEmergencia.setBounds(150, 240, 200, 25);
 
         lbtelefoneEmergencia.setBounds(10, 280, 100, 25);
-        txtTelefoneEmergencia.setBounds(130, 280, 200, 25);
+        txtTelefoneEmergencia.setBounds(150, 280, 200, 25);
 
         btnCadastrar.setBounds(125, 320, 125, 30);
         btnRemover.setBounds(250, 320, 125, 30);
 
         lbPeso.setBounds(10, 370, 120, 25);
-        txtPeso.setBounds(150, 370, 150, 25);
+        txtPeso.setBounds(150, 370, 200, 25);
 
         lbAltura.setBounds(10, 410, 120, 25);
-        txtAltura.setBounds(150, 410, 150, 25);
+        txtAltura.setBounds(150, 410, 200, 25);
 
 
 
         lbResultado.setBounds(10, 500, 250, 25);
 
+
+        // btn setBounds ini
+
         btnCadastrar.setBounds(10, 550, 200, 25);
         btnRemover.setBounds(230, 550, 200, 25);
 
         btnCalcularIMC.setBounds(10, 600, 200, 25);
+        btnAlterar.setBounds(230, 600, 200, 25);
+
+        btnListagem.setBounds(450, 550, 200, 25);
+
+        btnRelatorio.setBounds(450, 600, 200, 25);
+
+        // btn setBounds fim
+
+
 
 
 
@@ -198,7 +219,7 @@ public class TelaInicial extends JFrame implements ActionListener {
         ctn.add(txtPeso);
         ctn.add(lbAltura);
         ctn.add(txtAltura);
-        ctn.add(btnCalcularIMC);
+
         ctn.add(lbResultado);
 
         ctn.add(lbMensagem);
@@ -223,8 +244,13 @@ public class TelaInicial extends JFrame implements ActionListener {
         ctn.add(lbtelefoneEmergencia);
         ctn.add(txtTelefoneEmergencia);
 
+        // btns
         ctn.add(btnCadastrar);
         ctn.add(btnRemover);
+        ctn.add(btnCalcularIMC);
+        ctn.add(btnAlterar);
+        ctn.add(btnRelatorio);
+        ctn.add(btnListagem);
 
         setVisible(true);
 
