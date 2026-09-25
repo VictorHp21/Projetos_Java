@@ -1,12 +1,13 @@
 package Screens;
 
-import javax.accessibility.AccessibleAction;
 import javax.swing.*;
 import javax.swing.text.MaskFormatter;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.ParseException;
+
+import static java.lang.Double.parseDouble;
 
 public class TelaInicial extends JFrame implements ActionListener {
 
@@ -54,15 +55,23 @@ public class TelaInicial extends JFrame implements ActionListener {
 
     private JLabel lbResultado;
 
-    private JButton btnCalcular;
+
+    // botões atributo início
+
+    private JButton btnCalcularIMC;
+    private JButton btnCadastrar;
+    private JButton btnRemover;
+    private JButton btnAlterar;
+
+    // botões final
+
+
 
     private JLabel lbMensagem;
 
 
 
 
-    private JButton btnInserir;
-    private JButton btnCancelar;
 
 
 
@@ -116,12 +125,22 @@ public class TelaInicial extends JFrame implements ActionListener {
 
         lbMensagem = new JLabel("");
 
-        btnCalcular = new JButton("Calcular IMC");
+        // botôes texto início
+        btnCalcularIMC = new JButton("Calcular IMC");
+        btnCadastrar = new JButton("Cadastrar");
+        btnRemover = new JButton("Remover");
+        // final botôes texto
 
-        btnCalcular.addActionListener(this);
 
-        btnInserir = new JButton("Inserir");
-        btnCancelar = new JButton("Cancelar");
+        // btn chamadas funções inicio
+        btnCalcularIMC.addActionListener(this);
+
+        // final btn chamadas func
+
+
+
+
+
 
         ctn.setLayout(null);
 
@@ -153,8 +172,8 @@ public class TelaInicial extends JFrame implements ActionListener {
         lbtelefoneEmergencia.setBounds(10, 280, 100, 25);
         txtTelefoneEmergencia.setBounds(130, 280, 200, 25);
 
-        btnInserir.setBounds(125, 320, 125, 30);
-        btnCancelar.setBounds(250, 320, 125, 30);
+        btnCadastrar.setBounds(125, 320, 125, 30);
+        btnRemover.setBounds(250, 320, 125, 30);
 
         lbPeso.setBounds(10, 370, 120, 25);
         txtPeso.setBounds(150, 370, 150, 25);
@@ -162,12 +181,14 @@ public class TelaInicial extends JFrame implements ActionListener {
         lbAltura.setBounds(10, 410, 120, 25);
         txtAltura.setBounds(150, 410, 150, 25);
 
-        btnCalcular.setBounds(150, 450, 140, 35);
+
 
         lbResultado.setBounds(10, 500, 250, 25);
 
-        btnInserir.setBounds(10, 550, 200, 25);
-        btnCancelar.setBounds(250, 550, 200, 25);
+        btnCadastrar.setBounds(10, 550, 200, 25);
+        btnRemover.setBounds(230, 550, 200, 25);
+
+        btnCalcularIMC.setBounds(10, 600, 200, 25);
 
 
 
@@ -177,7 +198,7 @@ public class TelaInicial extends JFrame implements ActionListener {
         ctn.add(txtPeso);
         ctn.add(lbAltura);
         ctn.add(txtAltura);
-        ctn.add(btnCalcular);
+        ctn.add(btnCalcularIMC);
         ctn.add(lbResultado);
 
         ctn.add(lbMensagem);
@@ -202,8 +223,8 @@ public class TelaInicial extends JFrame implements ActionListener {
         ctn.add(lbtelefoneEmergencia);
         ctn.add(txtTelefoneEmergencia);
 
-        ctn.add(btnInserir);
-        ctn.add(btnCancelar);
+        ctn.add(btnCadastrar);
+        ctn.add(btnRemover);
 
         setVisible(true);
 
@@ -212,7 +233,22 @@ public class TelaInicial extends JFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        Double peso = parseDouble(txtPeso.getText());
+        Double altura = parseDouble(txtAltura.getText());
 
+        Double imc = peso / (altura * altura);
+
+        lbResultado.setText("O valor do IMC é: " + String.valueOf(imc));
+
+        if(imc >= 18.5 && imc <= 25){
+            lbMensagem.setText("Peso ideal");
+        } else if(imc > 25){
+            lbMensagem.setText("Você está acima do peso ideal!");
+        } else {
+            lbMensagem.setText("Você está abaixo do peso ideal!");
+        }
+
+        ctn.add(lbMensagem);
     }
 
     // exemplos base
