@@ -10,8 +10,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
 import java.text.ParseException;
+import java.util.Comparator;
 import java.util.List;
 
+import static java.lang.Double.max;
 import static java.lang.Double.parseDouble;
 
 public class TelaInicial extends JFrame implements ActionListener {
@@ -208,7 +210,7 @@ public class TelaInicial extends JFrame implements ActionListener {
 
 
 
-        lbResultado.setBounds(10, 500, 250, 25);
+        lbResultado.setBounds(10, 500, 350, 25);
 
 
         // btn setBounds ini
@@ -282,6 +284,7 @@ public class TelaInicial extends JFrame implements ActionListener {
         btnCadastrar.addActionListener(this);
         btnRemover.addActionListener(this);
         btnListagem.addActionListener(this);
+        btnRelatorio.addActionListener(this);
 
         // final btn chamadas func
 
@@ -311,17 +314,22 @@ public class TelaInicial extends JFrame implements ActionListener {
 
             Double imc = peso / (altura * altura);
 
-            lbResultado.setText("O valor do IMC é: " + String.valueOf(imc));
+            String mensagem;
 
-            if(imc >= 18.5 && imc <= 25){
-                lbMensagem.setText("Peso ideal");
-            } else if(imc > 25){
-                lbMensagem.setText("Você está acima do peso ideal!");
+            if (imc >= 18.5 && imc <= 25) {
+                mensagem = "Peso ideal";
+            } else if (imc > 25) {
+                mensagem = "Você está acima do peso ideal!";
             } else {
-                lbMensagem.setText("Você está abaixo do peso ideal!");
+                mensagem = "Você está abaixo do peso ideal!";
             }
 
-            ctn.add(lbMensagem);
+            lbResultado.setText(
+                    "O valor do IMC é: " +
+                            String.format("%.2f", imc) +
+                            " - " +
+                            mensagem
+            );
         }
 
         // BTN cadastrar
@@ -519,6 +527,9 @@ public class TelaInicial extends JFrame implements ActionListener {
 
 
 
+        // Listagem
+
+
         if(e.getActionCommand().equals("Listar")){
 
             // Limpa JTextArea
@@ -605,6 +616,215 @@ public class TelaInicial extends JFrame implements ActionListener {
             }
 
 
+
+        }
+
+
+        // Relatório
+
+        if(e.getActionCommand().equals("Relatório")){
+
+            listaPesquisaBancoDeDados.setText("");
+
+            try {
+
+                objBd = new ConexaoBancoDeDados();
+
+                List<Pessoa> pessoas = objBd.cadastrados();
+
+                StringBuilder lista = new StringBuilder();
+
+                // MAIOR PESO
+
+                lista.append("PESSOA COM MAIOR PESO \n\n");
+
+                Pessoa pessoaMaiorPeso = pessoas.stream()
+                        .max(Comparator.comparing(Pessoa::getPeso))
+                        .orElse(null);
+
+                if (pessoaMaiorPeso != null) {
+                    lista.append("Nome: ")
+                            .append(pessoaMaiorPeso.getNomeCompleto())
+                            .append("\n");
+
+                    lista.append("Tipo sanguíneo: ")
+                            .append(pessoaMaiorPeso.getTipoSanguineo())
+                            .append("\n");
+
+                    lista.append("Peso: ")
+                            .append(pessoaMaiorPeso.getPeso())
+                            .append(" kg\n");
+                }
+
+                // MENOR PESO
+
+                Pessoa pessoaMenorPeso = pessoas.stream()
+                                .min(Comparator.comparing(Pessoa::getPeso))
+                                        .orElse(null);
+
+
+
+                lista.append("\nPESSOA COM MENOR PESO \n\n");
+
+                if (pessoaMenorPeso != null) {
+                    lista.append("Nome: ")
+                            .append(pessoaMenorPeso.getNomeCompleto())
+                            .append("\n");
+
+                    lista.append("Tipo sanguíneo: ")
+                            .append(pessoaMenorPeso.getTipoSanguineo())
+                            .append("\n");
+
+                    lista.append("Peso: ")
+                            .append(pessoaMenorPeso.getPeso())
+                            .append(" kg\n\n");
+                }
+
+
+                // MÉDIA PESO
+
+                double mediaPesos = pessoas.stream()
+                        .mapToDouble(Pessoa::getPeso)
+                        .average()
+                        .orElse(0.0);
+
+                lista.append("MÉDIA DOS PESOS: ")
+                        .append(String.format("%.2f", mediaPesos))
+                        .append(" kg\n");
+
+                // MAIOR ALTURA
+
+                Pessoa pessoaMaiorAltura = pessoas.stream()
+                        .max(Comparator.comparing(Pessoa::getAltura))
+                        .orElse(null);
+
+                if (pessoaMaiorAltura != null) {
+
+                    lista.append("\nMAIOR ALTURA: ")
+                            .append(pessoaMaiorAltura.getAltura())
+                            .append(" m\n");
+
+                    lista.append("Nome: ")
+                            .append(pessoaMaiorAltura.getNomeCompleto())
+                            .append("\n");
+
+                    lista.append("Curso: ")
+                            .append(pessoaMaiorAltura.getCurso())
+                            .append("\n");
+
+                }
+
+                // MENOR ALTURA
+
+
+
+
+                Pessoa pessoaMenorAltura = pessoas.stream()
+                        .min(Comparator.comparing(Pessoa::getAltura))
+                        .orElse(null);
+
+                lista.append("\nMENOR ALTURA: ")
+                        .append(pessoaMenorAltura.getAltura())
+                        .append(" m\n");
+
+                if (pessoaMenorAltura != null) {
+                    lista.append("Nome: ")
+                            .append(pessoaMenorAltura.getNomeCompleto())
+                            .append("\n");
+
+                    lista.append("Curso: ")
+                            .append(pessoaMenorAltura.getCurso())
+                            .append("\n");
+
+                }
+
+
+
+                // MÉDIA ALTURAS
+
+                double mediaAlturas = pessoas.stream()
+                        .mapToDouble(Pessoa::getAltura)
+                        .average()
+                        .orElse(0.0);
+
+                lista.append("\nMÉDIA DAS ALTURAS: ")
+                        .append(String.format("%.2f", mediaAlturas))
+                        .append(" m\n");
+
+
+                // MÉDIA IMC
+
+                double mediaIMC = pessoas.stream()
+                                .mapToDouble(Pessoa::getImc)
+                                        .average()
+                                                .orElse(0.0);
+
+
+                lista.append("\nMÉDIA IMC: ")
+                        .append(String.format("%.2f", mediaIMC))
+                        .append(" kg\n");
+
+
+                // MAIOR IMC
+
+                Pessoa pessoaMaiorIMC = pessoas.stream()
+                        .max(Comparator.comparing(Pessoa::getImc))
+                        .orElse(null);
+
+
+
+                lista.append("\nMAIOR IMC: ")
+                        .append(String.format("%.2f", pessoaMaiorIMC.getImc()))
+                        .append(" kg\n");
+
+
+                if (pessoaMaiorIMC != null) {
+                    lista.append("Nome: ")
+                            .append(pessoaMaiorIMC.getNomeCompleto())
+                            .append("\n");
+
+                }
+
+
+                // MENOR IMC
+
+                Pessoa pessoaMenorIMC = pessoas.stream()
+                        .min(Comparator.comparing(Pessoa::getImc))
+                        .orElse(null);
+
+
+                lista.append("\nMENOR IMC: ")
+                        .append(String.format("%.2f", pessoaMenorIMC.getImc()))
+                        .append(" kg\n");
+
+                if (pessoaMenorIMC != null) {
+                    lista.append("Nome: ")
+                            .append(pessoaMenorIMC.getNomeCompleto())
+                            .append("\n");
+
+                }
+
+
+
+
+                listaPesquisaBancoDeDados.setText(lista.toString());
+
+
+                listaPesquisaBancoDeDados.setText(lista.toString());
+
+
+                listaPesquisaBancoDeDados.setCaretPosition(0);
+
+            } catch (SQLException e2){
+                e2.printStackTrace();
+
+                JOptionPane.showMessageDialog(
+                        this,
+                        "Erro ao buscar os dados no banco de dados.",
+                        "Erro",
+                        JOptionPane.ERROR_MESSAGE
+                );
+            }
 
         }
 
