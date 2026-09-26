@@ -25,6 +25,17 @@ public class ConexaoBancoDeDados {
         }
     }
 
+
+    private void EncerrarConexao() throws SQLException {
+
+        if (conexaobd != null) {
+            conexaobd.close();
+        }
+
+    }
+
+
+
     public String InserirDados(Pessoa ObjetoPessoa) throws SQLException{
         ConexaoBancoDeDados();
 
@@ -38,8 +49,28 @@ public class ConexaoBancoDeDados {
                                     "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"
                     );
 
+            psInsert.setString(1, ObjetoPessoa.getNomeCompleto());
 
+            psInsert.setString(2, ObjetoPessoa.getEndereço());
+            psInsert.setString(3, ObjetoPessoa.getTelefone());
+            psInsert.setString(4, ObjetoPessoa.getCPF());
+            psInsert.setString(5, ObjetoPessoa.getTipoSanguineo());
+            psInsert.setString(6, ObjetoPessoa.getCurso());
+            psInsert.setString(7, ObjetoPessoa.getContatoDeEmergencia());
+            psInsert.setString(8, ObjetoPessoa.getTelefoneEmergencia());
 
+            psInsert.setDouble(9, ObjetoPessoa.getAltura());
+            psInsert.setDouble(10, ObjetoPessoa.getPeso());
+            psInsert.setDouble(11, ObjetoPessoa.getImc());
+
+            psInsert.execute();
+
+            EncerrarConexao();
+
+            return "Cadastro realizado com sucesso!";
+
+        } else {
+            return "Erro! Inserção não realizada!";
         }
 
     }

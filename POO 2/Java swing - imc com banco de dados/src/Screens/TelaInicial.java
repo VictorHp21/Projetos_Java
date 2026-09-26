@@ -348,11 +348,18 @@ public class TelaInicial extends JFrame implements ActionListener {
                 String mensagem =
                         objBd.InserirDados(objeto);
 
-                LabelMensagem.setText(mensagem);
+                // AQUI DEVE ESTAR 2 ALERTS UM PARA DIZER SE DEU CERTO A INSERÇÃO
 
-                
+                // EX; JOptionPane.showMessageDialog(this, "Dados alterados com sucesso!");
+
+               // LabelMensagem.setText(mensagem);
+
+
             } catch (SQLException e1){
+
                 e1.printStackTrace();
+
+                // OUTRO SE DER ERRADO
             }
 
         }
