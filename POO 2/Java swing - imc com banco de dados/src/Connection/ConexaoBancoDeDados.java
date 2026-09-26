@@ -88,13 +88,13 @@ public class ConexaoBancoDeDados {
 
             comandoupdate.setInt(1, id);
 
-            boolean linhasAfetadas = comandoupdate.execute();
+            int linhasAfetadas = comandoupdate.executeUpdate();
 
             comandoupdate.close();
 
             EncerrarConexao();
 
-            if (linhasAfetadas == true) {
+            if (linhasAfetadas > 0) {
                 return "Remoção realizada com sucesso!";
             } else {
                 return "Nenhuma pessoa encontrada com o ID " + id + ".";

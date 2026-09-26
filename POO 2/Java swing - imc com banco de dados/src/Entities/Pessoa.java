@@ -27,7 +27,7 @@ public class Pessoa {
         this.altura = altura;
         this.peso = peso;
 
-        this.imc = calculaImc(peso, altura);
+        this.imc = calculaImc(altura, peso);
     }
 
     // contrutor para pegar dado bd:

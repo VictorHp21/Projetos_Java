@@ -46,7 +46,8 @@ public class TelaInicial extends JFrame implements ActionListener {
     private JLabel lbCurso;
     private JComboBox cbCurso;
 
-    private final String[] cursos = {"TI", "ADMINISTRAÇÃO", "GEOGRAFIA", "EDUCAÇÃO FISÍCA"};
+    private final String[] cursos = {"Direito" , "Ciência da Computação", "Sistemas De Informação", "Medicina",
+            "Psicologia", "Nutrição"};
 
 
     private JLabel lbContatoEmergencia;
@@ -327,6 +328,27 @@ public class TelaInicial extends JFrame implements ActionListener {
 
         if(e.getActionCommand().equals("Cadastrar")){
 
+            // verificar se todos os campos estão preenchidos:
+
+            if (txtNome.getText().trim().isEmpty() ||
+                    txtEndereco.getText().trim().isEmpty() ||
+                    txtTelefone.getText().trim().isEmpty() ||
+                    txtCpf.getText().trim().isEmpty() ||
+                    txtContatoEmergencia.getText().trim().isEmpty() ||
+                    txtTelefoneEmergencia.getText().trim().isEmpty() ||
+                    txtPeso.getText().trim().isEmpty() ||
+                    txtAltura.getText().trim().isEmpty()) {
+
+                JOptionPane.showMessageDialog(
+                        this,
+                        "Preencha todos os campos antes de cadastrar.",
+                        "Campos obrigatórios",
+                        JOptionPane.WARNING_MESSAGE
+                );
+
+                return;
+            }
+
             // pegando dados da tela inicial
 
             Double peso = Double.parseDouble(txtPeso.getText());
@@ -363,9 +385,26 @@ public class TelaInicial extends JFrame implements ActionListener {
 
                 // AQUI DEVE ESTAR 2 ALERTS UM PARA DIZER SE DEU CERTO A INSERÇÃO
 
-                // EX; JOptionPane.showMessageDialog(this, "Dados alterados com sucesso!");
+                JOptionPane.showMessageDialog(
+                        this,
+                        mensagem,
+                        "Cadastro",
+                        JOptionPane.INFORMATION_MESSAGE
+                );
 
-               // LabelMensagem.setText(mensagem);
+                // Limpar os campos após o cadastro
+                txtNome.setText("");
+                txtEndereco.setText("");
+                txtTelefone.setText("");
+                txtCpf.setText("");
+                txtContatoEmergencia.setText("");
+                txtTelefoneEmergencia.setText("");
+                txtPeso.setText("");
+                txtAltura.setText("");
+
+                cbTipoS.setSelectedIndex(0);
+                cbFatorRh.setSelectedIndex(0);
+                cbCurso.setSelectedIndex(0);
 
 
             } catch (SQLException e1){
@@ -373,6 +412,19 @@ public class TelaInicial extends JFrame implements ActionListener {
                 e1.printStackTrace();
 
                 // OUTRO SE DER ERRADO
+                JOptionPane.showMessageDialog(
+                        this,
+                        "Erro ao cadastrar a pessoa no banco de dados.",
+                        "Erro",
+                        JOptionPane.ERROR_MESSAGE
+                );
+            } catch (NumberFormatException e1){
+                JOptionPane.showMessageDialog(
+                        this,
+                        "Digite valores válidos para peso e altura.",
+                        "Erro",
+                        JOptionPane.ERROR_MESSAGE
+                );
             }
 
         }
