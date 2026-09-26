@@ -10,6 +10,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
 import java.text.ParseException;
+import java.util.List;
 
 import static java.lang.Double.parseDouble;
 
@@ -83,7 +84,7 @@ public class TelaInicial extends JFrame implements ActionListener {
 
     private JLabel lbMensagem;
 
-
+    private JLabel LabelMensagem;
 
 
 
@@ -278,6 +279,7 @@ public class TelaInicial extends JFrame implements ActionListener {
         // btn chamadas funções inicio
         btnCalcularIMC.addActionListener(this);
         btnCadastrar.addActionListener(this);
+        btnRemover.addActionListener(this);
 
         // final btn chamadas func
 
@@ -288,28 +290,21 @@ public class TelaInicial extends JFrame implements ActionListener {
     }
 
 
-    public List retornarCadastradosBD(){
-
-    }
-
 
     @Override
     public void actionPerformed(ActionEvent e) {
 
-        // pegando dados da tela inicial
 
-        Double peso = Double.parseDouble(txtPeso.getText());
-        Double altura = Double.parseDouble(txtAltura.getText());
-
-        String tipoSanguineo =
-                cbTipoS.getSelectedItem().toString()
-                        + cbFatorRh.getSelectedItem().toString();
-
-        String curso = cbCurso.getSelectedItem().toString();
 
 
         if(e.getActionCommand().equals("Calcular IMC"))
         {
+
+            // pegando dados da tela inicial
+
+            Double peso = Double.parseDouble(txtPeso.getText());
+            Double altura = Double.parseDouble(txtAltura.getText());
+
 
 
             Double imc = peso / (altura * altura);
@@ -331,7 +326,16 @@ public class TelaInicial extends JFrame implements ActionListener {
 
         if(e.getActionCommand().equals("Cadastrar")){
 
+            // pegando dados da tela inicial
 
+            Double peso = Double.parseDouble(txtPeso.getText());
+            Double altura = Double.parseDouble(txtAltura.getText());
+
+            String tipoSanguineo =
+                    cbTipoS.getSelectedItem().toString()
+                            + cbFatorRh.getSelectedItem().toString();
+
+            String curso = cbCurso.getSelectedItem().toString();
 
 
 
@@ -374,6 +378,83 @@ public class TelaInicial extends JFrame implements ActionListener {
 
         // BTN Remover
 
+        if (e.getActionCommand().equals("Remover")) {
+
+            try {
+
+                objBd = new ConexaoBancoDeDados();
+
+                // Busca todas as pessoas 
+                List<Pessoa> pessoas = objBd.cadastrados();
+
+                // Monta o texto que será mostrado
+                StringBuilder lista = new StringBuilder();
+
+                lista.append("PESSOAS CADASTRADAS\n\n");
+
+                for (Pessoa pessoa : pessoas) {
+
+                    lista.append("ID: ")
+                            .append(pessoa.getId())
+                            .append(" | Nome: ")
+                            .append(pessoa.getNomeCompleto())
+                            .append(" | CPF: ")
+                            .append(pessoa.getCPF())
+                            .append("\n");
+                }
+
+                // Mostra as pessoas cadastradas
+                JOptionPane.showMessageDialog(
+                        this,
+                        lista.toString(),
+                        "Pessoas cadastradas",
+                        JOptionPane.INFORMATION_MESSAGE
+                );
+
+                // Campo para digitar o ID
+                String idTexto = JOptionPane.showInputDialog(
+                        this,
+                        "Digite o ID da pessoa que deseja remover:"
+                );
+
+                // Se o usuário clicou em cancelar
+                if (idTexto == null) {
+                    return;
+                }
+
+                int id = Integer.parseInt(idTexto);
+
+                // Remove pelo ID
+                String mensagem = objBd.RemoverPessoa(id);
+
+                JOptionPane.showMessageDialog(
+                        this,
+                        mensagem,
+                        "Remoção",
+                        JOptionPane.INFORMATION_MESSAGE
+                );
+
+            } catch (NumberFormatException e1) {
+
+                JOptionPane.showMessageDialog(
+                        this,
+                        "Digite um ID válido.",
+                        "Erro",
+                        JOptionPane.ERROR_MESSAGE
+                );
+
+            } catch (SQLException e1) {
+
+                e1.printStackTrace();
+
+                JOptionPane.showMessageDialog(
+                        this,
+                        "Erro ao acessar o banco de dados.",
+                        "Erro",
+                        JOptionPane.ERROR_MESSAGE
+                );
+            }
+        }
 
 
     }
