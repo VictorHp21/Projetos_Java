@@ -288,14 +288,29 @@ public class TelaInicial extends JFrame implements ActionListener {
     }
 
 
+    public List retornarCadastradosBD(){
+
+    }
+
+
     @Override
     public void actionPerformed(ActionEvent e) {
+
+        // pegando dados da tela inicial
+
+        Double peso = Double.parseDouble(txtPeso.getText());
+        Double altura = Double.parseDouble(txtAltura.getText());
+
+        String tipoSanguineo =
+                cbTipoS.getSelectedItem().toString()
+                        + cbFatorRh.getSelectedItem().toString();
+
+        String curso = cbCurso.getSelectedItem().toString();
 
 
         if(e.getActionCommand().equals("Calcular IMC"))
         {
-            Double peso = parseDouble(txtPeso.getText());
-            Double altura = parseDouble(txtAltura.getText());
+
 
             Double imc = peso / (altura * altura);
 
@@ -316,14 +331,7 @@ public class TelaInicial extends JFrame implements ActionListener {
 
         if(e.getActionCommand().equals("Cadastrar")){
 
-            Double peso = Double.parseDouble(txtPeso.getText());
-            Double altura = Double.parseDouble(txtAltura.getText());
 
-            String tipoSanguineo =
-                    cbTipoS.getSelectedItem().toString()
-                            + cbFatorRh.getSelectedItem().toString();
-
-            String curso = cbCurso.getSelectedItem().toString();
 
 
 
@@ -363,6 +371,9 @@ public class TelaInicial extends JFrame implements ActionListener {
             }
 
         }
+
+        // BTN Remover
+
 
 
     }

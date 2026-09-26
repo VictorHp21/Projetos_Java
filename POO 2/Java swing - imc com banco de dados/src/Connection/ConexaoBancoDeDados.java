@@ -2,10 +2,9 @@ package Connection;
 
 import Entities.Pessoa;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ConexaoBancoDeDados {
     public Connection conexaobd;
@@ -73,6 +72,73 @@ public class ConexaoBancoDeDados {
             return "Erro! Inserção não realizada!";
         }
 
+    }
+
+    public String RemoverPessoa(int id) throws SQLException{
+        ConexaoBancoDeDados();
+
+        if (conexaobd != null) {
+
+            // deletar um registro do banco de dados
+
+            PreparedStatement comandoupdate =
+                    conexaobd.prepareStatement(
+                            "DELETE FROM pessoa WHERE id = ?"
+                    );
+
+            comandoupdate.setInt(1, id);
+
+            comandoupdate.execute();
+
+            EncerrarConexao();
+
+            return "Remoção realizada com sucesso!";
+
+        } else {
+
+            return "Erro! Alteração não realizada!";
+
+        }
+    }
+
+    public List cadastrados() throws SQLException{
+        ConexaoBancoDeDados();
+
+        List<Pessoa> pessoas = new ArrayList<>();
+
+        if(conexaobd != null){
+            PreparedStatement comandoSelect =
+                    conexaobd.prepareStatement(
+                            "SELECT * FROM pessoa"
+                    );
+
+            ResultSet resultado = comandoSelect.executeQuery();
+
+            while (resultado.next()){
+                Pessoa pessoa = new Pessoa(
+                        resultado.getString("nome_completo"),
+                        resultado.getString("endereco"),
+                        resultado.getString("telefone"),
+                        resultado.getString("cpf"),
+                        resultado.getString("tipo_sanguineo"),
+                        resultado.getString("curso"),
+                        resultado.getString("contato_emergencia"),
+                        resultado.getString("telefone_emergencia"),
+                        resultado.getDouble("altura"),
+                        resultado.getDouble("peso")
+                );
+
+                pessoa.setId(resultado.getInt("id"));
+
+                pessoas.add(pessoa);
+            }
+
+            resultado.close();
+            comandoSelect.close();
+
+        }
+
+        return pessoas;
     }
 
 
