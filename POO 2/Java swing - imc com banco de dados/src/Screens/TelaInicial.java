@@ -1,15 +1,22 @@
 package Screens;
 
+import Connection.ConexaoBancoDeDados;
+import Entities.Pessoa;
+
 import javax.swing.*;
 import javax.swing.text.MaskFormatter;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
 import java.text.ParseException;
 
 import static java.lang.Double.parseDouble;
 
 public class TelaInicial extends JFrame implements ActionListener {
+
+
+    ConexaoBancoDeDados objBd;
 
     private JLabel lbNome;
     private JTextField txtNome;
@@ -142,10 +149,6 @@ public class TelaInicial extends JFrame implements ActionListener {
         // final botôes texto
 
 
-        // btn chamadas funções inicio
-        btnCalcularIMC.addActionListener(this);
-
-        // final btn chamadas func
 
 
         // text area
@@ -270,6 +273,16 @@ public class TelaInicial extends JFrame implements ActionListener {
         ctn.add(scrollPesquisaBancoDeDados);
         ctn.add(LabelResultadoPesquisa);
 
+
+
+        // btn chamadas funções inicio
+        btnCalcularIMC.addActionListener(this);
+        btnCadastrar.addActionListener(this);
+
+        // final btn chamadas func
+
+
+
         setVisible(true);
 
     }
@@ -277,31 +290,82 @@ public class TelaInicial extends JFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        Double peso = parseDouble(txtPeso.getText());
-        Double altura = parseDouble(txtAltura.getText());
 
-        Double imc = peso / (altura * altura);
 
-        lbResultado.setText("O valor do IMC é: " + String.valueOf(imc));
+        if(e.getActionCommand().equals("Calcular IMC"))
+        {
+            Double peso = parseDouble(txtPeso.getText());
+            Double altura = parseDouble(txtAltura.getText());
 
-        if(imc >= 18.5 && imc <= 25){
-            lbMensagem.setText("Peso ideal");
-        } else if(imc > 25){
-            lbMensagem.setText("Você está acima do peso ideal!");
-        } else {
-            lbMensagem.setText("Você está abaixo do peso ideal!");
+            Double imc = peso / (altura * altura);
+
+            lbResultado.setText("O valor do IMC é: " + String.valueOf(imc));
+
+            if(imc >= 18.5 && imc <= 25){
+                lbMensagem.setText("Peso ideal");
+            } else if(imc > 25){
+                lbMensagem.setText("Você está acima do peso ideal!");
+            } else {
+                lbMensagem.setText("Você está abaixo do peso ideal!");
+            }
+
+            ctn.add(lbMensagem);
         }
 
-        ctn.add(lbMensagem);
+        // BTN cadastrar
+
+        if(e.getActionCommand().equals("Cadastrar")){
+
+            Double peso = Double.parseDouble(txtPeso.getText());
+            Double altura = Double.parseDouble(txtAltura.getText());
+
+            String tipoSanguineo =
+                    cbTipoS.getSelectedItem().toString()
+                            + cbFatorRh.getSelectedItem().toString();
+
+            String curso = cbCurso.getSelectedItem().toString();
+
+
+
+            Pessoa objeto =
+                    new Pessoa(
+                            txtNome.getText(),
+                            txtEndereco.getText(),
+                            txtTelefone.getText(),
+                            txtCpf.getText(),
+                            tipoSanguineo,
+                            curso,
+                            txtContatoEmergencia.getText(),
+                            txtTelefoneEmergencia.getText(),
+                            altura,
+                            peso
+
+                    );
+
+            try {
+                objBd = new ConexaoBancoDeDados();
+
+                String mensagem =
+                        objBd.InserirDados(objeto);
+
+                LabelMensagem.setText(mensagem);
+
+                
+            } catch (SQLException e1){
+                e1.printStackTrace();
+            }
+
+        }
+
+
     }
 
     // exemplos base
+
+
+
+
     /*
-
-        btnCadastrar.addActionListener(e -> {
-            System.out.println("Cadastrando...");
-        });
-
     btnEditar.addActionListener(e -> {
             System.out.println("Editando...");
         });
