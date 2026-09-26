@@ -67,6 +67,11 @@ public class TelaInicial extends JFrame implements ActionListener {
 
     // botões final
 
+    // atributo textArea
+
+    private JLabel LabelResultadoPesquisa;
+    private JTextArea listaPesquisaBancoDeDados;
+    private JScrollPane scrollPesquisaBancoDeDados;
 
 
     private JLabel lbMensagem;
@@ -81,7 +86,7 @@ public class TelaInicial extends JFrame implements ActionListener {
 
 
     public TelaInicial() {
-        setSize(680, 700);
+        setSize(800, 700);
         setTitle("Sistema de cadastro");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         ctn = getContentPane();
@@ -143,6 +148,12 @@ public class TelaInicial extends JFrame implements ActionListener {
         // final btn chamadas func
 
 
+        // text area
+        LabelResultadoPesquisa =
+                new JLabel("Resultado da pesquisa no Banco de Dados");
+        listaPesquisaBancoDeDados = new JTextArea();
+        scrollPesquisaBancoDeDados =
+                new JScrollPane(listaPesquisaBancoDeDados);
 
 
 
@@ -197,18 +208,22 @@ public class TelaInicial extends JFrame implements ActionListener {
 
         // btn setBounds ini
 
-        btnCadastrar.setBounds(10, 550, 200, 25);
-        btnRemover.setBounds(230, 550, 200, 25);
+        btnCadastrar.setBounds(65, 550, 200, 25);
+        btnRemover.setBounds(285, 550, 200, 25);
 
-        btnCalcularIMC.setBounds(10, 600, 200, 25);
-        btnAlterar.setBounds(230, 600, 200, 25);
+        btnCalcularIMC.setBounds(65, 600, 200, 25);
+        btnAlterar.setBounds(285, 600, 200, 25);
 
-        btnListagem.setBounds(450, 550, 200, 25);
+        btnListagem.setBounds(505, 550, 200, 25);
 
-        btnRelatorio.setBounds(450, 600, 200, 25);
+        btnRelatorio.setBounds(505, 600, 200, 25);
 
         // btn setBounds fim
 
+
+        // textarea bounds
+        LabelResultadoPesquisa.setBounds(480, 5, 300, 20);
+        scrollPesquisaBancoDeDados.setBounds(460, 25, 285, 410);
 
 
 
@@ -251,6 +266,9 @@ public class TelaInicial extends JFrame implements ActionListener {
         ctn.add(btnAlterar);
         ctn.add(btnRelatorio);
         ctn.add(btnListagem);
+
+        ctn.add(scrollPesquisaBancoDeDados);
+        ctn.add(LabelResultadoPesquisa);
 
         setVisible(true);
 
