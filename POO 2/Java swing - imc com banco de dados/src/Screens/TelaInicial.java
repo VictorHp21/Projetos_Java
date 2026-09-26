@@ -280,6 +280,7 @@ public class TelaInicial extends JFrame implements ActionListener {
         btnCalcularIMC.addActionListener(this);
         btnCadastrar.addActionListener(this);
         btnRemover.addActionListener(this);
+        btnListagem.addActionListener(this);
 
         // final btn chamadas func
 
@@ -384,7 +385,7 @@ public class TelaInicial extends JFrame implements ActionListener {
 
                 objBd = new ConexaoBancoDeDados();
 
-                // Busca todas as pessoas 
+                // Busca todas as pessoas
                 List<Pessoa> pessoas = objBd.cadastrados();
 
                 // Monta o texto que será mostrado
@@ -419,6 +420,14 @@ public class TelaInicial extends JFrame implements ActionListener {
 
                 // Se o usuário clicou em cancelar
                 if (idTexto == null) {
+
+                    JOptionPane.showMessageDialog(
+                            this,
+                            "Operação de remoção cancelada.",
+                            "Cancelado",
+                            JOptionPane.INFORMATION_MESSAGE
+                    );
+
                     return;
                 }
 
@@ -454,6 +463,97 @@ public class TelaInicial extends JFrame implements ActionListener {
                         JOptionPane.ERROR_MESSAGE
                 );
             }
+        }
+
+
+
+        if(e.getActionCommand().equals("Listar")){
+
+            // Limpa JTextArea
+            listaPesquisaBancoDeDados.setText("");
+
+            try {
+
+                objBd = new ConexaoBancoDeDados();
+
+                List<Pessoa> pessoas = objBd.cadastrados();
+
+                StringBuilder lista = new StringBuilder();
+
+                lista.append("PESSOAS CADASTRADAS\n\n");
+
+                for (Pessoa pessoa : pessoas) {
+
+                    lista.append("ID: ")
+                            .append(pessoa.getId())
+                            .append("\n");
+
+                    lista.append("Nome completo: ")
+                            .append(pessoa.getNomeCompleto())
+                            .append("\n");
+
+                    lista.append("Endereço: ")
+                            .append(pessoa.getEndereço())
+                            .append("\n");
+
+                    lista.append("Telefone: ")
+                            .append(pessoa.getTelefone())
+                            .append("\n");
+
+                    lista.append("CPF: ")
+                            .append(pessoa.getCPF())
+                            .append("\n");
+
+                    lista.append("Tipo sanguíneo: ")
+                            .append(pessoa.getTipoSanguineo())
+                            .append("\n");
+
+                    lista.append("Curso: ")
+                            .append(pessoa.getCurso())
+                            .append("\n");
+
+                    lista.append("Contato de emergência: ")
+                            .append(pessoa.getContatoDeEmergencia())
+                            .append("\n");
+
+                    lista.append("Telefone de emergência: ")
+                            .append(pessoa.getTelefoneEmergencia())
+                            .append("\n");
+
+                    lista.append("Altura: ")
+                            .append(pessoa.getAltura())
+                            .append(" m\n");
+
+                    lista.append("Peso: ")
+                            .append(pessoa.getPeso())
+                            .append(" kg\n");
+
+                    lista.append("IMC: ")
+                            .append(String.format("%.2f", pessoa.getImc()))
+                            .append("\n");
+
+                    lista.append("----------------------------------------\n\n");
+                }
+
+                // Coloca a lista
+                listaPesquisaBancoDeDados.setText(lista.toString());
+
+                // Volta o cursor para o início
+                listaPesquisaBancoDeDados.setCaretPosition(0);
+
+            } catch (SQLException e2){
+                e2.printStackTrace();
+
+                JOptionPane.showMessageDialog(
+                        this,
+                        "Erro ao buscar os dados no banco de dados.",
+                        "Erro",
+                        JOptionPane.ERROR_MESSAGE
+                );
+            }
+
+
+
         }
 
 

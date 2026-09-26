@@ -26,8 +26,39 @@ public class Pessoa {
         this.telefoneEmergencia = telefoneEmergencia;
         this.altura = altura;
         this.peso = peso;
+
         this.imc = calculaImc(peso, altura);
     }
+
+    // contrutor para pegar dado bd:
+    public Pessoa(
+            String nomeCompleto,
+            String endereço,
+            String telefone,
+            String CPF,
+            String tipoSanguineo,
+            String curso,
+            String contatoDeEmergencia,
+            String telefoneEmergencia,
+            Double altura,
+            Double peso,
+            Double imc
+    ) {
+        this.nomeCompleto = nomeCompleto;
+        this.endereço = endereço;
+        this.telefone = telefone;
+        this.CPF = CPF;
+        this.tipoSanguineo = tipoSanguineo;
+        this.curso = curso;
+        this.contatoDeEmergencia = contatoDeEmergencia;
+        this.telefoneEmergencia = telefoneEmergencia;
+        this.altura = altura;
+        this.peso = peso;
+        this.imc = imc;
+    }
+
+
+
 
     public Double calculaImc(Double altura, Double peso){
         Double imc = peso / (altura * altura);

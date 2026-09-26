@@ -88,11 +88,17 @@ public class ConexaoBancoDeDados {
 
             comandoupdate.setInt(1, id);
 
-            comandoupdate.execute();
+            boolean linhasAfetadas = comandoupdate.execute();
+
+            comandoupdate.close();
 
             EncerrarConexao();
 
-            return "Remoção realizada com sucesso!";
+            if (linhasAfetadas == true) {
+                return "Remoção realizada com sucesso!";
+            } else {
+                return "Nenhuma pessoa encontrada com o ID " + id + ".";
+            }
 
         } else {
 
@@ -125,7 +131,8 @@ public class ConexaoBancoDeDados {
                         resultado.getString("contato_emergencia"),
                         resultado.getString("telefone_emergencia"),
                         resultado.getDouble("altura"),
-                        resultado.getDouble("peso")
+                        resultado.getDouble("peso"),
+                        resultado.getDouble("imc")
                 );
 
                 pessoa.setId(resultado.getInt("id"));
