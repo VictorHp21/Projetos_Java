@@ -210,7 +210,7 @@ public class TelaInicial extends JFrame implements ActionListener {
 
 
 
-        lbResultado.setBounds(10, 500, 350, 25);
+        lbResultado.setBounds(10, 500, 365, 25);
 
 
         // btn setBounds ini
@@ -288,7 +288,14 @@ public class TelaInicial extends JFrame implements ActionListener {
         btnAlterar.addActionListener(this);
         // final btn chamadas func
 
+        adicionarHover(btnCadastrar);
+        adicionarHover(btnRemover);
+        adicionarHover(btnAlterar);
+        adicionarHover(btnListagem);
+        adicionarHover(btnRelatorio);
+        adicionarHover(btnCalcularIMC);
 
+        aplicarTemaEscuro();
 
         setVisible(true);
 
@@ -1411,19 +1418,174 @@ public class TelaInicial extends JFrame implements ActionListener {
 
     }
 
-    // exemplos base
+    // tentando alterar tema do app
+
+    private void aplicarTemaEscuro() {
+
+        // CORES DO TEMA
+        Color fundo = new Color(13, 13, 13);
+        Color campo = new Color(24, 21, 31);
+        Color roxo = new Color(124, 58, 237);
+        Color roxoEscuro = new Color(76, 29, 149);
+        Color roxoClaro = new Color(167, 139, 250);
+        Color branco = Color.WHITE;
+        Color cinzaTexto = new Color(196, 196, 196);
+        Color borda = new Color(51, 43, 64);
+
+
+
+        ctn.setBackground(fundo);
 
 
 
 
-    /*
-    btnEditar.addActionListener(e -> {
-            System.out.println("Editando...");
+        Component[] componentes = ctn.getComponents();
+
+        for (Component componente : componentes) {
+
+            if (componente instanceof JLabel) {
+
+                componente.setForeground(branco);
+            }
+        }
+
+
+
+
+        JTextField[] camposTexto = {
+                txtNome,
+                txtEndereco,
+                txtTelefone,
+                txtCpf,
+                txtContatoEmergencia,
+                txtTelefoneEmergencia,
+                txtPeso,
+                txtAltura
+        };
+
+        for (JTextField campoTexto : camposTexto) {
+
+            campoTexto.setBackground(campo);
+            campoTexto.setForeground(branco);
+            campoTexto.setCaretColor(branco);
+            campoTexto.setBorder(
+                    BorderFactory.createLineBorder(borda, 1)
+            );
+        }
+
+
+
+
+        JComboBox[] combos = {
+                cbTipoS,
+                cbFatorRh,
+                cbCurso
+        };
+
+        for (JComboBox combo : combos) {
+
+            combo.setBackground(campo);
+            combo.setForeground(branco);
+            combo.setBorder(
+                    BorderFactory.createLineBorder(borda, 1)
+            );
+        }
+
+
+
+        listaPesquisaBancoDeDados.setBackground(campo);
+        listaPesquisaBancoDeDados.setForeground(branco);
+        listaPesquisaBancoDeDados.setCaretColor(branco);
+
+        listaPesquisaBancoDeDados.setBorder(
+                BorderFactory.createLineBorder(borda, 1)
+        );
+
+
+
+        scrollPesquisaBancoDeDados.getViewport()
+                .setBackground(campo);
+
+        scrollPesquisaBancoDeDados.setBorder(
+                BorderFactory.createLineBorder(borda, 1)
+        );
+
+
+
+
+        JButton[] botoes = {
+                btnCadastrar,
+                btnRemover,
+                btnCalcularIMC,
+                btnAlterar,
+                btnListagem,
+                btnRelatorio
+        };
+
+        for (JButton botao : botoes) {
+
+            botao.setBackground(roxoEscuro);
+            botao.setForeground(branco);
+
+            botao.setFocusPainted(false);
+            botao.setBorderPainted(false);
+            botao.setOpaque(true);
+
+            botao.setFont(
+                    new Font("Arial", Font.BOLD, 13)
+            );
+        }
+
+
+
+
+        btnCalcularIMC.setBackground(roxo);
+
+
+
+
+        lbResultado.setForeground(roxoClaro);
+
+        lbResultado.setFont(
+                new Font("Arial", Font.BOLD, 14)
+        );
+
+
+
+
+        LabelResultadoPesquisa.setForeground(roxoClaro);
+
+        LabelResultadoPesquisa.setFont(
+                new Font("Arial", Font.BOLD, 13)
+        );
+
+
+
+        setBackground(fundo);
+
+        getContentPane().setBackground(fundo);
+    }
+
+    private void adicionarHover(JButton botao) {
+
+        Color corNormal = new Color(76, 29, 149);
+        Color corHover = new Color(124, 58, 237);
+
+        botao.addMouseListener(new java.awt.event.MouseAdapter() {
+
+            @Override
+            public void mouseEntered(java.awt.event.MouseEvent e) {
+                botao.setBackground(corHover);
+                botao.setCursor(new Cursor(Cursor.HAND_CURSOR));
+            }
+
+            @Override
+            public void mouseExited(java.awt.event.MouseEvent e) {
+                botao.setBackground(corNormal);
+                botao.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+            }
         });
+    }
 
-    btnExcluir.addActionListener(e -> {
-            System.out.println("Excluindo...");
-        });
 
-     */
 }
