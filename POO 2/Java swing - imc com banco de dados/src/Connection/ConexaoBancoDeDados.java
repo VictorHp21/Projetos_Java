@@ -149,4 +149,48 @@ public class ConexaoBancoDeDados {
     }
 
 
+    public String AlterarPessoa(int id, String campo, String novoValor) throws SQLException {
+
+        ConexaoBancoDeDados();
+
+        if (conexaobd != null) {
+
+            String sql = "UPDATE pessoa SET " + campo + " = ? WHERE id = ?";
+
+            PreparedStatement comandoUpdate =
+                    conexaobd.prepareStatement(sql);
+
+            // Campos numéricos
+            if (campo.equals("altura") ||
+                    campo.equals("peso") ||
+                    campo.equals("imc")) {
+
+                comandoUpdate.setDouble(1, Double.parseDouble(novoValor));
+
+            } else {
+
+                // Campos de texto
+                comandoUpdate.setString(1, novoValor);
+            }
+
+            comandoUpdate.setInt(2, id);
+
+            int linhasAfetadas = comandoUpdate.executeUpdate();
+
+            comandoUpdate.close();
+            EncerrarConexao();
+
+            if (linhasAfetadas > 0) {
+                return "Alteração realizada com sucesso!";
+            } else {
+                return "Nenhuma pessoa encontrada com o ID " + id + ".";
+            }
+
+        } else {
+
+            return "Erro! Alteração não realizada!";
+        }
+    }
+
+
 }

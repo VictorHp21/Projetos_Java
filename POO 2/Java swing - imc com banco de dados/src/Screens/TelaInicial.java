@@ -285,7 +285,7 @@ public class TelaInicial extends JFrame implements ActionListener {
         btnRemover.addActionListener(this);
         btnListagem.addActionListener(this);
         btnRelatorio.addActionListener(this);
-
+        btnAlterar.addActionListener(this);
         // final btn chamadas func
 
 
@@ -826,6 +826,393 @@ public class TelaInicial extends JFrame implements ActionListener {
                 );
             }
 
+        }
+
+
+        // BTN ALTERAR
+
+        if (e.getActionCommand().equals("Alterar")) {
+
+            try {
+
+                objBd = new ConexaoBancoDeDados();
+
+                // Busca todas as pessoas
+                List<Pessoa> pessoas = objBd.cadastrados();
+
+                // Verifica se existem pessoas
+                if (pessoas.isEmpty()) {
+
+                    JOptionPane.showMessageDialog(
+                            this,
+                            "Não existem pessoas cadastradas.",
+                            "Alterar",
+                            JOptionPane.INFORMATION_MESSAGE
+                    );
+
+                    return;
+                }
+
+                // Monta a lista
+                StringBuilder lista = new StringBuilder();
+
+                lista.append("PESSOAS CADASTRADAS\n\n");
+
+                for (Pessoa pessoa : pessoas) {
+
+                    lista.append("ID: ")
+                            .append(pessoa.getId())
+                            .append(" | Nome: ")
+                            .append(pessoa.getNomeCompleto())
+                            .append(" | CPF: ")
+                            .append(pessoa.getCPF())
+                            .append("\n");
+                }
+
+                // Mostra a lista
+                JOptionPane.showMessageDialog(
+                        this,
+                        lista.toString(),
+                        "Pessoas cadastradas",
+                        JOptionPane.INFORMATION_MESSAGE
+                );
+
+                // Pede o ID
+                String idTexto = JOptionPane.showInputDialog(
+                        this,
+                        "Digite o ID da pessoa que deseja alterar:"
+                );
+
+                // Cancelar
+                if (idTexto == null) {
+                    return;
+                }
+
+                int id = Integer.parseInt(idTexto);
+
+                // Verifica se o ID existe
+                boolean idExiste = false;
+
+                for (Pessoa pessoa : pessoas) {
+
+                    if (pessoa.getId() == id) {
+                        idExiste = true;
+                        break;
+                    }
+                }
+
+                if (!idExiste) {
+
+                    JOptionPane.showMessageDialog(
+                            this,
+                            "Não existe uma pessoa cadastrada com o ID " + id + ".",
+                            "Erro",
+                            JOptionPane.ERROR_MESSAGE
+                    );
+
+                    return;
+                }
+
+
+                JCheckBox nome = new JCheckBox("Nome");
+                JCheckBox endereco = new JCheckBox("Endereço");
+                JCheckBox telefone = new JCheckBox("Telefone");
+                JCheckBox cpf = new JCheckBox("CPF");
+                JCheckBox tipoSanguineo = new JCheckBox("Tipo sanguíneo");
+                JCheckBox curso = new JCheckBox("Curso");
+                JCheckBox contatoEmergencia = new JCheckBox("Contato de emergência");
+                JCheckBox telefoneEmergencia = new JCheckBox("Telefone de emergência");
+                JCheckBox altura = new JCheckBox("Altura");
+                JCheckBox peso = new JCheckBox("Peso");
+
+                JPanel painel = new JPanel();
+
+                painel.setLayout(new BoxLayout(
+                        painel,
+                        BoxLayout.Y_AXIS
+                ));
+
+                painel.add(new JLabel("Selecione os campos que deseja alterar:"));
+                painel.add(nome);
+                painel.add(endereco);
+                painel.add(telefone);
+                painel.add(cpf);
+                painel.add(tipoSanguineo);
+                painel.add(curso);
+                painel.add(contatoEmergencia);
+                painel.add(telefoneEmergencia);
+                painel.add(altura);
+                painel.add(peso);
+
+                int resultado = JOptionPane.showConfirmDialog(
+                        this,
+                        painel,
+                        "Campos para alteração",
+                        JOptionPane.OK_CANCEL_OPTION,
+                        JOptionPane.PLAIN_MESSAGE
+                );
+
+                // Usuário cancelou
+                if (resultado != JOptionPane.OK_OPTION) {
+                    return;
+                }
+
+                // Verifica se selecionou algum campo
+                if (!nome.isSelected() &&
+                        !endereco.isSelected() &&
+                        !telefone.isSelected() &&
+                        !cpf.isSelected() &&
+                        !tipoSanguineo.isSelected() &&
+                        !curso.isSelected() &&
+                        !contatoEmergencia.isSelected() &&
+                        !telefoneEmergencia.isSelected() &&
+                        !altura.isSelected() &&
+                        !peso.isSelected()) {
+
+                    JOptionPane.showMessageDialog(
+                            this,
+                            "Selecione pelo menos um campo para alterar.",
+                            "Alterar",
+                            JOptionPane.WARNING_MESSAGE
+                    );
+
+                    return;
+                }
+
+
+                if (nome.isSelected()) {
+
+                    String valor = JOptionPane.showInputDialog(
+                            this,
+                            "Digite o novo nome:"
+                    );
+
+                    if (valor != null && !valor.trim().isEmpty()) {
+
+                        objBd.AlterarPessoa(
+                                id,
+                                "nome_completo",
+                                valor
+                        );
+                    }
+                }
+
+                if (endereco.isSelected()) {
+
+                    String valor = JOptionPane.showInputDialog(
+                            this,
+                            "Digite o novo endereço:"
+                    );
+
+                    if (valor != null && !valor.trim().isEmpty()) {
+
+                        objBd.AlterarPessoa(
+                                id,
+                                "endereco",
+                                valor
+                        );
+                    }
+                }
+
+                if (telefone.isSelected()) {
+
+                    String valor = JOptionPane.showInputDialog(
+                            this,
+                            "Digite o novo telefone:"
+                    );
+
+                    if (valor != null && !valor.trim().isEmpty()) {
+
+                        objBd.AlterarPessoa(
+                                id,
+                                "telefone",
+                                valor
+                        );
+                    }
+                }
+
+                if (cpf.isSelected()) {
+
+                    String valor = JOptionPane.showInputDialog(
+                            this,
+                            "Digite o novo CPF:"
+                    );
+
+                    if (valor != null && !valor.trim().isEmpty()) {
+
+                        objBd.AlterarPessoa(
+                                id,
+                                "cpf",
+                                valor
+                        );
+                    }
+                }
+
+                if (tipoSanguineo.isSelected()) {
+
+                    String[] tipos = {
+                            "A+",
+                            "A-",
+                            "B+",
+                            "B-",
+                            "O+",
+                            "O-",
+                            "AB+",
+                            "AB-"
+                    };
+
+                    String valor = (String) JOptionPane.showInputDialog(
+                            this,
+                            "Selecione o novo tipo sanguíneo:",
+                            "Tipo sanguíneo",
+                            JOptionPane.QUESTION_MESSAGE,
+                            null,
+                            tipos,
+                            tipos[0]
+                    );
+
+                    if (valor != null) {
+
+                        objBd.AlterarPessoa(
+                                id,
+                                "tipo_sanguineo",
+                                valor
+                        );
+                    }
+                }
+
+                if (curso.isSelected()) {
+
+                    String[] cursosAlteracao = {
+                            "Direito",
+                            "Ciência da Computação",
+                            "Sistemas De Informação",
+                            "Medicina",
+                            "Psicologia",
+                            "Nutrição"
+                    };
+
+                    String valor = (String) JOptionPane.showInputDialog(
+                            this,
+                            "Selecione o novo curso:",
+                            "Curso",
+                            JOptionPane.QUESTION_MESSAGE,
+                            null,
+                            cursosAlteracao,
+                            cursosAlteracao[0]
+                    );
+
+                    if (valor != null) {
+
+                        objBd.AlterarPessoa(
+                                id,
+                                "curso",
+                                valor
+                        );
+                    }
+                }
+
+                if (contatoEmergencia.isSelected()) {
+
+                    String valor = JOptionPane.showInputDialog(
+                            this,
+                            "Digite o novo contato de emergência:"
+                    );
+
+                    if (valor != null && !valor.trim().isEmpty()) {
+
+                        objBd.AlterarPessoa(
+                                id,
+                                "contato_emergencia",
+                                valor
+                        );
+                    }
+                }
+
+                if (telefoneEmergencia.isSelected()) {
+
+                    String valor = JOptionPane.showInputDialog(
+                            this,
+                            "Digite o novo telefone de emergência:"
+                    );
+
+                    if (valor != null && !valor.trim().isEmpty()) {
+
+                        objBd.AlterarPessoa(
+                                id,
+                                "telefone_emergencia",
+                                valor
+                        );
+                    }
+                }
+
+                if (altura.isSelected()) {
+
+                    String valor = JOptionPane.showInputDialog(
+                            this,
+                            "Digite a nova altura em metros:"
+                    );
+
+                    if (valor != null && !valor.trim().isEmpty()) {
+
+                        Double novaAltura = Double.parseDouble(valor);
+
+                        objBd.AlterarPessoa(
+                                id,
+                                "altura",
+                                novaAltura.toString()
+                        );
+                    }
+                }
+
+                if (peso.isSelected()) {
+
+                    String valor = JOptionPane.showInputDialog(
+                            this,
+                            "Digite o novo peso em kg:"
+                    );
+
+                    if (valor != null && !valor.trim().isEmpty()) {
+
+                        Double novoPeso = Double.parseDouble(valor);
+
+                        objBd.AlterarPessoa(
+                                id,
+                                "peso",
+                                novoPeso.toString()
+                        );
+                    }
+                }
+
+
+
+                JOptionPane.showMessageDialog(
+                        this,
+                        "Dados alterados com sucesso!",
+                        "Alteração",
+                        JOptionPane.INFORMATION_MESSAGE
+                );
+
+            } catch (NumberFormatException e1) {
+
+                JOptionPane.showMessageDialog(
+                        this,
+                        "Digite um ID, peso ou altura válido.",
+                        "Erro",
+                        JOptionPane.ERROR_MESSAGE
+                );
+
+            } catch (SQLException e1) {
+
+                e1.printStackTrace();
+
+                JOptionPane.showMessageDialog(
+                        this,
+                        "Erro ao alterar os dados no banco de dados.",
+                        "Erro",
+                        JOptionPane.ERROR_MESSAGE
+                );
+            }
         }
 
 
