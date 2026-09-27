@@ -407,6 +407,18 @@ public class TelaInicial extends JFrame implements ActionListener {
             Double peso = Double.parseDouble(pesoTexto);
             Double altura = Double.parseDouble(alturaTexto);
 
+            if (peso <= 0 || altura <= 0) {
+
+                JOptionPane.showMessageDialog(
+                        this,
+                        "Peso e altura devem ser maiores que zero.",
+                        "Valor inválido",
+                        JOptionPane.ERROR_MESSAGE
+                );
+
+                return;
+            }
+
             String tipoSanguineo =
                     cbTipoS.getSelectedItem().toString()
                             + cbFatorRh.getSelectedItem().toString();
@@ -432,6 +444,18 @@ public class TelaInicial extends JFrame implements ActionListener {
 
             try {
                 objBd = new ConexaoBancoDeDados();
+
+                if (objBd.CPFExiste(objeto.getCPF())) {
+
+                    JOptionPane.showMessageDialog(
+                            this,
+                            "Este CPF já está cadastrado!",
+                            "CPF já cadastrado",
+                            JOptionPane.WARNING_MESSAGE
+                    );
+
+                    return;
+                }
 
                 String mensagem =
                         objBd.InserirDados(objeto);

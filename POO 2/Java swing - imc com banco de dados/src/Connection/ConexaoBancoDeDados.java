@@ -192,5 +192,34 @@ public class ConexaoBancoDeDados {
         }
     }
 
+    public boolean CPFExiste(String cpf) throws SQLException {
+
+        ConexaoBancoDeDados();
+
+        if (conexaobd != null) {
+
+            PreparedStatement comando =
+                    conexaobd.prepareStatement(
+                            "SELECT COUNT(*) FROM pessoa WHERE cpf = ?"
+                    );
+
+            comando.setString(1, cpf);
+
+            ResultSet resultado = comando.executeQuery();
+
+            resultado.next();
+
+            int quantidade = resultado.getInt(1);
+
+            resultado.close();
+            comando.close();
+            EncerrarConexao();
+
+            return quantidade > 0;
+        }
+
+        return false;
+    }
+
 
 }
