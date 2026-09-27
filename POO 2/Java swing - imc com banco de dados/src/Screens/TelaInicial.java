@@ -301,35 +301,76 @@ public class TelaInicial extends JFrame implements ActionListener {
 
 
 
+        // func calcular IMC
 
-        if(e.getActionCommand().equals("Calcular IMC"))
-        {
-
-            // pegando dados da tela inicial
-
-            Double peso = Double.parseDouble(txtPeso.getText());
-            Double altura = Double.parseDouble(txtAltura.getText());
+        if (e.getActionCommand().equals("Calcular IMC")) {
 
 
+            if (txtPeso.getText().trim().isEmpty() ||
+                    txtAltura.getText().trim().isEmpty()) {
 
-            Double imc = peso / (altura * altura);
+                JOptionPane.showMessageDialog(
+                        this,
+                        "Digite o peso e a altura para calcular o IMC.",
+                        "Campos obrigatórios",
+                        JOptionPane.WARNING_MESSAGE
+                );
 
-            String mensagem;
-
-            if (imc >= 18.5 && imc <= 25) {
-                mensagem = "Peso ideal";
-            } else if (imc > 25) {
-                mensagem = "Você está acima do peso ideal!";
-            } else {
-                mensagem = "Você está abaixo do peso ideal!";
+                return;
             }
 
-            lbResultado.setText(
-                    "O valor do IMC é: " +
-                            String.format("%.2f", imc) +
-                            " - " +
-                            mensagem
-            );
+            try {
+
+
+                String pesoTexto = txtPeso.getText().trim().replace(",", ".");
+                String alturaTexto = txtAltura.getText().trim().replace(",", ".");
+
+                Double peso = Double.parseDouble(pesoTexto);
+                Double altura = Double.parseDouble(alturaTexto);
+
+
+                if (peso <= 0 || altura <= 0) {
+
+                    JOptionPane.showMessageDialog(
+                            this,
+                            "Peso e altura devem ser maiores que zero.",
+                            "Valor inválido",
+                            JOptionPane.ERROR_MESSAGE
+                    );
+
+                    return;
+                }
+
+
+                Double imc = peso / (altura * altura);
+
+                String mensagem;
+
+                if (imc >= 18.5 && imc <= 25) {
+                    mensagem = "Peso ideal";
+                } else if (imc > 25) {
+                    mensagem = "Você está acima do peso ideal!";
+                } else {
+                    mensagem = "Você está abaixo do peso ideal!";
+                }
+
+                lbResultado.setText(
+                        "O valor do IMC é: " +
+                                String.format("%.2f", imc) +
+                                " - " +
+                                mensagem
+                );
+
+            } catch (NumberFormatException ex) {
+
+                JOptionPane.showMessageDialog(
+                        this,
+                        "Digite apenas números válidos para peso e altura.\n" +
+                                "Exemplos: 70,5 ou 70.5",
+                        "Valor inválido",
+                        JOptionPane.ERROR_MESSAGE
+                );
+            }
         }
 
         // BTN cadastrar
@@ -359,8 +400,12 @@ public class TelaInicial extends JFrame implements ActionListener {
 
             // pegando dados da tela inicial
 
-            Double peso = Double.parseDouble(txtPeso.getText());
-            Double altura = Double.parseDouble(txtAltura.getText());
+            String pesoTexto = txtPeso.getText().trim().replace(",", ".");
+            String alturaTexto = txtAltura.getText().trim().replace(",", ".");
+
+
+            Double peso = Double.parseDouble(pesoTexto);
+            Double altura = Double.parseDouble(alturaTexto);
 
             String tipoSanguineo =
                     cbTipoS.getSelectedItem().toString()
@@ -979,6 +1024,8 @@ public class TelaInicial extends JFrame implements ActionListener {
                     return;
                 }
 
+                boolean alterou = false;
+
 
                 if (nome.isSelected()) {
 
@@ -994,6 +1041,8 @@ public class TelaInicial extends JFrame implements ActionListener {
                                 "nome_completo",
                                 valor
                         );
+
+                        alterou = true;
                     }
                 }
 
@@ -1011,6 +1060,8 @@ public class TelaInicial extends JFrame implements ActionListener {
                                 "endereco",
                                 valor
                         );
+
+                        alterou = true;
                     }
                 }
 
@@ -1028,6 +1079,8 @@ public class TelaInicial extends JFrame implements ActionListener {
                                 "telefone",
                                 valor
                         );
+
+                        alterou = true;
                     }
                 }
 
@@ -1045,6 +1098,8 @@ public class TelaInicial extends JFrame implements ActionListener {
                                 "cpf",
                                 valor
                         );
+
+                        alterou = true;
                     }
                 }
 
@@ -1078,6 +1133,8 @@ public class TelaInicial extends JFrame implements ActionListener {
                                 "tipo_sanguineo",
                                 valor
                         );
+
+                        alterou = true;
                     }
                 }
 
@@ -1109,6 +1166,8 @@ public class TelaInicial extends JFrame implements ActionListener {
                                 "curso",
                                 valor
                         );
+
+                        alterou = true;
                     }
                 }
 
@@ -1126,6 +1185,8 @@ public class TelaInicial extends JFrame implements ActionListener {
                                 "contato_emergencia",
                                 valor
                         );
+
+                        alterou = true;
                     }
                 }
 
@@ -1143,6 +1204,8 @@ public class TelaInicial extends JFrame implements ActionListener {
                                 "telefone_emergencia",
                                 valor
                         );
+
+                        alterou = true;
                     }
                 }
 
@@ -1153,15 +1216,62 @@ public class TelaInicial extends JFrame implements ActionListener {
                             "Digite a nova altura em metros:"
                     );
 
-                    if (valor != null && !valor.trim().isEmpty()) {
 
-                        Double novaAltura = Double.parseDouble(valor);
+                    if (valor == null) {
+                        return;
+                    }
+
+
+                    if (valor.trim().isEmpty()) {
+
+                        JOptionPane.showMessageDialog(
+                                this,
+                                "Digite uma altura.",
+                                "Valor obrigatório",
+                                JOptionPane.WARNING_MESSAGE
+                        );
+
+                        return;
+                    }
+
+                    try {
+
+                        String alturaTexto =
+                                valor.trim().replace(",", ".");
+
+                        Double novaAltura =
+                                Double.parseDouble(alturaTexto);
+
+                        if (novaAltura <= 0) {
+
+                            JOptionPane.showMessageDialog(
+                                    this,
+                                    "A altura deve ser maior que zero.",
+                                    "Valor inválido",
+                                    JOptionPane.ERROR_MESSAGE
+                            );
+
+                            return;
+                        }
 
                         objBd.AlterarPessoa(
                                 id,
                                 "altura",
                                 novaAltura.toString()
                         );
+
+                        alterou = true;
+
+                    } catch (NumberFormatException ex) {
+
+                        JOptionPane.showMessageDialog(
+                                this,
+                                "Digite uma altura válida.\nExemplo: 1,75 ou 1.75",
+                                "Valor inválido",
+                                JOptionPane.ERROR_MESSAGE
+                        );
+
+                        return;
                     }
                 }
 
@@ -1172,26 +1282,85 @@ public class TelaInicial extends JFrame implements ActionListener {
                             "Digite o novo peso em kg:"
                     );
 
-                    if (valor != null && !valor.trim().isEmpty()) {
+                    // Usuário cancelou
+                    if (valor == null) {
+                        return;
+                    }
 
-                        Double novoPeso = Double.parseDouble(valor);
+                    // Campo vazio
+                    if (valor.trim().isEmpty()) {
+
+                        JOptionPane.showMessageDialog(
+                                this,
+                                "Digite um peso.",
+                                "Valor obrigatório",
+                                JOptionPane.WARNING_MESSAGE
+                        );
+
+                        return;
+                    }
+
+                    try {
+
+                        String pesoTexto =
+                                valor.trim().replace(",", ".");
+
+                        Double novoPeso =
+                                Double.parseDouble(pesoTexto);
+
+                        if (novoPeso <= 0) {
+
+                            JOptionPane.showMessageDialog(
+                                    this,
+                                    "O peso deve ser maior que zero.",
+                                    "Valor inválido",
+                                    JOptionPane.ERROR_MESSAGE
+                            );
+
+                            return;
+                        }
 
                         objBd.AlterarPessoa(
                                 id,
                                 "peso",
                                 novoPeso.toString()
                         );
+
+                        alterou = true;
+
+                    } catch (NumberFormatException ex) {
+
+                        JOptionPane.showMessageDialog(
+                                this,
+                                "Digite um peso válido.\nExemplo: 70,5 ou 70.5",
+                                "Valor inválido",
+                                JOptionPane.ERROR_MESSAGE
+                        );
+
+                        return;
                     }
                 }
 
 
 
-                JOptionPane.showMessageDialog(
-                        this,
-                        "Dados alterados com sucesso!",
-                        "Alteração",
-                        JOptionPane.INFORMATION_MESSAGE
-                );
+                if (alterou) {
+
+                    JOptionPane.showMessageDialog(
+                            this,
+                            "Dados alterados com sucesso!",
+                            "Alteração",
+                            JOptionPane.INFORMATION_MESSAGE
+                    );
+
+                } else {
+
+                    JOptionPane.showMessageDialog(
+                            this,
+                            "Nenhum dado foi alterado.",
+                            "Alteração",
+                            JOptionPane.INFORMATION_MESSAGE
+                    );
+                }
 
             } catch (NumberFormatException e1) {
 
