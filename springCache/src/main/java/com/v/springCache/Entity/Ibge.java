@@ -1,5 +1,6 @@
 package com.v.springCache.Entity;
 
+import com.v.springCache.cloud.IbgeResponse;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -11,4 +12,6 @@ public interface Ibge {
 
     @RequestMapping(method = RequestMethod.GET, value = "{estado}/municipios")
     List<IbgeResponse> findAllCidades(@PathVariable String estado);
+
+    List<IbgeResponse> findlAllCidades(String estado);
 }
