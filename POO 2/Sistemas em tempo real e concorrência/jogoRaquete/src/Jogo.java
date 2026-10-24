@@ -76,7 +76,7 @@ public class Jogo extends Canvas implements KeyListener, Runnable {
             }
         }
     }
-    
+
 
     @Override
     public void keyTyped(KeyEvent e) {
