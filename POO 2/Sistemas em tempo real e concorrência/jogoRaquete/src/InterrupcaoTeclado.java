@@ -9,8 +9,8 @@ public class InterrupcaoTeclado extends KeyAdapter {
         objetoRaqueteJogador = obj;
     }
 
-    //@Override
-    public void KeyPressed(KeyEvent e){
+    @Override
+    public void keyPressed(KeyEvent e){
         try {
             // acesso região critica
             this.objetoRaqueteJogador.Mutex.acquire();
@@ -33,8 +33,8 @@ public class InterrupcaoTeclado extends KeyAdapter {
     }
 
 
-    //@Override
-    public void KeyReleased(KeyEvent e){
+    @Override
+    public void keyReleased(KeyEvent e){
         try {
             // acesso a regiao critica
             objetoRaqueteJogador.Mutex.acquire();
@@ -54,8 +54,9 @@ public class InterrupcaoTeclado extends KeyAdapter {
     }
 
 
-    public void KeyTyped(KeyEvent arg0){
-        
+    @Override
+    public void keyTyped(KeyEvent arg0){
+
     }
 
 }

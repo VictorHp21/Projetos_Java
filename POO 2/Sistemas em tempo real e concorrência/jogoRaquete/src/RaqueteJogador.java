@@ -32,7 +32,7 @@ public class RaqueteJogador {
 
 
         if(x + largura_raquete > Jogo.LARGURA){ // se a posiçõa da raquete ultrapassou o limite da tela(canto direito)
-            x = jogo.LARGURA - largura_raquete; // posicionar o canto da bola no final do lado direito
+            x = Jogo.LARGURA - largura_raquete; // posicionar o canto da bola no final do lado direito
         } else if (x < 0) { // ultrapassou o canto esquerdo
             x = 0; // posicionar o canto da bola no início do lado esquerdo
         }
