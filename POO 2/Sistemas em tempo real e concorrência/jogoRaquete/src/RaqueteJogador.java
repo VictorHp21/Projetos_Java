@@ -37,15 +37,17 @@ public class RaqueteJogador {
             x = 0; // posicionar o canto da bola no início do lado esquerdo
         }
 
-        public void Desenhar(Graphics g){
-            // setar cor da raquete
-            g.setColor(Color.PINK);
-
-            // Desenhar o retangulo que representa a raquete
-            g.fillRect (x, y, largura_raquete, altura_raquete);
-        }
 
 
+
+    }
+
+    public void Desenhar(Graphics g){
+        // setar cor da raquete
+        g.setColor(Color.PINK);
+
+        // Desenhar o retangulo que representa a raquete
+        g.fillRect (x, y, largura_raquete, altura_raquete);
     }
 
 
