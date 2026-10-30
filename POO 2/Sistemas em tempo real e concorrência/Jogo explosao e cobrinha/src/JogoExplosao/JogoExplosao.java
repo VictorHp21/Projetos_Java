@@ -103,7 +103,7 @@ public class JogoExplosao extends Canvas implements Runnable {
                 e1.printStackTrace();
             }
 
-        } 
+        }
 
 
     }
