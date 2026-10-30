@@ -14,7 +14,7 @@ public class RaqueteJogador {
         this.y = y;
         this.largura_raquete = 40;
         this.altura_raquete = 5;
-        Mutex = new Semaphore(1);
+        Mutex = new Semaphore(1); // O número 1 significa que uma execução pode adquirir a permissão quando ela está disponível.
     }
 
     public void atualizarPosicao() throws InterruptedException{
