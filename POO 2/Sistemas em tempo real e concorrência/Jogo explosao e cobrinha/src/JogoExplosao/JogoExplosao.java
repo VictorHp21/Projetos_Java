@@ -1,7 +1,11 @@
 package JogoExplosao;
 
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
 import java.awt.*;
 import java.awt.image.BufferStrategy;
+import java.io.File;
 import java.util.concurrent.Semaphore;
 
 public class JogoExplosao extends Canvas implements Runnable {
@@ -23,6 +27,9 @@ public class JogoExplosao extends Canvas implements Runnable {
         objGerador = new GeradorExplosao();
         Mutex = new Semaphore(1);
     }
+
+
+
 
 
     public void update() throws InterruptedException{

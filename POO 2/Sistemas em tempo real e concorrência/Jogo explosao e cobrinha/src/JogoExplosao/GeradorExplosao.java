@@ -10,6 +10,10 @@ public class GeradorExplosao {
     public ArrayList<ParticulaExplosao> vetor_particulas = new ArrayList<ParticulaExplosao>();
 
 
+    private EfeitoSonoro somClique = new EfeitoSonoro("C:\\Users\\victo\\OneDrive\\Desktop\\PROJETOS\\Projetos " +
+            "Java\\POO 2\\Sistemas em tempo real e concorrência\\Jogo explosao e cobrinha\\imagem e sons\\explosao" +
+            ".wav");
+
     public void update() throws InterruptedException{
         Tempo_GeradorRetangulos ++;
 
@@ -34,13 +38,15 @@ public class GeradorExplosao {
 
             if(JogoExplosao.MouseClicado){
                 // verificar se os pontos (mouse x e y) estão dentro do retangulo
-                if(JogoExplosao.mouse_y >= current.x && JogoExplosao.mouse_x < current.x + current.width){
+                if(JogoExplosao.mouse_x >= current.x && JogoExplosao.mouse_x < current.x + current.width){
                     if(JogoExplosao.mouse_y >= current.y && JogoExplosao.mouse_y < current.y + current.height){
                         // atingiu o retangulo, então remover
                         vetor_retangulos.remove(current);
                         // jogador pontuou!
                         JogoExplosao.pontuacao++;
                         JogoExplosao.MouseClicado = false;
+
+                        somClique.tocar();
 
                         // gerar 50 particulas com a mesma cor do retangulo para simular uma explosão
 
