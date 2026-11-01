@@ -18,6 +18,7 @@ public class Cobrinha {
     public Cobrinha(){
         TamanhoDaCobra = 6;
         QuantidadeComida = 0;
+        direcao = 'D';
     }
 
     public void Desenhar(Graphics g){
@@ -50,7 +51,7 @@ public class Cobrinha {
                 break;
 
             case 'D':
-                eixoX[0] = eixoX[0] - JogoCobrinha.TAMANHO_BLOCO;
+                eixoX[0] = eixoX[0] + JogoCobrinha.TAMANHO_BLOCO;
                 break;
 
 
@@ -60,7 +61,7 @@ public class Cobrinha {
 
 
             case 'S':
-                eixoY[0] = eixoY[0] - JogoCobrinha.TAMANHO_BLOCO;
+                eixoY[0] = eixoY[0] + JogoCobrinha.TAMANHO_BLOCO;
                 break;
 
             default:
@@ -71,12 +72,14 @@ public class Cobrinha {
 
         // liberar regiao
 
-        JogoCobrinha.Mutex.realese();
+        JogoCobrinha.Mutex.release();
 
     }
 
     public void TocarEfeito() throws LineUnavailableException, Exception, UnsupportedAudioFileException{
-        File arquivo = new File("C:/Users/victo/OneDrive/Desktop/PROJETOS/Projetos Java/POO 2/Sistemas em tempo real e concorrência/Jogo explosao e cobrinha/imagem e sons/somPotuacao.wav");
+        File arquivo = new File("C:\\Users\\victo\\OneDrive\\Desktop\\PROJETOS\\Projetos Java\\POO 2\\Sistemas em " +
+                "tempo " +
+                "real e concorrência\\Jogo explosao e cobrinha\\imagem e sons\\SomPontuacao.wav");
 
         AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(arquivo);
 
@@ -110,18 +113,18 @@ public class Cobrinha {
 
         // cabeça bateu  no corpo
         for(int i = TamanhoDaCobra; i > 0; i--){
-            if(eixoX[0] == eixoX[i] && eixoY[0] == eixoY[0]){
+            if((eixoX[0] == eixoX[i]) && (eixoY[0] == eixoY[i])){
                 perdeu = true;
                 break;
             }
         }
 
         // cabeça tocou nas bordas
-        if(eixoX[0] < 0 || eixoX > JogoCobrinha.LARGURA_TELA){
+        if(eixoX[0] < 0 || eixoX[0] > JogoCobrinha.LARGURA_TELA){
             perdeu = true;
         }
 
-        if(eixoY[0] < 0 || eixoY > JogoCobrinha.LARGURA_TELA){
+        if(eixoY[0] < 0 || eixoY[0] > JogoCobrinha.LARGURA_TELA){
             perdeu = true;
         }
 

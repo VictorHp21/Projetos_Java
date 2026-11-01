@@ -19,7 +19,7 @@ public class Comida {
     }
 
     public void Desenhar(Graphics g){
-        ImageIcon imageIcon = new ImageIcon("C:\\Users\\victo\\OneDrive\\Desktop\\PROJETOS\\Projetos Java\\POO 2\\Sistemas em tempo real e concorrência\\Jogo explosao e cobrinha");
+        ImageIcon imageIcon = new ImageIcon("C:\\Users\\victo\\OneDrive\\Desktop\\PROJETOS\\Projetos Java\\POO 2\\Sistemas em tempo real e concorrência\\Jogo explosao e cobrinha\\imagem e sons\\Comida.png");
         Image image = imageIcon.getImage();
         g.drawImage(image, posicao_x, posicao_y, null);
     }
