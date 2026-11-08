@@ -165,6 +165,108 @@ public class Main {
 
         acimaDaMedia.forEach(System.out::println);
 
+        //LinkedList
+
+        System.out.println("***** LINKEDLIST *****");
+
+        LinkedList<String> nomes2 = new LinkedList<>();
+
+        nomes2.add("Bruno");
+        nomes2.add("Carlos");
+        nomes2.add("Mariana");
+        nomes2.add("Victor");
+
+        nomes2.addFirst("Ana");
+
+        nomes2.addLast("Walter");
+
+        nomes2.removeFirst();
+
+        nomes2.removeLast();
+
+
+
+        nomes2.forEach(System.out::println);
+
+        System.out.println("-------------");
+
+        System.out.println(nomes2.getFirst());
+
+
+        // ex 2
+
+        LinkedList<String> historico = new LinkedList<>();
+
+        int indiceAtual = -1;
+
+        // Visitando páginas
+        historico.add("Google");
+        indiceAtual++;
+
+        historico.add("YouTube");
+        indiceAtual++;
+
+        historico.add("GitHub");
+        indiceAtual++;
+
+        historico.add("Stack Overflow");
+        indiceAtual++;
+
+        System.out.println("Página atual: " + historico.get(indiceAtual));
+
+        // VOLTAR
+        if (indiceAtual > 0) {
+            indiceAtual--;
+        }
+
+        System.out.println("Voltou para: " + historico.get(indiceAtual));
+
+        // VOLTAR NOVAMENTE
+        if (indiceAtual > 0) {
+            indiceAtual--;
+        }
+
+        System.out.println("Voltou para: " + historico.get(indiceAtual));
+
+        // AVANÇAR
+        if (indiceAtual < historico.size() - 1) {
+            indiceAtual++;
+        }
+
+        System.out.println("Avançou para: " + historico.get(indiceAtual));
+
+
+        // ex 3
+
+        ArrayList<Integer> arrayList = new ArrayList<>();
+        LinkedList<Integer> linkedList = new LinkedList<>();
+
+        // Teste ArrayList
+        long inicioArray = System.nanoTime();
+
+        for (int i = 0; i < 100000; i++) {
+            arrayList.add(0, i);
+        }
+
+        long fimArray = System.nanoTime();
+
+        // Teste LinkedList
+        long inicioLinked = System.nanoTime();
+
+        for (int i = 0; i < 100000; i++) {
+            linkedList.addFirst(i);
+        }
+
+        long fimLinked = System.nanoTime();
+
+        // Calculando o tempo
+        long tempoArray = fimArray - inicioArray;
+        long tempoLinked = fimLinked - inicioLinked;
+
+        System.out.println("ArrayList: " + tempoArray / 1_000_000.0 + " ms");
+
+        System.out.println("LinkedList: " + tempoLinked / 1_000_000.0 + " ms");
+
 
     }
 
@@ -182,5 +284,10 @@ public class Main {
 
         return media;
     }
+
+
+    // LinkedList
+
+
 
 }
