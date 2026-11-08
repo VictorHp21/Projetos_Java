@@ -1,7 +1,5 @@
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class Main {
     public static void main (String[] args){
@@ -96,8 +94,111 @@ public class Main {
 
         // ex 3
 
+        System.out.println("----------------------------");
+
+        List<String> palavras = new ArrayList<>(
+                List.of("carro", "vento", "carro", "prédio")
+        );
+
+        if(!temDuplicados(palavras)){
+            System.out.println("Não tem itens duplicados na lista");
+        } else {
+            System.out.println("Há pelo menos um ou mais itens duplicados na lista");
+
+            System.out.println("Primeiro elemento duplicado da lista: " + primeiroElementoQueSeRepete(palavras));
+        }
 
 
+
+        // HashSet
+
+        //ex 01
+
+        String frase = "Não importa o que você tem, mas sim o que você faz com aquilo que tem";
+
+        Set<String> palavrasUnicas = new HashSet<>(
+                Arrays.asList(
+                        frase.toLowerCase()
+                                .replaceAll("[^\\p{L}\\s]", "")
+                                .trim()
+                                .split("\\s+")
+                )
+        );
+
+        System.out.println(palavrasUnicas);
+
+        System.out.println("Quantidade palavras únicas: " + palavrasUnicas.size());
+
+
+
+        // ex 2
+
+        System.out.println("------------");
+
+        Set<Aluno> alunos = new HashSet<>();
+
+        alunos.add(new Aluno("Victor", 101));
+        alunos.add(new Aluno("Maria", 102));
+        alunos.add(new Aluno("João", 103));
+
+
+        alunos.add(new Aluno("Pedro", 101));
+        alunos.add(new Aluno("Hector", 102));
+        // não adiciona graças ao hashcode e equals para matricula
+        // assim n aceitando uma matricula duplicada
+
+        // teste com nome (criando hashcode e equals na classe com nome agora)
+
+        alunos.add(new Aluno("Victor", 110));
+
+        System.out.println(alunos);
+
+        // cria duplicatas pois: ao comparar  dois atributos, nenhum desses objetos é considerado igual a outro.
+
+        // no contexto de classe o set vai considerar duplicados com base no hashcode e equals
 
     }
-}
+
+    public static boolean temDuplicados(List<String> lista){
+
+        Set<String> setList = new HashSet<>();
+        String p = "";
+
+        boolean duplicados = false;
+
+        for (int i = 0; i < lista.size(); i++) {
+
+            p = lista.get(i);
+
+            if(!setList.add(p)){
+                duplicados = true;
+                break;
+            }
+        }
+
+        return duplicados;
+    }
+
+    public static String primeiroElementoQueSeRepete(List<String> lista){
+
+        Set<String> setList = new HashSet<>();
+        String p = "";
+        String primeiroDuplicado = "";
+
+
+        for (int i = 0; i < lista.size(); i++) {
+
+            p = lista.get(i);
+
+            if(!setList.add(p)){
+                 primeiroDuplicado = p;
+                break;
+            }
+        }
+
+        return primeiroDuplicado;
+
+    }
+
+    }
+
