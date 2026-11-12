@@ -7,7 +7,6 @@ public class Cliente {
     private Long id;
     private String nome;
     private String email;
-    private String telefone;
     private String cidade;
     private String estado;
     private LocalDate dataCadastro;
@@ -15,11 +14,11 @@ public class Cliente {
 
     public Cliente(){}
 
-    public Cliente(Long id, String nome, String email, String telefone, String cidade, String estado, LocalDate dataCadastro) {
+    public Cliente(Long id, String nome, String email,  String cidade, String estado, LocalDate dataCadastro) {
         this.id = id;
         this.nome = nome;
         this.email = email;
-        this.telefone = telefone;
+
         this.cidade = cidade;
         this.estado = estado;
         this.dataCadastro = dataCadastro;
@@ -51,14 +50,6 @@ public class Cliente {
         this.email = email;
     }
 
-    public String getTelefone() {
-        return telefone;
-    }
-
-    public void setTelefone(String telefone) {
-        this.telefone = telefone;
-    }
-
     public String getCidade() {
         return cidade;
     }
@@ -83,13 +74,14 @@ public class Cliente {
         this.dataCadastro = dataCadastro;
     }
 
+
+
     @Override
     public String toString() {
         return "Cliente{" +
                 "id=" + id +
                 ", nome='" + nome + '\'' +
                 ", email='" + email + '\'' +
-                ", telefone='" + telefone + '\'' +
                 ", cidade='" + cidade + '\'' +
                 ", estado='" + estado + '\'' +
                 ", dataCadastro=" + dataCadastro +

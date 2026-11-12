@@ -5,28 +5,23 @@ import java.math.BigDecimal;
 public class Produto {
     private Long id;
     private String nome;
-    private String descricao;
     private BigDecimal preco;
     private Integer estoque;
     private Categoria categoria;
-    private boolean ativo;
+    private BigDecimal custo;
+
 
 
     public Produto() {
     }
 
-
-    public Produto(Long id, String nome, String descricao,
-                   BigDecimal preco, Integer estoque,
-                   Categoria categoria, boolean ativo) {
-
+    public Produto(Long id, String nome, BigDecimal preco, Integer estoque, Categoria categoria, BigDecimal custo) {
         this.id = id;
         this.nome = nome;
-        this.descricao = descricao;
         this.preco = preco;
         this.estoque = estoque;
         this.categoria = categoria;
-        this.ativo = ativo;
+        this.custo = custo;
     }
 
     // Getters e Setters
@@ -47,13 +42,6 @@ public class Produto {
         this.nome = nome;
     }
 
-    public String getDescricao() {
-        return descricao;
-    }
-
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
-    }
 
     public BigDecimal getPreco() {
         return preco;
@@ -79,12 +67,14 @@ public class Produto {
         this.categoria = categoria;
     }
 
-    public boolean isAtivo() {
-        return ativo;
+
+
+    public BigDecimal getCusto() {
+        return custo;
     }
 
-    public void setAtivo(boolean ativo) {
-        this.ativo = ativo;
+    public void setCusto(BigDecimal custo) {
+        this.custo = custo;
     }
 
     @Override
@@ -92,11 +82,10 @@ public class Produto {
         return "Produto{" +
                 "id=" + id +
                 ", nome='" + nome + '\'' +
-                ", descricao='" + descricao + '\'' +
                 ", preco=" + preco +
                 ", estoque=" + estoque +
                 ", categoria=" + categoria.getNome() +
-                ", ativo=" + ativo +
+
                 '}';
     }
 }

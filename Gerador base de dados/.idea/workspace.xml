@@ -7,6 +7,10 @@
     <list default="true" id="f148a5ab-f063-4640-96d1-ea6338af7444" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Gerador/src/main/java/com/victor/Gerador/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Gerador/src/main/java/com/victor/Gerador/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gerador/src/main/java/com/victor/Gerador/Model/Cliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/Gerador/src/main/java/com/victor/Gerador/Model/Cliente.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gerador/src/main/java/com/victor/Gerador/Model/Produto.java" beforeDir="false" afterPath="$PROJECT_DIR$/Gerador/src/main/java/com/victor/Gerador/Model/Produto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gerador/src/main/java/com/victor/Gerador/Model/Venda.java" beforeDir="false" afterPath="$PROJECT_DIR$/Gerador/src/main/java/com/victor/Gerador/Model/Venda.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gerador/src/main/java/com/victor/Gerador/Model/Vendedor.java" beforeDir="false" afterPath="$PROJECT_DIR$/Gerador/src/main/java/com/victor/Gerador/Model/Vendedor.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,6 +31,9 @@
   "associatedIndex": 4
 }]]></component>
   <component name="ProjectId" id="3LzMceXC89J72Hp4Oe1HdCfVqH1" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />

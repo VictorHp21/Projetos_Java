@@ -25,7 +25,6 @@ public class Main {
 				1L,
 				"Victor Henrique",
 				"victor@email.com",
-				"34999999999",
 				"Uberlândia",
 				"MG",
 				LocalDate.now()
@@ -36,10 +35,10 @@ public class Main {
 		Vendedor vendedor = new Vendedor(
 				1L,
 				"Carlos Silva",
-				"carlos@email.com",
-				"34988888888",
+
 				LocalDate.now(),
-				true
+				"vendas"
+
 		);
 
 		System.out.println(vendedor);
@@ -54,17 +53,8 @@ public class Main {
 
 
 
-		Produto produto = new Produto(
-				1L,
-				"Notebook",
-				"Notebook para uso profissional",
-				new BigDecimal("3500.00"),
-				15,
-				categoria,
-				true
-		);
 
-		System.out.println(produto);
+
 
 
 
@@ -80,15 +70,8 @@ public class Main {
 
 		System.out.println(venda);
 
-		ItemVenda item = new ItemVenda(
-				1L,
-				venda,
-				produto,
-				2,
-				produto.getPreco(),
-				produto.getPreco().multiply(BigDecimal.valueOf(2))
-		);
 
-		System.out.println(item);
+
+
 	}
 }
