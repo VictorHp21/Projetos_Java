@@ -1,10 +1,10 @@
-package com.victor.Gerador.base.de.dados;
+package com.victor.Gerador;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class GeradorBaseDeDadosApplicationTests {
+class GeradorApplicationTests {
 
 	@Test
 	void contextLoads() {

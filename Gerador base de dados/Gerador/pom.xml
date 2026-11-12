@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.victor</groupId>
-	<artifactId>Gerador-base-de-dados</artifactId>
+	<artifactId>Gerador</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name/>
 	<description/>

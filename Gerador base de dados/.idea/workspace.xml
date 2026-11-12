@@ -4,47 +4,96 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="19680ada-6005-442b-bcf3-1ea6cf730d1e" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Gerador base de dados.iml" beforeDir="false" />
+    <list default="true" id="f148a5ab-f063-4640-96d1-ea6338af7444" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gerador-base-de-dados/.gitattributes" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gerador-base-de-dados/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gerador-base-de-dados/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gerador-base-de-dados/mvnw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gerador-base-de-dados/mvnw.cmd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gerador-base-de-dados/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gerador-base-de-dados/src/main/java/com/victor/Gerador/base/de/dados/Config/Conexao.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gerador-base-de-dados/src/main/java/com/victor/Gerador/base/de/dados/GeradorBaseDeDadosApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gerador-base-de-dados/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gerador-base-de-dados/src/test/java/com/victor/Gerador/base/de/dados/GeradorBaseDeDadosApplicationTests.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 2
+  "associatedIndex": 4
 }]]></component>
-  <component name="ProjectId" id="3LzBzL6s1BKGIF0sM4RcspgGnUG" />
+  <component name="ProjectId" id="3LzMceXC89J72Hp4Oe1HdCfVqH1" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Application.GeradorApplication.executor": "Run",
+    "Application.Main.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/victo/OneDrive/Desktop/PROJETOS/Projetos Java/Gerador base de dados/Gerador-base-de-dados"
+    "last_opened_file_path": "C:/Users/victo/OneDrive/Desktop/PROJETOS/Projetos Java/Gerador base de dados"
   }
 }]]></component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <envs>
+        <env name="DB_URL" value="jdbc:mysql://localhost:3306/gerador_bi" />
+        <env name="DB_USER" value="root" />
+        <env name="DB_PASSWORD" value="141713" />
+      </envs>
+      <option name="MAIN_CLASS_NAME" value="com.victor.Gerador.Main" />
+      <module name="Gerador" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.victor.Gerador.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <extension name="net.ashald.envfile">
+        <option name="IS_ENABLED" value="false" />
+        <option name="IS_SUBST" value="false" />
+        <option name="IS_PATH_MACRO_SUPPORTED" value="false" />
+        <option name="IS_IGNORE_MISSING_FILES" value="false" />
+        <option name="IS_ENABLE_EXPERIMENTAL_INTEGRATIONS" value="false" />
+        <ENTRIES>
+          <ENTRY IS_ENABLED="true" PARSER="runconfig" IS_EXECUTABLE="false" />
+        </ENTRIES>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="19680ada-6005-442b-bcf3-1ea6cf730d1e" name="Changes" comment="" />
-      <created>1794447281430</created>
+      <changelist id="f148a5ab-f063-4640-96d1-ea6338af7444" name="Changes" comment="" />
+      <created>1794452524320</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1794447281430</updated>
+      <updated>1794452524320</updated>
     </task>
     <servers />
   </component>
