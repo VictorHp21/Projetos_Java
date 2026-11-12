@@ -6,11 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="f148a5ab-f063-4640-96d1-ea6338af7444" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gerador/src/main/java/com/victor/Gerador/Geradores/GeradorCliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/Gerador/src/main/java/com/victor/Gerador/Geradores/GeradorCliente.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Gerador/src/main/java/com/victor/Gerador/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Gerador/src/main/java/com/victor/Gerador/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Gerador/src/main/java/com/victor/Gerador/Model/Cliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/Gerador/src/main/java/com/victor/Gerador/Model/Cliente.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Gerador/src/main/java/com/victor/Gerador/Model/Produto.java" beforeDir="false" afterPath="$PROJECT_DIR$/Gerador/src/main/java/com/victor/Gerador/Model/Produto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Gerador/src/main/java/com/victor/Gerador/Model/Venda.java" beforeDir="false" afterPath="$PROJECT_DIR$/Gerador/src/main/java/com/victor/Gerador/Model/Venda.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Gerador/src/main/java/com/victor/Gerador/Model/Vendedor.java" beforeDir="false" afterPath="$PROJECT_DIR$/Gerador/src/main/java/com/victor/Gerador/Model/Vendedor.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,9 +24,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 4
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
   <component name="ProjectId" id="3LzMceXC89J72Hp4Oe1HdCfVqH1" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="1" id="Add" />
@@ -38,17 +35,17 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.GeradorApplication.executor": "Run",
-    "Application.Main.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "master",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/victo/OneDrive/Desktop/PROJETOS/Projetos Java/Gerador base de dados"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.GeradorApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/victo/OneDrive/Desktop/PROJETOS/Projetos Java/Gerador base de dados&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <envs>

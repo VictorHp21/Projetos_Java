@@ -25,16 +25,84 @@ public class GeradorCliente {
     };
 
     private static final String[][] cidadesEstados = {
-            {"Uberlândia", "MG"},
-            {"Belo Horizonte", "MG"},
-            {"São Paulo", "SP"},
-            {"Rio de Janeiro", "RJ"},
-            {"Goiânia", "GO"},
-            {"Curitiba", "PR"},
-            {"Brasília", "DF"},
+            {"Manaus", "AM"},
+            {"Parintins", "AM"},
+            {"Belém", "PA"},
+            {"Santarém", "PA"},
+            {"Ananindeua", "PA"},
+            {"Porto Velho", "RO"},
+            {"Ji-Paraná", "RO"},
+            {"Rio Branco", "AC"},
+            {"Cruzeiro do Sul", "AC"},
+            {"Boa Vista", "RR"},
+            {"Aracaju", "SE"},
+            {"Macapá", "AP"},
+            {"Palmas", "TO"},
+            {"Gurupi", "TO"},
+
+
             {"Salvador", "BA"},
+            {"Feira de Santana", "BA"},
+            {"Vitória da Conquista", "BA"},
+            {"Recife", "PE"},
+            {"Caruaru", "PE"},
+            {"Petrolina", "PE"},
             {"Fortaleza", "CE"},
-            {"Recife", "PE"}
+            {"Juazeiro do Norte", "CE"},
+            {"Sobral", "CE"},
+            {"São Luís", "MA"},
+            {"Imperatriz", "MA"},
+            {"Teresina", "PI"},
+            {"Parnaíba", "PI"},
+            {"Natal", "RN"},
+            {"Mossoró", "RN"},
+            {"João Pessoa", "PB"},
+            {"Campina Grande", "PB"},
+            {"Maceió", "AL"},
+            {"Arapiraca", "AL"},
+            {"Aracaju", "SE"},
+
+
+            {"Brasília", "DF"},
+            {"Goiânia", "GO"},
+            {"Anápolis", "GO"},
+            {"Rio Verde", "GO"},
+            {"Campo Grande", "MS"},
+            {"Dourados", "MS"},
+            {"Cuiabá", "MT"},
+            {"Rondonópolis", "MT"},
+            {"Sinop", "MT"},
+
+
+            {"São Paulo", "SP"},
+            {"Campinas", "SP"},
+            {"Santos", "SP"},
+            {"Ribeirão Preto", "SP"},
+            {"São José dos Campos", "SP"},
+            {"Rio de Janeiro", "RJ"},
+            {"Niterói", "RJ"},
+            {"Petrópolis", "RJ"},
+            {"Belo Horizonte", "MG"},
+            {"Uberlândia", "MG"},
+            {"Uberaba", "MG"},
+            {"Juiz de Fora", "MG"},
+            {"Montes Claros", "MG"},
+            {"Vitória", "ES"},
+            {"Vila Velha", "ES"},
+            {"Cachoeiro de Itapemirim", "ES"},
+
+            {"Curitiba", "PR"},
+            {"Londrina", "PR"},
+            {"Maringá", "PR"},
+            {"Cascavel", "PR"},
+            {"Porto Alegre", "RS"},
+            {"Caxias do Sul", "RS"},
+            {"Pelotas", "RS"},
+            {"Santa Maria", "RS"},
+            {"Florianópolis", "SC"},
+            {"Joinville", "SC"},
+            {"Blumenau", "SC"},
+            {"Chapecó", "SC"}
     };
 
     public static List<Cliente> gerarClientes(int quantidade) {
@@ -53,7 +121,7 @@ public class GeradorCliente {
             cliente.setId((long) i);
             cliente.setNome(nome + " " + sobrenome);
             cliente.setEmail("cliente" + i + "@email.com");
-            
+
 
             cliente.setCidade(cidadesEstados[indiceCidade][0]);
             cliente.setEstado(cidadesEstados[indiceCidade][1]);
