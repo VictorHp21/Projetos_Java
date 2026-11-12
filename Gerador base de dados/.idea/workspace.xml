@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f148a5ab-f063-4640-96d1-ea6338af7444" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Gerador/src/main/java/com/victor/Gerador/Geradores/GeradorCliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/Gerador/src/main/java/com/victor/Gerador/Geradores/GeradorCliente.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Gerador/src/main/java/com/victor/Gerador/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Gerador/src/main/java/com/victor/Gerador/Main.java" afterDir="false" />
-    </list>
+    <list default="true" id="f148a5ab-f063-4640-96d1-ea6338af7444" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />

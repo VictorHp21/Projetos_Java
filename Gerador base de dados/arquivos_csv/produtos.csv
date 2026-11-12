@@ -1,101 +1,101 @@
 ﻿id_produto;id_categoria;nome;descricao;preco;estoque;ativo
-1;9;Notebook Gamer Modelo 1;186.09;29
-2;23;Workstation Modelo 2;448.51;33
-3;12;Dock Station Modelo 3;168.35;81
-4;5;Hub USB Modelo 4;757.50;39
-5;4;Gravador DVD Externo Modelo 5;592.19;106
-6;6;Fonte 650W Modelo 6;7.83;65
-7;3;Filtro de Linha Modelo 7;731.26;91
-8;14;Radeon RX 7600 Modelo 8;14.28;122
-9;17;Adaptador USB Modelo 9;161.54;140
-10;2;Cartão de Memória 128GB Modelo 10;163.07;65
-11;24;Nobreak 1200VA Modelo 11;324.55;58
-12;16;Monitor QHD 27 Modelo 12;315.59;106
-13;15;Memória RAM DDR5 16GB Modelo 13;165.85;178
-14;12;GeForce RTX 3050 Modelo 14;610.32;48
-15;16;AMD Ryzen 7 Modelo 15;928.30;74
-16;16;Monitor 4K 32 Modelo 16;651.95;158
-17;4;Fonte 500W Modelo 17;764.51;54
-18;7;Gabinete Mid Tower Modelo 18;655.34;22
-19;17;Monitor Gamer 144Hz Modelo 19;338.85;33
-20;23;Webcam Full HD Modelo 20;635.79;127
-21;16;Webcam 4K Modelo 21;625.67;0
-22;5;Adaptador Wi-Fi USB Modelo 22;175.87;74
-23;22;Placa-Mãe ASRock Modelo 23;60.58;92
-24;5;Gravador DVD Externo Modelo 24;584.98;186
-25;18;Cabo USB-C Modelo 25;385.37;36
-26;21;AMD Ryzen 7 Modelo 26;682.22;64
-27;17;Pen Drive 64GB Modelo 27;306.73;70
-28;12;Headset Bluetooth Modelo 28;67.40;195
-29;2;Gabinete Gamer Modelo 29;770.03;144
-30;24;Monitor Full HD 24 Modelo 30;306.63;45
-31;14;PC Desktop Modelo 31;378.62;93
-32;6;Adaptador Wi-Fi USB Modelo 32;594.78;152
-33;1;Filtro de Linha Modelo 33;626.68;145
-34;9;Fonte 850W Modelo 34;634.78;1
-35;5;Hub USB Modelo 35;299.61;100
-36;1;Intel Core i7 Modelo 36;62.48;10
-37;14;Cartão de Memória 256GB Modelo 37;647.04;114
-38;14;Impressora Multifuncional Modelo 38;612.30;80
-39;18;Water Cooler 360mm Modelo 39;323.71;57
-40;14;Switch 24 Portas Modelo 40;406.13;180
-41;2;GeForce RTX 4060 Modelo 41;936.62;71
-42;14;Notebook Gamer Modelo 42;567.42;35
-43;9;Cabo USB-C Modelo 43;47.74;170
-44;2;Memória RAM DDR4 16GB Modelo 44;918.44;171
-45;12;Adaptador Wi-Fi USB Modelo 45;827.35;190
-46;17;SSD SATA 1TB Modelo 46;380.28;176
-47;7;Mouse Sem Fio Modelo 47;471.05;135
-48;2;SSD NVMe 1TB Modelo 48;463.02;60
-49;3;Teclado Mecânico RGB Modelo 49;83.94;15
-50;5;Memória RAM DDR4 8GB Modelo 50;908.06;116
-51;18;Monitor Full HD 24 Modelo 51;464.73;185
-52;18;Notebook Ultrafino Modelo 52;435.48;182
-53;18;Headset Gamer Modelo 53;741.09;118
-54;12;Cabo DisplayPort Modelo 54;663.90;31
-55;2;Mouse Sem Fio Modelo 55;62.20;11
-56;16;Intel Core i5 Modelo 56;290.60;24
-57;5;Adaptador USB Modelo 57;456.15;75
-58;16;Mouse Gamer RGB Modelo 58;61.38;21
-59;4;Webcam Full HD Modelo 59;142.08;90
-60;15;Fone de Ouvido USB Modelo 60;466.24;39
-61;16;Monitor LED 21.5 Modelo 61;722.26;168
-62;7;Fonte 750W Modelo 62;623.24;107
-63;19;Switch 24 Portas Modelo 63;707.13;0
-64;6;Switch 8 Portas Modelo 64;726.11;104
-65;22;Mouse Sem Fio Modelo 65;693.32;113
-66;22;Intel Core i3 Modelo 66;468.68;161
-67;4;Mouse Óptico Modelo 67;861.68;177
-68;4;Memória RAM DDR5 16GB Modelo 68;599.36;193
-69;12;Impressora Multifuncional Modelo 69;659.81;95
-70;25;AMD Ryzen 7 Modelo 70;623.60;118
-71;6;Caixa de Som USB Modelo 71;31.91;149
-72;5;Mini PC Modelo 72;221.37;58
-73;21;Gabinete Full Tower Modelo 73;8.99;53
-74;2;Switch 8 Portas Modelo 74;784.28;49
-75;24;Placa de Rede Gigabit Modelo 75;414.18;172
-76;21;Cooler para Processador Modelo 76;492.64;8
-77;8;Microfone Condensador Modelo 77;194.66;144
-78;7;Impressora Jato de Tinta Modelo 78;296.20;196
-79;25;SSD SATA 1TB Modelo 79;201.04;60
-80;18;GeForce RTX 4060 Modelo 80;17.81;23
-81;20;Gabinete Gamer Modelo 81;737.04;29
-82;25;Intel Core i5 Modelo 82;519.79;179
-83;1;Cabo DisplayPort Modelo 83;604.16;165
-84;4;Memória RAM DDR5 16GB Modelo 84;681.33;65
-85;6;Notebook Gamer Modelo 85;475.02;62
-86;3;Switch 8 Portas Modelo 86;245.03;91
-87;7;Hub USB Modelo 87;242.24;76
-88;22;Memória RAM DDR5 32GB Modelo 88;107.63;138
-89;22;HD Externo 2TB Modelo 89;322.65;25
-90;10;Workstation Modelo 90;368.75;28
-91;16;Monitor QHD 27 Modelo 91;708.31;0
-92;3;Dock Station Modelo 92;18.69;60
-93;24;Pen Drive 64GB Modelo 93;530.22;78
-94;5;SSD NVMe 500GB Modelo 94;595.21;117
-95;4;SSD NVMe 1TB Modelo 95;9.30;27
-96;12;Teclado Gamer Modelo 96;352.05;169
-97;4;Webcam Full HD Modelo 97;222.61;105
-98;14;Hub USB Modelo 98;926.81;158
-99;6;Teclado Gamer Modelo 99;744.84;80
-100;17;Radeon RX 6600 Modelo 100;606.18;136
+1;8;Caixa de Som USB Modelo 1;414.69;54
+2;5;Monitor Full HD 24 Modelo 2;276.79;11
+3;7;SSD NVMe 500GB Modelo 3;161.50;200
+4;2;Gravador DVD Externo Modelo 4;466.49;5
+5;23;GeForce RTX 4060 Modelo 5;127.37;12
+6;18;Cabo USB-C Modelo 6;226.36;133
+7;2;SSD SATA 480GB Modelo 7;338.60;80
+8;9;Webcam 4K Modelo 8;93.99;97
+9;13;Placa-Mãe Gigabyte Modelo 9;364.98;101
+10;11;SSD NVMe 1TB Modelo 10;283.48;109
+11;20;Notebook Corporativo Modelo 11;636.86;133
+12;14;Water Cooler 360mm Modelo 12;612.44;139
+13;10;Cartão de Memória 256GB Modelo 13;577.16;140
+14;12;Placa-Mãe Gigabyte Modelo 14;389.28;131
+15;21;Water Cooler 240mm Modelo 15;630.04;11
+16;2;Webcam 4K Modelo 16;95.30;59
+17;22;Teclado Gamer Modelo 17;856.91;120
+18;23;Gabinete Mid Tower Modelo 18;907.13;197
+19;19;Pen Drive 64GB Modelo 19;191.76;45
+20;6;Cabo USB-C Modelo 20;891.69;101
+21;15;Fonte 850W Modelo 21;688.41;48
+22;5;Fonte 500W Modelo 22;726.07;154
+23;18;Fonte 850W Modelo 23;21.84;59
+24;20;Roteador Wi-Fi 7 Modelo 24;438.19;132
+25;23;Water Cooler 240mm Modelo 25;338.14;41
+26;25;Fonte 500W Modelo 26;739.34;17
+27;20;Pen Drive 64GB Modelo 27;817.88;180
+28;5;GeForce RTX 3050 Modelo 28;705.40;175
+29;11;Teclado Gamer Modelo 29;705.50;13
+30;24;Memória RAM DDR5 64GB Modelo 30;589.16;159
+31;11;Workstation Modelo 31;602.17;89
+32;6;Tablet Android Modelo 32;219.85;69
+33;1;Notebook Gamer Modelo 33;363.64;118
+34;25;Pen Drive 64GB Modelo 34;535.95;15
+35;12;Notebook Corporativo Modelo 35;895.34;138
+36;23;Memória RAM DDR4 8GB Modelo 36;651.79;162
+37;17;Memória RAM DDR5 16GB Modelo 37;174.29;127
+38;15;Adaptador Wi-Fi USB Modelo 38;366.79;188
+39;10;Monitor 4K 32 Modelo 39;614.61;73
+40;12;Monitor Gamer 240Hz Modelo 40;676.56;149
+41;16;Memória RAM DDR4 8GB Modelo 41;244.73;56
+42;18;AMD Ryzen 9 Modelo 42;948.44;62
+43;17;Monitor 4K 32 Modelo 43;366.42;164
+44;16;Cartão de Memória 256GB Modelo 44;796.79;78
+45;10;Hub USB Modelo 45;472.03;119
+46;21;Cabo DisplayPort Modelo 46;590.07;64
+47;19;Impressora Multifuncional Modelo 47;24.16;97
+48;9;Fone de Ouvido USB Modelo 48;535.17;192
+49;23;Dock Station Modelo 49;325.28;184
+50;24;Fone de Ouvido USB Modelo 50;713.03;139
+51;24;Roteador Wi-Fi 6 Modelo 51;329.30;15
+52;18;Fonte 750W Modelo 52;944.24;79
+53;7;Radeon RX 7600 Modelo 53;894.36;192
+54;8;Fone de Ouvido USB Modelo 54;583.19;129
+55;24;Headset Bluetooth Modelo 55;169.02;58
+56;6;PC Gamer Modelo 56;237.83;118
+57;3;SSD SATA 480GB Modelo 57;387.52;190
+58;20;Cabo DisplayPort Modelo 58;48.43;180
+59;14;Intel Core i3 Modelo 59;752.76;19
+60;22;Smartphone Android Modelo 60;634.76;102
+61;6;Webcam 4K Modelo 61;658.57;27
+62;21;Memória RAM DDR5 32GB Modelo 62;561.65;7
+63;7;PC Desktop Modelo 63;831.96;50
+64;22;Microfone Condensador Modelo 64;532.07;199
+65;3;Roteador Wi-Fi 7 Modelo 65;319.31;143
+66;6;Notebook Gamer Modelo 66;377.70;21
+67;6;Notebook Corporativo Modelo 67;322.71;81
+68;6;Memória RAM DDR4 8GB Modelo 68;767.76;158
+69;17;Fonte 750W Modelo 69;888.52;132
+70;7;Workstation Modelo 70;505.09;54
+71;17;Notebook Corporativo Modelo 71;725.56;173
+72;4;Headset Gamer Modelo 72;396.16;69
+73;12;Mouse Óptico Modelo 73;634.84;99
+74;15;Memória RAM DDR4 16GB Modelo 74;274.08;63
+75;5;Intel Core i5 Modelo 75;367.63;169
+76;1;Mousepad Gamer Modelo 76;691.96;43
+77;13;Fonte 500W Modelo 77;620.32;126
+78;17;Intel Core i9 Modelo 78;683.38;63
+79;15;Memória RAM DDR5 16GB Modelo 79;592.32;51
+80;24;GeForce RTX 4070 Modelo 80;561.76;71
+81;4;Placa-Mãe ASUS Modelo 81;431.02;155
+82;3;HD 1TB Modelo 82;144.49;14
+83;17;Mouse Óptico Modelo 83;257.98;139
+84;2;Notebook Gamer Modelo 84;435.48;114
+85;23;HD 2TB Modelo 85;579.31;170
+86;5;Placa de Rede Gigabit Modelo 86;553.50;12
+87;23;Intel Core i9 Modelo 87;592.92;58
+88;5;SSD NVMe 500GB Modelo 88;118.84;19
+89;7;Mouse Óptico Modelo 89;509.69;147
+90;24;Water Cooler 240mm Modelo 90;934.38;189
+91;23;Placa de Rede Gigabit Modelo 91;622.59;157
+92;6;Notebook Ultrafino Modelo 92;195.37;115
+93;6;PC Desktop Modelo 93;122.54;40
+94;17;Fonte 750W Modelo 94;760.76;161
+95;11;Notebook Corporativo Modelo 95;695.65;82
+96;12;Placa-Mãe ASRock Modelo 96;112.15;179
+97;19;Webcam Full HD Modelo 97;42.46;2
+98;14;Notebook Gamer Modelo 98;801.13;20
+99;21;Pen Drive 128GB Modelo 99;20.35;73
+100;19;Fonte 850W Modelo 100;282.43;181

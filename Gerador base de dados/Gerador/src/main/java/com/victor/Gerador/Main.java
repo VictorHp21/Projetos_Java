@@ -69,7 +69,7 @@ public class Main {
 
 			List<Venda> vendas =
 					GeradorVenda.gerarVendas(
-							700,
+							5000,
 							clientes,
 							vendedores
 					);
