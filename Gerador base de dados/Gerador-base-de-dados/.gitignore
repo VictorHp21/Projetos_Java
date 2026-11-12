@@ -31,3 +31,21 @@ build/
 
 ### VS Code ###
 .vscode/
+
+
+
+# Arquivos de configuração com credenciais
+.env
+.env.*
+!.env.example
+
+# Configurações locais da IDE
+.idea/
+*.iml
+
+# Arquivos compilados
+target/
+
+# Logs
+*.log
+
