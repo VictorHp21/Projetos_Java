@@ -17,7 +17,7 @@ public class JogoTron extends JPanel {
         setPreferredSize(new Dimension(480, 480));
         //setBackground(Color.BLACK);
 
-        motoAzul = new Moto(128, 240, "azul");
+        motoAzul = new Moto(128, 240, "azul", 'W');
 
         addKeyListener(new InterrupcaoTeclado(motoAzul));
 

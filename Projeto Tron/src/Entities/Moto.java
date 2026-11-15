@@ -24,10 +24,16 @@ public class Moto {
 
     private final Color corluz;
 
+    private static final int TAMANHO_MAX_RASTRO = 20;
+    private boolean viva = true;
+    private char direcaoPedida;
 
-    public Moto(int x, int y, String cor){
+
+    public Moto(int x, int y, String cor, char direcaoInicial){
         this.x = x;
         this.y = y;
+        this.direcao = direcaoInicial;
+        this.direcaoPedida = direcaoInicial;
 
         // adc posição inicial da moto ao rastro
         rastro.add(new Point(x,y));
@@ -57,6 +63,8 @@ public class Moto {
     }
 
     public void Desenhar(Graphics g) {
+
+        if(!viva) return;
 
         Graphics2D g2 = (Graphics2D) g.create();
 
@@ -136,6 +144,10 @@ public class Moto {
 
     public void andar() {
 
+        if(!viva) return;
+
+        direcao = direcaoPedida;
+
         switch (direcao) {
 
             case 'A':
@@ -157,6 +169,10 @@ public class Moto {
 
         // Registrar nova posição para formar o rastro
         rastro.add(new Point(x, y));
+
+        while (rastro.size() > TAMANHO_MAX_RASTRO){
+            rastro.remove(0);
+        }
     }
 
     public void mudarDirecao(char novaDirecao) {
@@ -170,7 +186,7 @@ public class Moto {
             return;
         }
 
-        direcao = novaDirecao;
+        direcaoPedida = novaDirecao;
     }
 
     public int getX() {
@@ -185,5 +201,28 @@ public class Moto {
         return rastro;
     }
 
+
+    public boolean estaViva(){
+        return viva;
+    }
+
+    public void matar(){
+        viva = false;
+    }
+
+    public boolean bateuNoRastroDe(Moto outra){
+        if(!outra.estaViva()){
+            return false; // rastro de uma moto ja morta n mata
+        }
+
+        Point cabeca = new Point(x,y);
+        return  outra.getRastro().contains(cabeca);
+    }
+
+    public boolean bateuNoProprioRastro(){
+        Point cabeca = rastro.get(rastro.size() - 1);
+
+        return rastro.subList(0, rastro.size() - 1).contains(cabeca);
+    }
 
 }
