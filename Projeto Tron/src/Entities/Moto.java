@@ -14,6 +14,7 @@ public class Moto {
 
     private final int velocidade = 16;
 
+    //point representa par de coordenadas x e y
     private final List<Point> rastro = new ArrayList<>();
 
     private Image motoCima;
@@ -28,6 +29,7 @@ public class Moto {
         this.x = x;
         this.y = y;
 
+        // adc posição inicial da moto ao rastro
         rastro.add(new Point(x,y));
 
         if(cor.equalsIgnoreCase("azul")){
@@ -78,12 +80,14 @@ public class Moto {
                     70
             ));
 
+            // espessura linha rastro
             g2.setStroke(new BasicStroke(
                     10,
                     BasicStroke.CAP_ROUND,
                     BasicStroke.JOIN_ROUND
             ));
 
+            // conecta os pontos
             g2.drawLine(
                     anterior.x,
                     anterior.y,
@@ -120,7 +124,7 @@ public class Moto {
         // Desenhar moto centralizada na posição
         g2.drawImage(
                 imagemAtual,
-                x - 12,
+                x - 12, // subtrai 12 para posicionar a moto centralizada
                 y - 12,
                 24,
                 24,
