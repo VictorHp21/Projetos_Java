@@ -225,4 +225,15 @@ public class Moto {
         return rastro.subList(0, rastro.size() - 1).contains(cabeca);
     }
 
+    public char getDirecao(){
+        return direcao;
+    }
+
+    public Color getCorluz() {
+        return corluz;
+    }
+
+    public boolean mesmaCor(Moto outra){
+        return corluz.equals(outra.corluz);
+    }
 }
