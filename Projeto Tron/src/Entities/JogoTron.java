@@ -42,7 +42,7 @@ public class JogoTron extends JPanel {
         setPreferredSize(new Dimension(LARGURA, ALTURA));
         //setBackground(Color.BLACK);
 
-        // painel recebe o foco do teclado
+
         setFocusable(true);
 
         // para que ao clicar o enter reinicie quando o jogo acaba
