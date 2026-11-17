@@ -1,5 +1,7 @@
 package Entities;
 
+import Config.Config;
+
 import java.awt.*;
 import java.util.Random;
 
@@ -19,13 +21,16 @@ public class ParticulaExplosao {
         this.cor = cor;
 
         // direção, angulo e velocida da explosao aleatoria
+
+        // aqui
+
         double angulo = RANDOM.nextDouble() * Math.PI * 2;
-        double velocidade = 1 + RANDOM.nextDouble() * 5;
+        double velocidade = (1 + RANDOM.nextDouble() * 5) * Config.ESCALA;
         vx = Math.cos(angulo) * velocidade;
         vy = Math.sin(angulo) * velocidade;
 
         vidaMaxima = 25 + RANDOM.nextInt(25);
-        tamanho = 3 + RANDOM.nextInt(4);
+        tamanho = (int) ((3 + RANDOM.nextInt(4)) * Config.ESCALA);
 
     }
 

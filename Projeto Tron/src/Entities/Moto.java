@@ -1,5 +1,7 @@
 package Entities;
 
+import Config.Config;
+
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
@@ -12,7 +14,7 @@ public class Moto {
     private int x;
     private int y;
 
-    private final int velocidade = 16;
+    private final int velocidade = Config.CELULA; // fica mais fácil de configurar --> velocidade acompanha o tamanho da celula
 
     //point representa par de coordenadas x e y
     private final List<Point> rastro = new ArrayList<>();
@@ -90,7 +92,7 @@ public class Moto {
 
             // espessura linha rastro
             g2.setStroke(new BasicStroke(
-                    10,
+                    Config.ESPESSURA_BRILHO, // aqui
                     BasicStroke.CAP_ROUND,
                     BasicStroke.JOIN_ROUND
             ));
@@ -107,7 +109,7 @@ public class Moto {
             g2.setColor(corluz);
 
             g2.setStroke(new BasicStroke(
-                    4,
+                    Config.ESPESSURA_RAIO,
                     BasicStroke.CAP_ROUND,
                     BasicStroke.JOIN_ROUND
             ));
@@ -130,12 +132,15 @@ public class Moto {
         };
 
         // Desenhar moto centralizada na posição
+
+        int metade = Config.TAMANHO_MOTO / 2; // aqui tbm
+
         g2.drawImage(
                 imagemAtual,
-                x - 12, // subtrai 12 para posicionar a moto centralizada
-                y - 12,
-                24,
-                24,
+                x - metade,
+                y - metade,
+                Config.TAMANHO_MOTO,
+                Config.TAMANHO_MOTO,
                 null
         );
 

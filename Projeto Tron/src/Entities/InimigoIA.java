@@ -1,5 +1,7 @@
 package Entities;
 
+import Config.Config;
+
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -9,7 +11,7 @@ public class InimigoIA {
 
     public enum Personalidade {PERSEGUIDOR, EMBOSCADOR, PINCA}
 
-    private static final int passo = 16;
+    private static final int passo = Config.CELULA;
     private static final  double CHANCE_ERRO = 0.10; // 10% de chance de escolher uma direção qualquer (para q n fique tão dificil)
     private static final char[] DIRECOES = {'W', 'A', 'S', 'D'};
 
@@ -115,12 +117,10 @@ public class InimigoIA {
                 || (a == 'A' && b == 'D') || (a == 'D' && b == 'A');
     }
 
-    // uma casa é perigosa se for parede ou se tiver qualquer rastro de moto viva
+    // uma casa é perigosa se for parede ou se tiver qualquer rastro de moto viva // config aqui tbm
     private boolean ehPerigosa(Point p, List<Moto> todas) {
-        if (p.x < JogoTron.LIMITE_MIN || p.x > JogoTron.LIMITE_MAX
-                || p.y < JogoTron.LIMITE_MIN || p.y > JogoTron.LIMITE_MAX) {
-            return true;
-        }
+        if (Config.foraDaArena(p.x, p.y)) return true;
+
         for (Moto m : todas) {
             if (m.estaViva() && m.getRastro().contains(p)) return true;
         }
