@@ -13,6 +13,8 @@ public class Main {
 
         janela.add(jogo);
 
+        janela.setResizable(false);
+
         janela.pack();
 
         janela.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -22,6 +24,8 @@ public class Main {
         janela.setVisible(true);
 
         jogo.requestFocusInWindow();
+
+        jogo.iniciar();
 
     }
 }

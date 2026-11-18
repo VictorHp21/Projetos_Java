@@ -1,24 +1,30 @@
 package Entities;
 
+import Config.Config;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.Semaphore;
 
 
-public class JogoTron extends JPanel {
+public class JogoTron extends JPanel implements Runnable {
+
+    private final Semaphore mutex = new Semaphore(1);
+
+    private Thread threadDoJogo;
+    private volatile boolean rodando = false;
+
+    private static final int INTERVALO_PASSO  = 100; // ms entre passos das motos
+    private static final int INTERVALO_FRAME  = 16;  // ms entre frames (~60 fps)
+
     private Moto motoAzul;
 
     private Image fundo;
 
-    public static final int LARGURA = 480;
-    public static final int ALTURA = 480;
-
-    // limites arena
-    public static final int LIMITE_MIN = 16;
-    public static final int LIMITE_MAX = 464;
 
     // matar no próprio rastro???
     private static final boolean MATAR_NO_PROPRIO_RASTRO = false;
@@ -39,7 +45,7 @@ public class JogoTron extends JPanel {
                 getClass().getResource("/Imagens e sons/fundo.png")
         ).getImage();
 
-        setPreferredSize(new Dimension(LARGURA, ALTURA));
+        setPreferredSize(new Dimension(Config.LARGURA, Config.ALTURA));
         //setBackground(Color.BLACK);
 
 
@@ -47,40 +53,103 @@ public class JogoTron extends JPanel {
 
         // para que ao clicar o enter reinicie quando o jogo acaba
 
-        addKeyListener(new KeyAdapter() {
-            @Override
-            public void keyPressed(KeyEvent e) {
-                if (e.getKeyCode() == KeyEvent.VK_ENTER && fimdeJogo){
-                    iniciarPartida();
-                }
-            }
-        });
+        addKeyListener(new InterrupcaoTeclado(this));
 
         iniciarPartida();
 
         // trocar por mutex com threads POSTERIORMENTE??
-        new Timer(100, e -> atualizarJogo()).start();
 
-        new Timer(16, e -> {
-            explosoes.update();
-            repaint();
-        }).start();
 
     }
 
-    public void iniciarPartida(){
+
+    // controle THREAD
+
+    public void iniciar(){
+        if(rodando) return;
+        rodando = true;
+        threadDoJogo = new Thread(this, "loop-tron");
+        threadDoJogo.setDaemon(true);
+        threadDoJogo.start();
+    }
+
+    public void parar(){
+        rodando = false;
+    }
+
+    @Override
+    public void run() {
+
+        long ultimoPasso = System.currentTimeMillis();
+
+        while (rodando){
+            long agora = System.currentTimeMillis();
+
+            // entra na região critica
+            mutex.acquireUninterruptibly();
+
+            try {
+                explosoes.update();
+
+                if(!fimdeJogo && agora - ultimoPasso >= INTERVALO_PASSO){
+                    atualizarJogo();
+                    ultimoPasso = agora;
+                }
+            } finally {
+                mutex.release(); // sai da região critica
+            }
+
+            repaint(); // EDT redesenha
+
+            try {
+                Thread.sleep(INTERVALO_FRAME);
+            } catch (InterruptedException e) {
+                return;
+            }
+        }
+
+    }
+
+
+    // métodos chamados pelo teclado
+
+    public void pedirDirecao(char direcao) {
+        mutex.acquireUninterruptibly();
+        try {
+            if (motoAzul.estaViva()) {
+                motoAzul.mudarDirecao(direcao);
+            }
+        } finally {
+            mutex.release();
+        }
+    }
+
+    public void reiniciarSeAcabou() {
+        mutex.acquireUninterruptibly();
+        try {
+            if (fimdeJogo) {
+                iniciarPartida();
+            }
+        } finally {
+            mutex.release();
+        }
+    }
+
+
+    private void iniciarPartida(){
         todasasmotos.clear();
         inimigos.clear();
         fimdeJogo = false;
         mensagem = null;
 
-        motoAzul = new Moto(240, 432, "azul", 'W');
+        int c = Config.CELULA;
 
-        Moto laranja1 = new Moto(112, 48, "laranja", 'S');
-        Moto laranja2 = new Moto(240, 48, "laranja", 'S');
-        Moto laranja3 = new Moto(368, 48, "laranja", 'S');
+        motoAzul = new Moto((Config.COLUNAS / 2) * c, (Config.LINHAS - 3) * c, "azul", 'W');
 
-        // dando uma personalidade para cada moto inimiga
+        Moto laranja1 = new Moto((Config.COLUNAS / 4) * c,                    3 * c, "laranja", 'S');
+        Moto laranja2 = new Moto((Config.COLUNAS / 2) * c,                    3 * c, "laranja", 'S');
+        Moto laranja3 = new Moto((Config.COLUNAS - Config.COLUNAS / 4) * c,   3 * c, "laranja", 'S');
+
         inimigos.add(new InimigoIA(laranja1, InimigoIA.Personalidade.PERSEGUIDOR));
         inimigos.add(new InimigoIA(laranja2, InimigoIA.Personalidade.EMBOSCADOR));
         inimigos.add(new InimigoIA(laranja3, InimigoIA.Personalidade.PINCA));
@@ -90,34 +159,20 @@ public class JogoTron extends JPanel {
         todasasmotos.add(laranja2);
         todasasmotos.add(laranja3);
 
-        // teclado aponta para a moto do jogador
-
-        if(teclado != null) removeKeyListener(teclado);
-        teclado = new InterrupcaoTeclado(motoAzul);
-        addKeyListener(teclado);
-
-
     }
 
-    public void atualizarJogo(){
-        if(fimdeJogo) return;
-
-        // ias decidem a direção
+    private void atualizarJogo(){
         Moto perseguidor = inimigos.get(0).getMoto();
-        for(InimigoIA ia: inimigos){
+        for (InimigoIA ia : inimigos) {
             ia.decidir(motoAzul, perseguidor, todasasmotos);
         }
 
-        // todas as motos vivas se movimentam
-        for(Moto m: todasasmotos){
+        for (Moto m : todasasmotos) {
             m.andar();
         }
 
-        // verificar se alguem morreu
         verificarColisoes();
         verificarFimDeJogo();
-
-
     }
 
     private void verificarColisoes() {
@@ -126,7 +181,7 @@ public class JogoTron extends JPanel {
         for (Moto a : todasasmotos) {
             if (!a.estaViva()) continue;
 
-            boolean morreu = foraDaArena(a)
+            boolean morreu = Config.foraDaArena(a.getX(), a.getY())
                     || (MATAR_NO_PROPRIO_RASTRO && a.bateuNoProprioRastro());
 
             for (Moto b : todasasmotos) {
@@ -134,26 +189,22 @@ public class JogoTron extends JPanel {
                 if (a == b || !b.estaViva()) continue;
 
                 if (!a.mesmaCor(b) && a.bateuNoRastroDe(b)) {
-                    morreu = true;                    // bateu no rastro de outra cor
+                    morreu = true;
                 } else if (a.getX() == b.getX() && a.getY() == b.getY()) {
-                    morreu = true;                    // duas motos na mesma casa
+                    morreu = true;
                 }
             }
 
             if (morreu) condenadas.add(a);
         }
 
-        // matar apenas depois que olhar todas, assim batida frontas mata as duas
-        for (Moto m: condenadas){
+        for (Moto m : condenadas) {
             m.matar();
             explosoes.explodir(m.getX(), m.getY(), m.getCorluz());
         }
     }
 
-    private boolean foraDaArena(Moto m) {
-        return m.getX() < LIMITE_MIN || m.getX() > LIMITE_MAX
-                || m.getY() < LIMITE_MIN || m.getY() > LIMITE_MAX;
-    }
+
 
     private void verificarFimDeJogo() {
         if (!motoAzul.estaViva()) {
@@ -177,16 +228,21 @@ public class JogoTron extends JPanel {
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
 
-        g.drawImage(fundo, 0, 0, getWidth(), getHeight(), this);
+        mutex.acquireUninterruptibly();    // a thread do jogo não altera nada enquanto desenhamos
+        try {
+            g.drawImage(fundo, 0, 0, getWidth(), getHeight(), this);
 
-        for (Moto m : todasasmotos) {
-            m.Desenhar(g);
-        }
+            for (Moto m : todasasmotos) {
+                m.Desenhar(g);
+            }
 
-        explosoes.render(g);
+            explosoes.render(g);
 
-        if (mensagem != null) {
-            desenharMensagem(g);
+            if (mensagem != null) {
+                desenharMensagem(g);
+            }
+        } finally {
+            mutex.release();
         }
     }
 
@@ -211,4 +267,6 @@ public class JogoTron extends JPanel {
 
         g2.dispose();
     }
+
+
 }
