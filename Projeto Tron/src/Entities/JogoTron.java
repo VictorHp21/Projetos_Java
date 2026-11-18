@@ -43,6 +43,8 @@ public class JogoTron extends JPanel implements Runnable {
     private final Pontuacao pontuacao = new Pontuacao();
     private boolean venceu = false;
 
+    private Runnable aoReiniciar;
+
 
     public JogoTron() {
 
@@ -135,6 +137,10 @@ public class JogoTron extends JPanel implements Runnable {
         try {
             if (fimdeJogo) {
                 iniciarPartida();
+
+                if (aoReiniciar != null){
+                    aoReiniciar.run();
+                }
             }
         } finally {
             mutex.release();
@@ -303,6 +309,10 @@ public class JogoTron extends JPanel implements Runnable {
         g2.drawString(dica, (getWidth() - fm.stringWidth(dica)) / 2, getHeight() / 2 + 40);
 
         g2.dispose();
+    }
+
+    public void setAoReiniciar(Runnable callback) {
+        this.aoReiniciar = callback;
     }
 
 

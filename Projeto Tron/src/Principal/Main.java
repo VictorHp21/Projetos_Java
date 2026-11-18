@@ -7,25 +7,11 @@ import javax.swing.*;
 public class Main {
     public static void main(String[] args){
 
-        JFrame janela = new JFrame("Tron");
+        SwingUtilities.invokeLater(() -> {
 
-        JogoTron jogo = new JogoTron();
+            TelaInicial tela = new TelaInicial();
 
-        janela.add(jogo);
-
-        janela.setResizable(false);
-
-        janela.pack();
-
-        janela.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-        janela.setLocationRelativeTo(null);
-
-        janela.setVisible(true);
-
-        jogo.requestFocusInWindow();
-
-        jogo.iniciar();
+        });
 
     }
 }
