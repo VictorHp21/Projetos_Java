@@ -1,6 +1,8 @@
-package Config;
+package Entities;
 
-import java.util.Timer;
+
+
+import javax.swing.Timer;
 
 public class Cronometro {
 

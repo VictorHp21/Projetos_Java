@@ -11,6 +11,7 @@ import java.util.List;
 import java.util.concurrent.Semaphore;
 
 
+
 public class JogoTron extends JPanel implements Runnable {
 
     private final Semaphore mutex = new Semaphore(1);
@@ -38,6 +39,10 @@ public class JogoTron extends JPanel implements Runnable {
     private boolean fimdeJogo = false;
     private String mensagem = null;
 
+    private final Entities.Cronometro cronometro = new Entities.Cronometro();
+    private final Pontuacao pontuacao = new Pontuacao();
+    private boolean venceu = false;
+
 
     public JogoTron() {
 
@@ -45,7 +50,7 @@ public class JogoTron extends JPanel implements Runnable {
                 getClass().getResource("/Imagens e sons/fundo.png")
         ).getImage();
 
-        setPreferredSize(new Dimension(Config.LARGURA, Config.ALTURA));
+        setPreferredSize(new Dimension(Config.LARGURA, Config.ALTURA + HudTron.ALTURA_BARRA));
         //setBackground(Color.BLACK);
 
 
@@ -68,6 +73,7 @@ public class JogoTron extends JPanel implements Runnable {
     public void iniciar(){
         if(rodando) return;
         rodando = true;
+        cronometro.reiniciar();
         threadDoJogo = new Thread(this, "loop-tron");
         threadDoJogo.setDaemon(true);
         threadDoJogo.start();
@@ -159,6 +165,10 @@ public class JogoTron extends JPanel implements Runnable {
         todasasmotos.add(laranja2);
         todasasmotos.add(laranja3);
 
+
+        venceu = false;
+        pontuacao.reiniciar();
+        cronometro.reiniciar();
     }
 
     private void atualizarJogo(){
@@ -198,10 +208,13 @@ public class JogoTron extends JPanel implements Runnable {
             if (morreu) condenadas.add(a);
         }
 
+        int laranjasMortas = 0;
         for (Moto m : condenadas) {
             m.matar();
             explosoes.explodir(m.getX(), m.getY(), m.getCorluz());
+            if (m != motoAzul) laranjasMortas++;
         }
+        pontuacao.registrarMortes(laranjasMortas);
     }
 
 
@@ -210,8 +223,11 @@ public class JogoTron extends JPanel implements Runnable {
         if (!motoAzul.estaViva()) {
             fimdeJogo = true;
             mensagem = "VOCÊ PERDEU";
+            finalizarPartida(false);
             return;
         }
+
+
 
         boolean algumaLaranjaViva = false;
         for (InimigoIA ia : inimigos) {
@@ -221,7 +237,17 @@ public class JogoTron extends JPanel implements Runnable {
         if (!algumaLaranjaViva) {
             fimdeJogo = true;
             mensagem = "VOCÊ VENCEU!";
+            finalizarPartida(true);
         }
+
+
+    }
+
+    private void finalizarPartida(boolean vitoria) {
+        venceu = vitoria;
+        if (vitoria) pontuacao.registrarVitoria();        // +500
+        cronometro.parar();                               // congela o tempo
+        pontuacao.finalizar(cronometro.getSegundos());    // fecha a pontuação e confere o recorde
     }
 
     @Override
@@ -230,17 +256,28 @@ public class JogoTron extends JPanel implements Runnable {
 
         mutex.acquireUninterruptibly();    // a thread do jogo não altera nada enquanto desenhamos
         try {
-            g.drawImage(fundo, 0, 0, getWidth(), getHeight(), this);
+            Graphics2D g2 = (Graphics2D) g;
+
+            HudTron.desenharBarra(g2, Config.LARGURA, cronometro, pontuacao);
+
+            Graphics2D arena = (Graphics2D) g2.create();
+            arena.translate(0, HudTron.ALTURA_BARRA);   // arena desenhada abaixo da barra
+
+            arena.drawImage(fundo, 0, 0, Config.LARGURA, Config.ALTURA, this);
 
             for (Moto m : todasasmotos) {
-                m.Desenhar(g);
+                m.Desenhar(arena);
             }
 
-            explosoes.render(g);
+            explosoes.render(arena);
 
-            if (mensagem != null) {
-                desenharMensagem(g);
+            HudTron.desenharEvento(arena, Config.LARGURA, pontuacao);
+
+            if (fimdeJogo) {
+                HudTron.desenharFimDeJogo(arena, Config.LARGURA, Config.ALTURA, venceu, mensagem, cronometro, pontuacao);
             }
+
+            arena.dispose();
         } finally {
             mutex.release();
         }

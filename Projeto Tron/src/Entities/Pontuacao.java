@@ -1,4 +1,4 @@
-package Config;
+package Entities;
 
 public class Pontuacao {
     public static final int PONTOS_POR_MORTE   = 100;

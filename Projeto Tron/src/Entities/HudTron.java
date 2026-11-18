@@ -1,4 +1,4 @@
-package Config;
+package Entities;
 
 import java.awt.*;
 import java.io.InputStream;
