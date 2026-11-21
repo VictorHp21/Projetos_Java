@@ -6,12 +6,14 @@ public final class Config {
 
     // configurando para tamanho de tela 720*720
 
-    public static final int CELULA = 24;
+    public static final int CELULA = 24; // o resto das dimensões são calculadas a partir do tamanhi de celula
     public static final int COLUNAS = 30;
     public static final int LINHAS = 30;
+    // horizontal e vertical
+
 
     public static final int LARGURA = COLUNAS * CELULA;
-    public static final int ALTURA  = LINHAS * CELULA;
+    public static final int ALTURA  = LINHAS * CELULA; // 30 * 24 = 720
 
     public static final int LIMITE_MIN   = CELULA;
     public static final int LIMITE_MAX_X = LARGURA - CELULA;

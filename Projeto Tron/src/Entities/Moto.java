@@ -26,7 +26,7 @@ public class Moto {
 
     private final Color corluz;
 
-    private static final int TAMANHO_MAX_RASTRO = 20;
+    private static final int TAMANHO_MAX_RASTRO = 20; // raio de luz atrás da moto
     private boolean viva = true;
     private char direcaoPedida;
 

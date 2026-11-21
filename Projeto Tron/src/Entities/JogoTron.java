@@ -18,6 +18,9 @@ public class JogoTron extends JPanel implements Runnable {
 
     private Thread threadDoJogo;
     private volatile boolean rodando = false;
+    // volatile garante que a mudança
+    //feita por parar() seja vista pela
+    //thread do loop.
 
     private static final int INTERVALO_PASSO  = 100; // ms entre passos das motos
     private static final int INTERVALO_FRAME  = 16;  // ms entre frames (~60 fps)
@@ -64,7 +67,7 @@ public class JogoTron extends JPanel implements Runnable {
 
         iniciarPartida();
 
-        // trocar por mutex com threads POSTERIORMENTE??
+
 
 
     }
@@ -289,6 +292,7 @@ public class JogoTron extends JPanel implements Runnable {
         }
     }
 
+    // ESTE MÉTODO FOI SUBSTITUÍDO PELO desenharFimDeJogo na classe HUDtron
     private void desenharMensagem(Graphics g) {
         Graphics2D g2 = (Graphics2D) g.create();
         g2.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING,
