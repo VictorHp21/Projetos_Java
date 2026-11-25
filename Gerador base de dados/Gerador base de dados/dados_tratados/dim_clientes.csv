@@ -1,0 +1,501 @@
+﻿id_cliente;cidade;estado;data_cadastro;regiao
+1;Macapá;AP;2024-07-23 00:00:00;Norte
+2;Rondonópolis;MT;2024-12-16 00:00:00;Centro-Oeste
+3;Fortaleza;CE;2026-05-12 00:00:00;Nordeste
+4;Uberlândia;MG;2024-11-04 00:00:00;Sudeste
+5;Arapiraca;AL;2022-06-21 00:00:00;Nordeste
+6;Arapiraca;AL;2024-04-11 00:00:00;Nordeste
+7;São Paulo;SP;2026-03-19 00:00:00;Sudeste
+8;Teresina;PI;2026-06-17 00:00:00;Nordeste
+9;Caruaru;PE;2026-04-13 00:00:00;Nordeste
+10;Curitiba;PR;2026-02-27 00:00:00;Sul
+11;Goiânia;GO;2021-11-09 00:00:00;Centro-Oeste
+12;Pelotas;RS;2023-07-04 00:00:00;Sul
+13;Cruzeiro do Sul;AC;2023-06-15 00:00:00;Norte
+14;Boa Vista;RR;2022-08-11 00:00:00;Norte
+15;Curitiba;PR;2022-07-29 00:00:00;Sul
+16;Cachoeiro de Itapemirim;ES;2024-06-06 00:00:00;Sudeste
+17;Blumenau;SC;2022-08-10 00:00:00;Sul
+18;Petrópolis;RJ;2025-09-17 00:00:00;Sudeste
+19;Vitória da Conquista;BA;2023-12-27 00:00:00;Nordeste
+20;Ananindeua;PA;2023-02-28 00:00:00;Norte
+21;Santarém;PA;2024-09-01 00:00:00;Norte
+22;Brasília;DF;2026-02-11 00:00:00;Centro-Oeste
+23;Joinville;SC;2022-10-10 00:00:00;Sul
+24;Belo Horizonte;MG;2025-04-22 00:00:00;Sudeste
+25;Pelotas;RS;2025-08-27 00:00:00;Sul
+26;Porto Velho;RO;2026-04-09 00:00:00;Norte
+27;Florianópolis;SC;2024-03-23 00:00:00;Sul
+28;Vitória da Conquista;BA;2025-05-19 00:00:00;Nordeste
+29;Aracaju;SE;2026-03-09 00:00:00;Nordeste
+30;Fortaleza;CE;2024-02-09 00:00:00;Nordeste
+31;Anápolis;GO;2022-01-16 00:00:00;Centro-Oeste
+32;Arapiraca;AL;2023-12-17 00:00:00;Nordeste
+33;Aracaju;SE;2022-10-30 00:00:00;Nordeste
+34;Cachoeiro de Itapemirim;ES;2021-12-04 00:00:00;Sudeste
+35;Uberlândia;MG;2025-05-28 00:00:00;Sudeste
+36;Manaus;AM;2026-07-16 00:00:00;Norte
+37;São José dos Campos;SP;2024-12-21 00:00:00;Sudeste
+38;Goiânia;GO;2026-10-08 00:00:00;Centro-Oeste
+39;Florianópolis;SC;2025-12-12 00:00:00;Sul
+40;Joinville;SC;2022-04-04 00:00:00;Sul
+41;Vila Velha;ES;2021-11-06 00:00:00;Sudeste
+42;Santos;SP;2024-05-07 00:00:00;Sudeste
+43;Anápolis;GO;2025-03-16 00:00:00;Centro-Oeste
+44;Santa Maria;RS;2024-08-21 00:00:00;Sul
+45;Natal;RN;2026-06-09 00:00:00;Nordeste
+46;Dourados;MS;2023-10-02 00:00:00;Centro-Oeste
+47;Ananindeua;PA;2023-09-26 00:00:00;Norte
+48;Maringá;PR;2022-06-05 00:00:00;Sul
+49;Brasília;DF;2024-10-16 00:00:00;Centro-Oeste
+50;Anápolis;GO;2022-09-08 00:00:00;Centro-Oeste
+51;Pelotas;RS;2025-10-10 00:00:00;Sul
+52;Aracaju;SE;2023-09-30 00:00:00;Nordeste
+53;Feira de Santana;BA;2025-12-26 00:00:00;Nordeste
+54;Arapiraca;AL;2026-08-11 00:00:00;Nordeste
+55;Uberlândia;MG;2025-01-06 00:00:00;Sudeste
+56;Salvador;BA;2025-12-24 00:00:00;Nordeste
+57;Manaus;AM;2023-06-06 00:00:00;Norte
+58;Anápolis;GO;2025-07-25 00:00:00;Centro-Oeste
+59;Maceió;AL;2021-11-21 00:00:00;Nordeste
+60;Joinville;SC;2025-05-07 00:00:00;Sul
+61;Rio de Janeiro;RJ;2025-05-13 00:00:00;Sudeste
+62;Juazeiro do Norte;CE;2021-11-01 00:00:00;Nordeste
+63;Caruaru;PE;2023-10-02 00:00:00;Nordeste
+64;São Luís;MA;2023-09-28 00:00:00;Nordeste
+65;Petrolina;PE;2024-04-09 00:00:00;Nordeste
+66;Manaus;AM;2022-10-04 00:00:00;Norte
+67;Anápolis;GO;2023-05-19 00:00:00;Centro-Oeste
+68;Goiânia;GO;2024-09-19 00:00:00;Centro-Oeste
+69;Porto Alegre;RS;2026-09-06 00:00:00;Sul
+70;Santarém;PA;2026-09-27 00:00:00;Norte
+71;Salvador;BA;2024-03-14 00:00:00;Nordeste
+72;Montes Claros;MG;2024-04-20 00:00:00;Sudeste
+73;Uberaba;MG;2026-02-15 00:00:00;Sudeste
+74;Santos;SP;2025-08-22 00:00:00;Sudeste
+75;Porto Alegre;RS;2023-04-05 00:00:00;Sul
+76;Cruzeiro do Sul;AC;2025-08-03 00:00:00;Norte
+77;Ananindeua;PA;2022-11-16 00:00:00;Norte
+78;Ribeirão Preto;SP;2023-07-17 00:00:00;Sudeste
+79;Joinville;SC;2025-01-19 00:00:00;Sul
+80;Londrina;PR;2025-06-22 00:00:00;Sul
+81;Blumenau;SC;2021-11-07 00:00:00;Sul
+82;Arapiraca;AL;2024-09-16 00:00:00;Nordeste
+83;Porto Velho;RO;2024-05-15 00:00:00;Norte
+84;Ananindeua;PA;2024-08-14 00:00:00;Norte
+85;Petrópolis;RJ;2026-07-11 00:00:00;Sudeste
+86;Anápolis;GO;2023-04-06 00:00:00;Centro-Oeste
+87;Petrópolis;RJ;2025-10-27 00:00:00;Sudeste
+88;Belo Horizonte;MG;2022-10-09 00:00:00;Sudeste
+89;Blumenau;SC;2025-07-09 00:00:00;Sul
+90;Florianópolis;SC;2026-07-29 00:00:00;Sul
+91;Teresina;PI;2026-01-08 00:00:00;Nordeste
+92;Feira de Santana;BA;2025-02-14 00:00:00;Nordeste
+93;Salvador;BA;2022-07-19 00:00:00;Nordeste
+94;Natal;RN;2024-09-07 00:00:00;Nordeste
+95;Joinville;SC;2025-09-04 00:00:00;Sul
+96;Teresina;PI;2022-09-27 00:00:00;Nordeste
+97;Vitória;ES;2026-05-19 00:00:00;Sudeste
+98;Caruaru;PE;2023-12-30 00:00:00;Nordeste
+99;Rio Verde;GO;2026-04-18 00:00:00;Centro-Oeste
+100;Salvador;BA;2023-12-02 00:00:00;Nordeste
+101;Porto Velho;RO;2022-10-09 00:00:00;Norte
+102;Cascavel;PR;2022-06-03 00:00:00;Sul
+103;Brasília;DF;2024-10-08 00:00:00;Centro-Oeste
+104;Vitória da Conquista;BA;2025-09-30 00:00:00;Nordeste
+105;Dourados;MS;2022-06-30 00:00:00;Centro-Oeste
+106;Dourados;MS;2025-05-12 00:00:00;Centro-Oeste
+107;São Luís;MA;2021-12-16 00:00:00;Nordeste
+108;João Pessoa;PB;2022-06-15 00:00:00;Nordeste
+109;Teresina;PI;2025-05-20 00:00:00;Nordeste
+110;Blumenau;SC;2025-09-28 00:00:00;Sul
+111;São Paulo;SP;2023-09-30 00:00:00;Sudeste
+112;João Pessoa;PB;2025-04-12 00:00:00;Nordeste
+113;Dourados;MS;2026-03-15 00:00:00;Centro-Oeste
+114;Ananindeua;PA;2025-05-06 00:00:00;Norte
+115;Santa Maria;RS;2023-02-10 00:00:00;Sul
+116;Santos;SP;2023-08-19 00:00:00;Sudeste
+117;Santarém;PA;2024-01-31 00:00:00;Norte
+118;Cachoeiro de Itapemirim;ES;2026-04-19 00:00:00;Sudeste
+119;Maceió;AL;2024-04-14 00:00:00;Nordeste
+120;Ananindeua;PA;2022-02-18 00:00:00;Norte
+121;Parintins;AM;2022-10-28 00:00:00;Norte
+122;Ribeirão Preto;SP;2026-08-22 00:00:00;Sudeste
+123;Blumenau;SC;2026-08-05 00:00:00;Sul
+124;Maceió;AL;2025-05-04 00:00:00;Nordeste
+125;São José dos Campos;SP;2022-05-02 00:00:00;Sudeste
+126;São José dos Campos;SP;2025-06-03 00:00:00;Sudeste
+127;Juazeiro do Norte;CE;2024-01-12 00:00:00;Nordeste
+128;São José dos Campos;SP;2023-04-07 00:00:00;Sudeste
+129;Cuiabá;MT;2023-10-20 00:00:00;Centro-Oeste
+130;Uberaba;MG;2024-01-22 00:00:00;Sudeste
+131;Blumenau;SC;2022-06-27 00:00:00;Sul
+132;Anápolis;GO;2024-03-15 00:00:00;Centro-Oeste
+133;Ji-Paraná;RO;2024-04-12 00:00:00;Norte
+134;Juiz de Fora;MG;2026-04-03 00:00:00;Sudeste
+135;Teresina;PI;2022-10-19 00:00:00;Nordeste
+136;Parnaíba;PI;2022-11-17 00:00:00;Nordeste
+137;Goiânia;GO;2026-03-08 00:00:00;Centro-Oeste
+138;Parintins;AM;2025-09-10 00:00:00;Norte
+139;São Paulo;SP;2023-11-30 00:00:00;Sudeste
+140;Uberaba;MG;2024-01-28 00:00:00;Sudeste
+141;Boa Vista;RR;2024-09-29 00:00:00;Norte
+142;Sobral;CE;2021-11-07 00:00:00;Nordeste
+143;Petrópolis;RJ;2026-01-10 00:00:00;Sudeste
+144;Imperatriz;MA;2026-04-13 00:00:00;Nordeste
+145;Chapecó;SC;2026-04-20 00:00:00;Sul
+146;Juiz de Fora;MG;2025-06-21 00:00:00;Sudeste
+147;São Luís;MA;2022-12-24 00:00:00;Nordeste
+148;Campo Grande;MS;2022-06-05 00:00:00;Centro-Oeste
+149;Pelotas;RS;2023-02-03 00:00:00;Sul
+150;Joinville;SC;2025-10-19 00:00:00;Sul
+151;Rio de Janeiro;RJ;2022-05-04 00:00:00;Sudeste
+152;Montes Claros;MG;2026-03-23 00:00:00;Sudeste
+153;Joinville;SC;2021-12-11 00:00:00;Sul
+154;Blumenau;SC;2026-05-03 00:00:00;Sul
+155;Sinop;MT;2022-11-28 00:00:00;Centro-Oeste
+156;Aracaju;SE;2026-04-02 00:00:00;Nordeste
+157;Porto Alegre;RS;2026-02-19 00:00:00;Sul
+158;Santarém;PA;2024-04-02 00:00:00;Norte
+159;Natal;RN;2021-12-13 00:00:00;Nordeste
+160;Brasília;DF;2023-03-05 00:00:00;Centro-Oeste
+161;João Pessoa;PB;2026-07-25 00:00:00;Nordeste
+162;Teresina;PI;2024-05-05 00:00:00;Nordeste
+163;Belém;PA;2024-08-28 00:00:00;Norte
+164;Boa Vista;RR;2022-06-23 00:00:00;Norte
+165;Florianópolis;SC;2022-10-07 00:00:00;Sul
+166;Petrolina;PE;2026-05-31 00:00:00;Nordeste
+167;Petrópolis;RJ;2023-03-24 00:00:00;Sudeste
+168;Palmas;TO;2026-06-04 00:00:00;Norte
+169;Curitiba;PR;2022-03-26 00:00:00;Sul
+170;Maringá;PR;2023-03-10 00:00:00;Sul
+171;Campinas;SP;2023-04-05 00:00:00;Sudeste
+172;Montes Claros;MG;2021-12-16 00:00:00;Sudeste
+173;Ananindeua;PA;2023-11-07 00:00:00;Norte
+174;Juazeiro do Norte;CE;2026-06-23 00:00:00;Nordeste
+175;Campo Grande;MS;2022-03-20 00:00:00;Centro-Oeste
+176;Goiânia;GO;2026-07-08 00:00:00;Centro-Oeste
+177;Rondonópolis;MT;2026-01-20 00:00:00;Centro-Oeste
+178;Rio Verde;GO;2025-07-16 00:00:00;Centro-Oeste
+179;Ananindeua;PA;2022-06-24 00:00:00;Norte
+180;Porto Alegre;RS;2022-01-28 00:00:00;Sul
+181;Ji-Paraná;RO;2026-06-08 00:00:00;Norte
+182;Sinop;MT;2023-04-06 00:00:00;Centro-Oeste
+183;Gurupi;TO;2024-02-25 00:00:00;Norte
+184;Macapá;AP;2026-02-11 00:00:00;Norte
+185;Sinop;MT;2024-05-18 00:00:00;Centro-Oeste
+186;Palmas;TO;2026-01-06 00:00:00;Norte
+187;Belo Horizonte;MG;2021-11-03 00:00:00;Sudeste
+188;Goiânia;GO;2025-03-24 00:00:00;Centro-Oeste
+189;Dourados;MS;2022-12-28 00:00:00;Centro-Oeste
+190;Cuiabá;MT;2025-08-16 00:00:00;Centro-Oeste
+191;Chapecó;SC;2022-06-17 00:00:00;Sul
+192;Caruaru;PE;2026-09-23 00:00:00;Nordeste
+193;São José dos Campos;SP;2024-04-09 00:00:00;Sudeste
+194;Rio Verde;GO;2021-12-17 00:00:00;Centro-Oeste
+195;Vitória da Conquista;BA;2025-01-02 00:00:00;Nordeste
+196;Aracaju;SE;2024-04-14 00:00:00;Nordeste
+197;Maceió;AL;2022-10-29 00:00:00;Nordeste
+198;Porto Velho;RO;2022-12-05 00:00:00;Norte
+199;Aracaju;SE;2025-03-16 00:00:00;Nordeste
+200;Sinop;MT;2023-02-19 00:00:00;Centro-Oeste
+201;Palmas;TO;2025-11-19 00:00:00;Norte
+202;Manaus;AM;2024-08-12 00:00:00;Norte
+203;Florianópolis;SC;2024-02-23 00:00:00;Sul
+204;Niterói;RJ;2023-01-05 00:00:00;Sudeste
+205;Juiz de Fora;MG;2026-08-18 00:00:00;Sudeste
+206;Gurupi;TO;2024-02-17 00:00:00;Norte
+207;Manaus;AM;2024-09-30 00:00:00;Norte
+208;Aracaju;SE;2023-12-08 00:00:00;Nordeste
+209;Feira de Santana;BA;2023-07-11 00:00:00;Nordeste
+210;Belém;PA;2021-11-29 00:00:00;Norte
+211;Cuiabá;MT;2025-11-16 00:00:00;Centro-Oeste
+212;Campina Grande;PB;2026-04-11 00:00:00;Nordeste
+213;Imperatriz;MA;2026-01-18 00:00:00;Nordeste
+214;Gurupi;TO;2022-06-13 00:00:00;Norte
+215;Belém;PA;2024-08-13 00:00:00;Norte
+216;Sinop;MT;2025-12-27 00:00:00;Centro-Oeste
+217;Santarém;PA;2025-03-20 00:00:00;Norte
+218;Maringá;PR;2026-06-16 00:00:00;Sul
+219;Niterói;RJ;2023-03-09 00:00:00;Sudeste
+220;Cuiabá;MT;2022-11-07 00:00:00;Centro-Oeste
+221;Salvador;BA;2022-02-08 00:00:00;Nordeste
+222;Cascavel;PR;2024-07-26 00:00:00;Sul
+223;Blumenau;SC;2023-02-27 00:00:00;Sul
+224;Santa Maria;RS;2022-07-26 00:00:00;Sul
+225;Joinville;SC;2025-07-03 00:00:00;Sul
+226;Salvador;BA;2025-02-11 00:00:00;Nordeste
+227;Imperatriz;MA;2023-09-16 00:00:00;Nordeste
+228;Vitória;ES;2024-06-09 00:00:00;Sudeste
+229;Londrina;PR;2022-12-07 00:00:00;Sul
+230;Parnaíba;PI;2024-03-18 00:00:00;Nordeste
+231;Chapecó;SC;2025-05-08 00:00:00;Sul
+232;Palmas;TO;2022-05-01 00:00:00;Norte
+233;Uberaba;MG;2024-11-06 00:00:00;Sudeste
+234;Vitória;ES;2023-04-14 00:00:00;Sudeste
+235;Teresina;PI;2024-06-12 00:00:00;Nordeste
+236;Rio Branco;AC;2025-02-28 00:00:00;Norte
+237;Imperatriz;MA;2022-06-22 00:00:00;Nordeste
+238;Juiz de Fora;MG;2025-07-21 00:00:00;Sudeste
+239;Caruaru;PE;2022-05-11 00:00:00;Nordeste
+240;Maceió;AL;2022-12-20 00:00:00;Nordeste
+241;Aracaju;SE;2024-05-25 00:00:00;Nordeste
+242;Uberaba;MG;2022-09-13 00:00:00;Sudeste
+243;Pelotas;RS;2022-05-18 00:00:00;Sul
+244;Ananindeua;PA;2025-07-21 00:00:00;Norte
+245;Belo Horizonte;MG;2025-11-30 00:00:00;Sudeste
+246;Rio Branco;AC;2021-11-22 00:00:00;Norte
+247;Blumenau;SC;2023-07-10 00:00:00;Sul
+248;Londrina;PR;2026-05-09 00:00:00;Sul
+249;Ribeirão Preto;SP;2022-10-19 00:00:00;Sudeste
+250;Ribeirão Preto;SP;2026-07-31 00:00:00;Sudeste
+251;Maceió;AL;2021-12-16 00:00:00;Nordeste
+252;Santa Maria;RS;2023-12-31 00:00:00;Sul
+253;Cascavel;PR;2026-07-24 00:00:00;Sul
+254;Macapá;AP;2022-12-29 00:00:00;Norte
+255;Florianópolis;SC;2025-02-16 00:00:00;Sul
+256;Petrópolis;RJ;2022-11-27 00:00:00;Sudeste
+257;Aracaju;SE;2025-10-29 00:00:00;Nordeste
+258;Sobral;CE;2024-11-24 00:00:00;Nordeste
+259;Caxias do Sul;RS;2022-11-03 00:00:00;Sul
+260;São José dos Campos;SP;2024-01-14 00:00:00;Sudeste
+261;Cascavel;PR;2022-04-04 00:00:00;Sul
+262;Anápolis;GO;2023-06-04 00:00:00;Centro-Oeste
+263;Juiz de Fora;MG;2022-05-16 00:00:00;Sudeste
+264;Londrina;PR;2026-10-05 00:00:00;Sul
+265;Natal;RN;2024-06-14 00:00:00;Nordeste
+266;São Paulo;SP;2026-01-31 00:00:00;Sudeste
+267;Londrina;PR;2025-05-25 00:00:00;Sul
+268;Imperatriz;MA;2024-11-06 00:00:00;Nordeste
+269;Uberaba;MG;2023-10-06 00:00:00;Sudeste
+270;Cachoeiro de Itapemirim;ES;2024-04-15 00:00:00;Sudeste
+271;Sobral;CE;2024-03-30 00:00:00;Nordeste
+272;Porto Alegre;RS;2026-01-31 00:00:00;Sul
+273;Gurupi;TO;2026-08-24 00:00:00;Norte
+274;Niterói;RJ;2024-05-05 00:00:00;Sudeste
+275;Cruzeiro do Sul;AC;2025-07-17 00:00:00;Norte
+276;Caruaru;PE;2025-06-28 00:00:00;Nordeste
+277;Rio Branco;AC;2025-07-12 00:00:00;Norte
+278;Santos;SP;2025-01-15 00:00:00;Sudeste
+279;Ji-Paraná;RO;2024-04-02 00:00:00;Norte
+280;Cuiabá;MT;2024-06-05 00:00:00;Centro-Oeste
+281;Belém;PA;2026-09-19 00:00:00;Norte
+282;Aracaju;SE;2023-08-08 00:00:00;Nordeste
+283;João Pessoa;PB;2023-07-09 00:00:00;Nordeste
+284;João Pessoa;PB;2024-05-30 00:00:00;Nordeste
+285;Anápolis;GO;2024-02-17 00:00:00;Centro-Oeste
+286;João Pessoa;PB;2026-04-10 00:00:00;Nordeste
+287;Gurupi;TO;2026-06-08 00:00:00;Norte
+288;São Paulo;SP;2026-07-08 00:00:00;Sudeste
+289;Santarém;PA;2022-06-09 00:00:00;Norte
+290;Manaus;AM;2026-02-26 00:00:00;Norte
+291;Juiz de Fora;MG;2025-05-03 00:00:00;Sudeste
+292;Dourados;MS;2026-10-20 00:00:00;Centro-Oeste
+293;Ananindeua;PA;2026-04-02 00:00:00;Norte
+294;Aracaju;SE;2025-06-17 00:00:00;Nordeste
+295;Santa Maria;RS;2025-10-17 00:00:00;Sul
+296;Cachoeiro de Itapemirim;ES;2024-08-20 00:00:00;Sudeste
+297;Vila Velha;ES;2026-01-28 00:00:00;Sudeste
+298;Joinville;SC;2023-11-14 00:00:00;Sul
+299;João Pessoa;PB;2024-05-15 00:00:00;Nordeste
+300;Ji-Paraná;RO;2026-06-26 00:00:00;Norte
+301;Aracaju;SE;2026-09-13 00:00:00;Nordeste
+302;Vila Velha;ES;2022-07-08 00:00:00;Sudeste
+303;Juazeiro do Norte;CE;2023-04-25 00:00:00;Nordeste
+304;Arapiraca;AL;2025-02-13 00:00:00;Nordeste
+305;Joinville;SC;2023-12-26 00:00:00;Sul
+306;Belém;PA;2023-05-22 00:00:00;Norte
+307;Belém;PA;2026-01-18 00:00:00;Norte
+308;São José dos Campos;SP;2022-01-31 00:00:00;Sudeste
+309;Chapecó;SC;2025-04-11 00:00:00;Sul
+310;Recife;PE;2022-10-07 00:00:00;Nordeste
+311;Juiz de Fora;MG;2023-03-21 00:00:00;Sudeste
+312;São José dos Campos;SP;2026-03-03 00:00:00;Sudeste
+313;Petrópolis;RJ;2021-12-27 00:00:00;Sudeste
+314;Goiânia;GO;2025-01-25 00:00:00;Centro-Oeste
+315;Aracaju;SE;2026-04-30 00:00:00;Nordeste
+316;Parnaíba;PI;2022-09-20 00:00:00;Nordeste
+317;Fortaleza;CE;2023-05-29 00:00:00;Nordeste
+318;Arapiraca;AL;2024-04-30 00:00:00;Nordeste
+319;Teresina;PI;2026-07-11 00:00:00;Nordeste
+320;Boa Vista;RR;2025-01-20 00:00:00;Norte
+321;Londrina;PR;2022-08-18 00:00:00;Sul
+322;Uberaba;MG;2024-09-26 00:00:00;Sudeste
+323;Chapecó;SC;2023-06-19 00:00:00;Sul
+324;Juiz de Fora;MG;2025-05-22 00:00:00;Sudeste
+325;Cuiabá;MT;2024-03-09 00:00:00;Centro-Oeste
+326;Rio Branco;AC;2021-11-28 00:00:00;Norte
+327;Campinas;SP;2024-06-03 00:00:00;Sudeste
+328;Parnaíba;PI;2025-12-11 00:00:00;Nordeste
+329;Uberlândia;MG;2026-02-19 00:00:00;Sudeste
+330;Goiânia;GO;2023-06-23 00:00:00;Centro-Oeste
+331;Vitória da Conquista;BA;2024-12-27 00:00:00;Nordeste
+332;Santarém;PA;2025-11-19 00:00:00;Norte
+333;Natal;RN;2023-08-06 00:00:00;Nordeste
+334;Chapecó;SC;2023-10-23 00:00:00;Sul
+335;Maringá;PR;2026-04-21 00:00:00;Sul
+336;Cachoeiro de Itapemirim;ES;2022-05-13 00:00:00;Sudeste
+337;Petrolina;PE;2024-08-03 00:00:00;Nordeste
+338;Santarém;PA;2022-10-29 00:00:00;Norte
+339;Londrina;PR;2026-10-26 00:00:00;Sul
+340;Maceió;AL;2023-10-18 00:00:00;Nordeste
+341;João Pessoa;PB;2024-03-03 00:00:00;Nordeste
+342;Parnaíba;PI;2023-09-29 00:00:00;Nordeste
+343;Joinville;SC;2022-08-11 00:00:00;Sul
+344;Belém;PA;2021-11-23 00:00:00;Norte
+345;Palmas;TO;2023-09-14 00:00:00;Norte
+346;Maceió;AL;2025-08-26 00:00:00;Nordeste
+347;Recife;PE;2022-01-26 00:00:00;Nordeste
+348;Sobral;CE;2025-05-11 00:00:00;Nordeste
+349;Palmas;TO;2025-02-04 00:00:00;Norte
+350;Salvador;BA;2023-08-27 00:00:00;Nordeste
+351;Ananindeua;PA;2024-09-13 00:00:00;Norte
+352;Parnaíba;PI;2023-09-04 00:00:00;Nordeste
+353;Goiânia;GO;2022-10-04 00:00:00;Centro-Oeste
+354;Imperatriz;MA;2023-05-14 00:00:00;Nordeste
+355;Juazeiro do Norte;CE;2023-12-06 00:00:00;Nordeste
+356;Palmas;TO;2022-12-20 00:00:00;Norte
+357;Campina Grande;PB;2024-07-04 00:00:00;Nordeste
+358;Cachoeiro de Itapemirim;ES;2024-06-14 00:00:00;Sudeste
+359;Arapiraca;AL;2025-10-04 00:00:00;Nordeste
+360;Aracaju;SE;2023-07-26 00:00:00;Nordeste
+361;Arapiraca;AL;2024-10-03 00:00:00;Nordeste
+362;Rio de Janeiro;RJ;2024-07-13 00:00:00;Sudeste
+363;Ananindeua;PA;2025-05-16 00:00:00;Norte
+364;Rio de Janeiro;RJ;2025-08-28 00:00:00;Sudeste
+365;Sobral;CE;2022-07-10 00:00:00;Nordeste
+366;Vila Velha;ES;2022-10-20 00:00:00;Sudeste
+367;Rio de Janeiro;RJ;2026-04-22 00:00:00;Sudeste
+368;Anápolis;GO;2022-10-29 00:00:00;Centro-Oeste
+369;Anápolis;GO;2025-04-12 00:00:00;Centro-Oeste
+370;Chapecó;SC;2022-09-15 00:00:00;Sul
+371;Cascavel;PR;2025-10-09 00:00:00;Sul
+372;Recife;PE;2022-05-27 00:00:00;Nordeste
+373;Londrina;PR;2024-01-22 00:00:00;Sul
+374;Gurupi;TO;2021-12-15 00:00:00;Norte
+375;Mossoró;RN;2025-12-28 00:00:00;Nordeste
+376;Curitiba;PR;2023-07-21 00:00:00;Sul
+377;Salvador;BA;2024-04-28 00:00:00;Nordeste
+378;Macapá;AP;2022-01-23 00:00:00;Norte
+379;Belém;PA;2023-11-24 00:00:00;Norte
+380;Cachoeiro de Itapemirim;ES;2025-01-04 00:00:00;Sudeste
+381;Macapá;AP;2024-10-14 00:00:00;Norte
+382;São Paulo;SP;2022-12-09 00:00:00;Sudeste
+383;Vitória da Conquista;BA;2024-01-27 00:00:00;Nordeste
+384;Campo Grande;MS;2022-10-28 00:00:00;Centro-Oeste
+385;Parnaíba;PI;2022-11-11 00:00:00;Nordeste
+386;Sobral;CE;2023-03-12 00:00:00;Nordeste
+387;Belo Horizonte;MG;2024-12-11 00:00:00;Sudeste
+388;Blumenau;SC;2024-01-24 00:00:00;Sul
+389;Cachoeiro de Itapemirim;ES;2022-02-16 00:00:00;Sudeste
+390;Belém;PA;2024-05-07 00:00:00;Norte
+391;Parnaíba;PI;2024-03-30 00:00:00;Nordeste
+392;Blumenau;SC;2024-10-18 00:00:00;Sul
+393;Campinas;SP;2024-12-23 00:00:00;Sudeste
+394;Aracaju;SE;2025-01-27 00:00:00;Nordeste
+395;Feira de Santana;BA;2021-11-01 00:00:00;Nordeste
+396;Feira de Santana;BA;2026-10-04 00:00:00;Nordeste
+397;Rondonópolis;MT;2026-01-08 00:00:00;Centro-Oeste
+398;Goiânia;GO;2022-09-10 00:00:00;Centro-Oeste
+399;Recife;PE;2022-03-10 00:00:00;Nordeste
+400;Montes Claros;MG;2024-05-21 00:00:00;Sudeste
+401;Florianópolis;SC;2025-06-09 00:00:00;Sul
+402;Juazeiro do Norte;CE;2022-11-16 00:00:00;Nordeste
+403;Campina Grande;PB;2025-12-18 00:00:00;Nordeste
+404;Salvador;BA;2024-07-19 00:00:00;Nordeste
+405;Dourados;MS;2023-04-21 00:00:00;Centro-Oeste
+406;Dourados;MS;2022-01-26 00:00:00;Centro-Oeste
+407;Dourados;MS;2025-11-01 00:00:00;Centro-Oeste
+408;Pelotas;RS;2025-04-30 00:00:00;Sul
+409;Pelotas;RS;2024-04-13 00:00:00;Sul
+410;Rio de Janeiro;RJ;2026-04-02 00:00:00;Sudeste
+411;Fortaleza;CE;2025-05-11 00:00:00;Nordeste
+412;Cachoeiro de Itapemirim;ES;2024-10-25 00:00:00;Sudeste
+413;Belo Horizonte;MG;2021-11-19 00:00:00;Sudeste
+414;Ribeirão Preto;SP;2025-05-03 00:00:00;Sudeste
+415;Uberlândia;MG;2025-06-25 00:00:00;Sudeste
+416;Parnaíba;PI;2025-01-16 00:00:00;Nordeste
+417;Petrolina;PE;2023-12-23 00:00:00;Nordeste
+418;Pelotas;RS;2024-11-20 00:00:00;Sul
+419;Petrolina;PE;2026-10-28 00:00:00;Nordeste
+420;Blumenau;SC;2026-08-02 00:00:00;Sul
+421;Cuiabá;MT;2024-04-03 00:00:00;Centro-Oeste
+422;Cruzeiro do Sul;AC;2025-02-17 00:00:00;Norte
+423;Cachoeiro de Itapemirim;ES;2026-05-12 00:00:00;Sudeste
+424;Belo Horizonte;MG;2022-09-16 00:00:00;Sudeste
+425;Uberlândia;MG;2026-03-15 00:00:00;Sudeste
+426;Campinas;SP;2023-05-03 00:00:00;Sudeste
+427;Vila Velha;ES;2023-07-14 00:00:00;Sudeste
+428;Santa Maria;RS;2024-05-08 00:00:00;Sul
+429;Vila Velha;ES;2025-07-07 00:00:00;Sudeste
+430;Imperatriz;MA;2026-02-04 00:00:00;Nordeste
+431;Uberaba;MG;2023-03-29 00:00:00;Sudeste
+432;Ribeirão Preto;SP;2025-04-19 00:00:00;Sudeste
+433;Santa Maria;RS;2026-06-16 00:00:00;Sul
+434;Cachoeiro de Itapemirim;ES;2023-05-13 00:00:00;Sudeste
+435;Uberaba;MG;2023-05-02 00:00:00;Sudeste
+436;Ribeirão Preto;SP;2023-07-23 00:00:00;Sudeste
+437;Brasília;DF;2026-06-13 00:00:00;Centro-Oeste
+438;Boa Vista;RR;2026-09-19 00:00:00;Norte
+439;Teresina;PI;2022-06-17 00:00:00;Nordeste
+440;Campo Grande;MS;2025-09-09 00:00:00;Centro-Oeste
+441;Maringá;PR;2024-12-20 00:00:00;Sul
+442;Joinville;SC;2026-01-16 00:00:00;Sul
+443;Caruaru;PE;2023-11-21 00:00:00;Nordeste
+444;Belém;PA;2022-01-17 00:00:00;Norte
+445;Campinas;SP;2023-07-26 00:00:00;Sudeste
+446;Ananindeua;PA;2023-08-14 00:00:00;Norte
+447;Belo Horizonte;MG;2021-12-10 00:00:00;Sudeste
+448;Cruzeiro do Sul;AC;2025-08-03 00:00:00;Norte
+449;São José dos Campos;SP;2023-12-16 00:00:00;Sudeste
+450;Cachoeiro de Itapemirim;ES;2025-08-31 00:00:00;Sudeste
+451;Sinop;MT;2025-06-13 00:00:00;Centro-Oeste
+452;Montes Claros;MG;2023-03-02 00:00:00;Sudeste
+453;Cruzeiro do Sul;AC;2021-12-23 00:00:00;Norte
+454;Vila Velha;ES;2023-07-02 00:00:00;Sudeste
+455;Blumenau;SC;2023-06-04 00:00:00;Sul
+456;Fortaleza;CE;2022-06-15 00:00:00;Nordeste
+457;Gurupi;TO;2024-05-04 00:00:00;Norte
+458;Caruaru;PE;2024-01-30 00:00:00;Nordeste
+459;Imperatriz;MA;2025-06-26 00:00:00;Nordeste
+460;Ananindeua;PA;2025-07-19 00:00:00;Norte
+461;Rio Verde;GO;2024-04-23 00:00:00;Centro-Oeste
+462;Londrina;PR;2022-04-27 00:00:00;Sul
+463;Parintins;AM;2021-12-08 00:00:00;Norte
+464;Curitiba;PR;2024-07-29 00:00:00;Sul
+465;Chapecó;SC;2024-03-30 00:00:00;Sul
+466;Mossoró;RN;2026-03-02 00:00:00;Nordeste
+467;Aracaju;SE;2026-02-16 00:00:00;Nordeste
+468;Blumenau;SC;2025-04-09 00:00:00;Sul
+469;Gurupi;TO;2022-03-23 00:00:00;Norte
+470;Feira de Santana;BA;2022-02-07 00:00:00;Nordeste
+471;Goiânia;GO;2024-02-23 00:00:00;Centro-Oeste
+472;Boa Vista;RR;2023-09-16 00:00:00;Norte
+473;Palmas;TO;2023-02-25 00:00:00;Norte
+474;Sinop;MT;2025-12-22 00:00:00;Centro-Oeste
+475;Parnaíba;PI;2026-05-22 00:00:00;Nordeste
+476;Parnaíba;PI;2022-04-25 00:00:00;Nordeste
+477;Boa Vista;RR;2024-08-26 00:00:00;Norte
+478;Juazeiro do Norte;CE;2023-02-17 00:00:00;Nordeste
+479;Ji-Paraná;RO;2021-11-06 00:00:00;Norte
+480;Rondonópolis;MT;2024-06-13 00:00:00;Centro-Oeste
+481;Porto Alegre;RS;2024-10-07 00:00:00;Sul
+482;Santa Maria;RS;2025-02-23 00:00:00;Sul
+483;Macapá;AP;2025-04-10 00:00:00;Norte
+484;Florianópolis;SC;2022-03-27 00:00:00;Sul
+485;Petrópolis;RJ;2026-05-01 00:00:00;Sudeste
+486;Caxias do Sul;RS;2025-11-08 00:00:00;Sul
+487;Campo Grande;MS;2025-07-02 00:00:00;Centro-Oeste
+488;Rio Verde;GO;2023-07-16 00:00:00;Centro-Oeste
+489;Maringá;PR;2023-08-10 00:00:00;Sul
+490;São Luís;MA;2024-12-05 00:00:00;Nordeste
+491;Blumenau;SC;2023-09-01 00:00:00;Sul
+492;Recife;PE;2025-01-07 00:00:00;Nordeste
+493;Palmas;TO;2022-01-06 00:00:00;Norte
+494;Campinas;SP;2022-12-21 00:00:00;Sudeste
+495;Juazeiro do Norte;CE;2023-08-03 00:00:00;Nordeste
+496;Santa Maria;RS;2024-12-12 00:00:00;Sul
+497;Belém;PA;2024-05-08 00:00:00;Norte
+498;Vitória;ES;2026-05-14 00:00:00;Sudeste
+499;Cascavel;PR;2024-04-25 00:00:00;Sul
+500;Parintins;AM;2024-08-13 00:00:00;Norte

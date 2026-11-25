@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dashboard de Vendas — TechNova Informática</title>
+<style>
+  :root {
+    --bg: #f4f6f9; --card: #ffffff; --fg: #1d2733; --muted: #64707d; --line: #e2e6eb;
+    --azul: #2a6fdb; --laranja: #e07b39; --cinza: #a3adb8; --verde: #2e9e6b; --amarelo: #e0b339; --vermelho: #d64545;
+    --raio: 10px;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: "Segoe UI", system-ui, -apple-system, Roboto, sans-serif; background: var(--bg); color: var(--fg); }
+  header { background: #13243d; color: #fff; padding: 18px 28px 14px; }
+  header h1 { margin: 0; font-size: 22px; font-weight: 600; }
+  header p { margin: 4px 0 0; color: #b9c6d8; font-size: 13px; }
+  .filtros { position: sticky; top: 0; z-index: 10; background: #fff; border-bottom: 1px solid var(--line);
+             padding: 10px 28px; display: flex; flex-wrap: wrap; gap: 10px 16px; align-items: end; }
+  .filtros label { display: flex; flex-direction: column; font-size: 11px; color: var(--muted); gap: 3px; }
+  .filtros select { font: inherit; font-size: 13px; padding: 5px 8px; border: 1px solid #cfd6de; border-radius: 6px;
+                    background: #fff; min-width: 120px; color: var(--fg); }
+  .filtros select.ativo { border-color: var(--azul); background: #eef4ff; }
+  .filtros button { font: inherit; font-size: 13px; padding: 6px 12px; border-radius: 6px; border: 1px solid #cfd6de;
+                    background: #fff; cursor: pointer; }
+  .filtros button:hover { background: #f0f2f5; }
+  .resumo-filtro { font-size: 12px; color: var(--muted); margin-left: auto; }
+  main { padding: 18px 28px 40px; max-width: 1400px; margin: 0 auto; }
+  .kpis { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 18px; }
+  @media (max-width: 760px) { .kpis { grid-template-columns: repeat(2, 1fr); } }
+  .kpi { background: var(--card); border-radius: var(--raio); padding: 12px 14px; border: 1px solid var(--line); }
+  .kpi .rot { font-size: 12px; color: var(--muted); }
+  .kpi .val { white-space: nowrap; font-size: 24px; font-weight: 600; margin-top: 4px; font-variant-numeric: tabular-nums; }
+  .kpi .sub { font-size: 11px; color: var(--muted); margin-top: 2px; }
+  nav { display: flex; gap: 4px; border-bottom: 1px solid var(--line); margin-bottom: 16px; flex-wrap: wrap; }
+  nav button { font: inherit; font-size: 14px; background: none; border: none; padding: 9px 14px; cursor: pointer;
+               color: var(--muted); border-bottom: 3px solid transparent; }
+  nav button.ativa { color: var(--azul); border-bottom-color: var(--azul); font-weight: 600; }
+  .grade { display: grid; grid-template-columns: repeat(auto-fit, minmax(460px, 1fr)); gap: 16px; }
+  .card { background: var(--card); border-radius: var(--raio); padding: 14px 16px; border: 1px solid var(--line); min-width: 0; }
+  .card.largo { grid-column: 1 / -1; }
+  .card h2 { font-size: 15px; margin: 0 0 2px; font-weight: 600; }
+  .card .nota { font-size: 12px; color: var(--muted); margin: 0 0 10px; }
+  .grafico { position: relative; width: 100%; }
+  .grafico svg { display: block; width: 100%; overflow: visible; }
+  .grafico text { font-size: 12px; fill: var(--muted); }
+  .grafico text.rotulo { fill: var(--fg); }
+  .grafico text.valor { paint-order: stroke; stroke: #fff; stroke-width: 4px; stroke-linejoin: round; }
+  .grafico .clicavel { cursor: pointer; }
+  .grafico .clicavel:hover rect.barra { opacity: .8; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; font-variant-numeric: tabular-nums; }
+  th { text-align: left; color: var(--muted); font-weight: 600; font-size: 12px; border-bottom: 1px solid var(--line); padding: 6px 8px; }
+  td { border-bottom: 1px solid #f0f2f5; padding: 6px 8px; }
+  td.n, th.n { text-align: right; }
+  .alerta { color: var(--vermelho); font-weight: 600; }
+  .tabela-rolagem { overflow-x: auto; }
+  #tooltip { position: fixed; pointer-events: none; background: #13243d; color: #fff; font-size: 12px; padding: 7px 10px;
+             border-radius: 6px; z-index: 50; display: none; white-space: nowrap; box-shadow: 0 4px 14px rgba(0,0,0,.2); }
+  #tooltip b { display: block; margin-bottom: 2px; }
+  .lista-insights { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+  .lista-insights li { border-left: 4px solid var(--azul); padding: 6px 12px; background: #f7f9fc; border-radius: 0 6px 6px 0; }
+  .lista-insights.rec li { border-left-color: var(--verde); }
+  .lista-insights b { display: block; margin-bottom: 2px; }
+  .lista-insights span { font-size: 13px; color: #3b4652; }
+  .vazio { color: var(--muted); font-size: 13px; padding: 20px 0; text-align: center; }
+  footer { font-size: 12px; color: var(--muted); padding: 0 28px 28px; max-width: 1400px; margin: 0 auto; line-height: 1.5; }
+  [hidden] { display: none !important; }
+  @media (max-width: 600px) { .grade { grid-template-columns: 1fr; } main, .filtros, header { padding-left: 14px; padding-right: 14px; } }
+</style>
+</head>
+<body>
+<header>
+  <h1>Dashboard de Vendas — TechNova Informática</h1>
+  <p id="subtitulo"></p>
+</header>
+
+<div class="filtros" id="filtros">
+  <label>De <select id="f-de"></select></label>
+  <label>Até <select id="f-ate"></select></label>
+  <label>Canal <select id="f-canal"></select></label>
+  <label>Região <select id="f-regiao"></select></label>
+  <label>Categoria <select id="f-cat"></select></label>
+  <label>Pagamento <select id="f-pag"></select></label>
+  <button id="limpar" type="button">Limpar filtros</button>
+  <span class="resumo-filtro" id="resumo-filtro"></span>
+</div>
+
+<main>
+  <section class="kpis" id="kpis"></section>
+
+  <nav id="abas">
+    <button data-aba="geral" class="ativa">Visão geral</button>
+    <button data-aba="produtos">Produtos</button>
+    <button data-aba="clientes">Clientes</button>
+    <button data-aba="previsao">Previsão</button>
+    <button data-aba="insights">Insights e recomendações</button>
+  </nav>
+
+  <section data-painel="geral" class="grade">
+    <div class="card largo"><h2>Receita mensal</h2>
+      <p class="nota">Vendas concluídas. Laranja: novembro e dezembro. Cinza: out/2026, com pedidos ainda pendentes.</p>
+      <div class="grafico" id="g-mensal"></div></div>
+    <div class="card"><h2>Receita por canal</h2><p class="nota">Clique numa barra para filtrar o canal.</p>
+      <div class="grafico" id="g-canal"></div></div>
+    <div class="card"><h2>Taxa de cancelamento por forma de pagamento</h2>
+      <p class="nota">Linha pontilhada = taxa geral. Clique para filtrar.</p>
+      <div class="grafico" id="g-pag"></div></div>
+    <div class="card"><h2>Receita por região do cliente</h2><p class="nota">Clique para filtrar a região.</p>
+      <div class="grafico" id="g-regiao"></div></div>
+    <div class="card"><h2>Ranking de vendedores</h2><p class="nota">Top 10 em receita no filtro atual.</p>
+      <div class="tabela-rolagem"><table id="t-vendedores"></table></div></div>
+  </section>
+
+  <section data-painel="produtos" class="grade" hidden>
+    <div class="card"><h2>Receita por categoria</h2><p class="nota">Clique para filtrar a categoria.</p>
+      <div class="grafico" id="g-cat-receita"></div></div>
+    <div class="card"><h2>Margem bruta por categoria</h2><p class="nota">Laranja: mais de 5 pontos abaixo da margem do filtro (linha).</p>
+      <div class="grafico" id="g-cat-margem"></div></div>
+    <div class="card"><h2>Top 10 produtos</h2><p class="nota">Por receita, no filtro atual.</p>
+      <div class="tabela-rolagem"><table id="t-produtos"></table></div></div>
+    <div class="card"><h2>Estoque crítico</h2>
+      <p class="nota">Cobertura = estoque ÷ venda média mensal (24 meses). Abaixo de 1 mês = risco de faltar. Não muda com os filtros.</p>
+      <div class="tabela-rolagem"><table id="t-estoque"></table></div></div>
+  </section>
+
+  <section data-painel="clientes" class="grade" hidden>
+    <div class="card"><h2>Segmentos de clientes (RFM + k-means)</h2>
+      <p class="nota">Calculado no período completo; não muda com os filtros.</p>
+      <div class="grafico" id="g-rfm"></div>
+      <div class="tabela-rolagem"><table id="t-rfm"></table></div></div>
+    <div class="card"><h2>Concentração da receita nos clientes</h2>
+      <p class="nota">Receita acumulada, do cliente que mais compra ao que menos compra, no filtro atual.</p>
+      <div class="grafico" id="g-pareto"></div></div>
+  </section>
+
+  <section data-painel="previsao" class="grade" hidden>
+    <div class="card largo"><h2>Previsão da receita mensal</h2>
+      <p class="nota">Modelo de tendência + sazonalidade, treinado até set/2026. Faixa = intervalo de 95%. Não muda com os filtros.</p>
+      <div class="grafico" id="g-previsao"></div></div>
+    <div class="card"><h2>Valores previstos</h2><div class="tabela-rolagem"><table id="t-previsao"></table></div></div>
+  </section>
+
+  <section data-painel="insights" class="grade" hidden>
+    <div class="card"><h2>Insights</h2><p class="nota">Período completo (nov/2024 a out/2026).</p>
+      <ul class="lista-insights" id="l-insights"></ul></div>
+    <div class="card"><h2>Recomendações</h2><p class="nota">Ações sugeridas a partir dos insights.</p>
+      <ul class="lista-insights rec" id="l-rec"></ul></div>
+  </section>
+</main>
+
+<footer id="rodape"></footer>
+<div id="tooltip"></div>
+
+<script>
+const D = /*__DADOS__*/null;
+
+// ---------------------------------------------------------------- formatação
+const fmtBRL = new Intl.NumberFormat("pt-BR", { style: "currency", currency: "BRL", maximumFractionDigits: 0 });
+const fmtNum = new Intl.NumberFormat("pt-BR", { maximumFractionDigits: 0 });
+const fmt1 = new Intl.NumberFormat("pt-BR", { minimumFractionDigits: 1, maximumFractionDigits: 1 });
+const fmt2 = new Intl.NumberFormat("pt-BR", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+const brl = v => fmtBRL.format(v);
+const brlCurto = v => Math.abs(v) >= 1e6 ? "R$ " + fmt1.format(v / 1e6) + " mi" : Math.abs(v) >= 1e3 ? "R$ " + fmtNum.format(v / 1e3) + " mil" : brl(v);
+const pct = v => fmt1.format(v) + "%";
+const NOMES_MES = ["jan","fev","mar","abr","mai","jun","jul","ago","set","out","nov","dez"];
+const mesCurto = m => NOMES_MES[+m.slice(5) - 1] + "/" + m.slice(2, 4);
+
+// ---------------------------------------------------------------- filtros
+const F = { de: 0, ate: D.meses.length - 1, canal: -1, regiao: -1, cat: -1, pag: -1 };
+
+function preencher(id, opcoes, todos) {
+  const sel = document.getElementById(id);
+  sel.replaceChildren(...(todos ? [new Option(todos, -1)] : []), ...opcoes.map((t, i) => new Option(t, i)));
+}
+preencher("f-de", D.meses.map(mesCurto));
+preencher("f-ate", D.meses.map(mesCurto));
+preencher("f-canal", D.canais, "Todos");
+preencher("f-regiao", D.regioes, "Todas");
+preencher("f-cat", D.categorias, "Todas");
+preencher("f-pag", D.pagamentos, "Todas");
+
+const CAMPOS = { "f-de": "de", "f-ate": "ate", "f-canal": "canal", "f-regiao": "regiao", "f-cat": "cat", "f-pag": "pag" };
+for (const [id, campo] of Object.entries(CAMPOS)) {
+  document.getElementById(id).addEventListener("change", e => {
+    F[campo] = +e.target.value;
+    if (F.de > F.ate) { if (campo === "de") F.ate = F.de; else F.de = F.ate; }
+    atualizar();
+  });
+}
+document.getElementById("limpar").addEventListener("click", () => {
+  Object.assign(F, { de: 0, ate: D.meses.length - 1, canal: -1, regiao: -1, cat: -1, pag: -1 });
+  atualizar();
+});
+function alternar(campo, valor) { F[campo] = F[campo] === valor ? -1 : valor; atualizar(); }
+
+function sincronizarFiltros() {
+  for (const [id, campo] of Object.entries(CAMPOS)) {
+    const sel = document.getElementById(id);
+    sel.value = F[campo];
+    const padrao = campo === "de" ? 0 : campo === "ate" ? D.meses.length - 1 : -1;
+    sel.classList.toggle("ativo", F[campo] !== padrao);
+  }
+  const partes = [];
+  if (F.canal >= 0) partes.push(D.canais[F.canal]);
+  if (F.regiao >= 0) partes.push(D.regioes[F.regiao]);
+  if (F.cat >= 0) partes.push(D.categorias[F.cat]);
+  if (F.pag >= 0) partes.push(D.pagamentos[F.pag]);
+  document.getElementById("resumo-filtro").textContent =
+    `${mesCurto(D.meses[F.de])} a ${mesCurto(D.meses[F.ate])}` + (partes.length ? " · " + partes.join(" · ") : "");
+}
+
+// ---------------------------------------------------------------- cálculo
+// Pedido: [mês, canal, região, UF, pagamento, status, vendedor, cliente]
+// Item:   [pedido, produto, quantidade, subtotal, lucro]
+const CONCLUIDA = D.status.indexOf("Concluída"), CANCELADA = D.status.indexOf("Cancelada");
+
+function calcular() {
+  const P = D.pedidos;
+  const pedidoOk = P.map(p => p[0] >= F.de && p[0] <= F.ate && (F.canal < 0 || p[1] === F.canal) &&
+                               (F.regiao < 0 || p[2] === F.regiao) && (F.pag < 0 || p[4] === F.pag));
+  const zeros = n => new Array(n).fill(0);
+  const r = {
+    receita: 0, lucro: 0, unidades: 0, itens: 0, perdida: 0,
+    mes: zeros(D.meses.length), canal: zeros(D.canais.length), regiao: zeros(D.regioes.length),
+    catRec: zeros(D.categorias.length), catLucro: zeros(D.categorias.length),
+    prodRec: zeros(D.produtos.length), prodLucro: zeros(D.produtos.length), prodUn: zeros(D.produtos.length),
+    vendRec: zeros(D.vendedores.length), vendPed: zeros(D.vendedores.length),
+    pagPed: zeros(D.pagamentos.length), pagCanc: zeros(D.pagamentos.length),
+    cliente: new Map(),
+  };
+  const pedidoNoFiltro = new Uint8Array(P.length);   // pedido tem item que passa no filtro de categoria
+  for (const it of D.itens) {
+    const p = P[it[0]];
+    if (!pedidoOk[it[0]]) continue;
+    const cat = D.produtos[it[1]][1];
+    if (F.cat >= 0 && cat !== F.cat) continue;
+    pedidoNoFiltro[it[0]] = 1;
+    r.itens++;
+    if (p[5] === CANCELADA) r.perdida += it[3];
+    if (p[5] !== CONCLUIDA) continue;
+    r.receita += it[3]; r.lucro += it[4]; r.unidades += it[2];
+    r.mes[p[0]] += it[3]; r.canal[p[1]] += it[3]; r.regiao[p[2]] += it[3];
+    r.catRec[cat] += it[3]; r.catLucro[cat] += it[4];
+    r.prodRec[it[1]] += it[3]; r.prodLucro[it[1]] += it[4]; r.prodUn[it[1]] += it[2];
+    r.vendRec[p[6]] += it[3];
+    r.cliente.set(p[7], (r.cliente.get(p[7]) || 0) + it[3]);
+  }
+  r.pedidos = 0; r.concluidos = 0; r.cancelados = 0;
+  P.forEach((p, i) => {
+    if (!pedidoNoFiltro[i]) return;
+    r.pedidos++;
+    r.pagPed[p[4]]++;
+    if (p[5] === CONCLUIDA) { r.concluidos++; r.vendPed[p[6]]++; }
+    if (p[5] === CANCELADA) { r.cancelados++; r.pagCanc[p[4]]++; }
+  });
+  return r;
+}
+
+// ---------------------------------------------------------------- tooltip
+const tip = document.getElementById("tooltip");
+function mostrarTip(e, titulo, linhas) {
+  const b = document.createElement("b"); b.textContent = titulo;
+  tip.replaceChildren(b, ...linhas.map(l => { const d = document.createElement("div"); d.textContent = l; return d; }));
+  tip.style.display = "block";
+  const x = Math.min(e.clientX + 14, window.innerWidth - tip.offsetWidth - 8);
+  tip.style.left = x + "px"; tip.style.top = (e.clientY + 14) + "px";
+}
+const esconderTip = () => { tip.style.display = "none"; };
+
+// ---------------------------------------------------------------- gráficos SVG
+const NS = "http://www.w3.org/2000/svg";
+function el(nome, atributos = {}, pai) {
+  const n = document.createElementNS(NS, nome);
+  for (const [k, v] of Object.entries(atributos)) n.setAttribute(k, v);
+  if (pai) pai.appendChild(n);
+  return n;
+}
+const medidor = document.createElement("canvas").getContext("2d");
+function larguraTexto(t, tam = 12) { medidor.font = `${tam}px Segoe UI, system-ui, sans-serif`; return medidor.measureText(t).width; }
+function vazio(cont) { const d = document.createElement("div"); d.className = "vazio"; d.textContent = "Sem dados para o filtro selecionado."; cont.replaceChildren(d); }
+
+// Barras horizontais: linhas = [{rotulo, valor, cor, texto, tip, aoClicar}]
+function barrasH(id, linhas, { ref, fmt = brlCurto } = {}) {
+  const cont = document.getElementById(id);
+  if (!linhas.length || linhas.every(l => !l.valor)) return vazio(cont);
+  const W = Math.max(280, cont.clientWidth), altLinha = 24, H = linhas.length * altLinha + 4;
+  const svg = el("svg", { viewBox: `0 0 ${W} ${H}`, height: H, role: "img" });
+  const esq = Math.min(W * 0.4, Math.max(...linhas.map(l => larguraTexto(l.rotulo))) + 10);
+  const dir = Math.max(...linhas.map(l => larguraTexto(l.texto ?? fmt(l.valor)))) + 10;
+  const max = Math.max(...linhas.map(l => l.valor), ref || 0) || 1;
+  const x = v => (W - esq - dir) * v / max;
+  if (ref) {
+    el("line", { x1: esq + x(ref), x2: esq + x(ref), y1: 0, y2: H, stroke: "var(--fg)", "stroke-dasharray": "3 3", "stroke-width": 1 }, svg);
+  }
+  linhas.forEach((l, i) => {
+    const g = el("g", { transform: `translate(0,${i * altLinha})`, class: l.aoClicar ? "clicavel" : "" }, svg);
+    const t = el("text", { x: esq - 8, y: altLinha / 2 + 4, "text-anchor": "end", class: "rotulo" }, g);
+    t.textContent = l.rotulo.length > 30 ? l.rotulo.slice(0, 29) + "…" : l.rotulo;
+    el("rect", { class: "barra", x: esq, y: 4, width: Math.max(1, x(l.valor)), height: altLinha - 8, rx: 3, fill: l.cor || "var(--azul)" }, g);
+    const v = el("text", { x: esq + x(l.valor) + 6, y: altLinha / 2 + 4, class: "valor" }, g); v.textContent = l.texto ?? fmt(l.valor);
+    const alvo = el("rect", { x: 0, y: 0, width: W, height: altLinha, fill: "transparent" }, g);
+    alvo.addEventListener("mousemove", e => mostrarTip(e, l.rotulo, l.tip || [fmt(l.valor)]));
+    alvo.addEventListener("mouseleave", esconderTip);
+    if (l.aoClicar) alvo.addEventListener("click", l.aoClicar);
+  });
+  cont.replaceChildren(svg);
+}
+
+// Colunas verticais (série mensal)
+function colunas(id, linhas) {
+  const cont = document.getElementById(id);
+  if (!linhas.length || linhas.every(l => !l.valor)) return vazio(cont);
+  const W = Math.max(300, cont.clientWidth), H = 260, base = 30, topo = 10;
+  const max = Math.max(...linhas.map(l => l.valor)) || 1;
+  const ticks = escala(max), esq = Math.max(...ticks.map(t => larguraTexto(brlCurto(t)))) + 10;
+  const svg = el("svg", { viewBox: `0 0 ${W} ${H}`, height: H, role: "img" });
+  const y = v => H - base - (H - base - topo) * v / ticks[ticks.length - 1];
+  ticks.forEach(t => {
+    el("line", { x1: esq, x2: W, y1: y(t), y2: y(t), stroke: "var(--line)" }, svg);
+    const tx = el("text", { x: esq - 6, y: y(t) + 4, "text-anchor": "end" }, svg); tx.textContent = brlCurto(t);
+  });
+  const passo = (W - esq) / linhas.length, larg = passo * 0.72;
+  const salto = Math.ceil(42 / passo);
+  linhas.forEach((l, i) => {
+    const x0 = esq + i * passo + (passo - larg) / 2;
+    const r = el("rect", { x: x0, y: y(l.valor), width: larg, height: Math.max(0, y(0) - y(l.valor)), rx: 2, fill: l.cor }, svg);
+    r.addEventListener("mousemove", e => mostrarTip(e, l.rotulo, l.tip));
+    r.addEventListener("mouseleave", esconderTip);
+    if ((linhas.length - 1 - i) % salto === 0) {
+      const t = el("text", { x: x0 + larg / 2, y: H - base + 16, "text-anchor": "middle" }, svg); t.textContent = l.rotulo;
+    }
+  });
+  cont.replaceChildren(svg);
+}
+
+function escala(max) {
+  const bruto = max / 4, mag = 10 ** Math.floor(Math.log10(bruto));
+  const passo = [1, 2, 2.5, 5, 10].map(m => m * mag).find(p => p >= bruto);
+  const t = []; for (let v = 0; v <= max + passo * 0.01; v += passo) t.push(v);
+  if (t[t.length - 1] < max) t.push(t[t.length - 1] + passo);
+  return t;
+}
+
+// Linhas: series = [{nome, pontos:[valor|null], cor, tracejado}], faixa = {inf:[], sup:[]}
+function linhas(id, rotulos, series, { faixa, fmt = brlCurto, fmtX = r => r, fmtTitulo, maxY } = {}) {
+  fmtTitulo = fmtTitulo || fmtX;
+  const cont = document.getElementById(id);
+  const W = Math.max(300, cont.clientWidth), H = 280, base = 34, topo = 10;
+  const todos = series.flatMap(s => s.pontos).concat(faixa ? faixa.sup : []).filter(v => v != null);
+  const ticks = maxY ? [0, maxY / 4, maxY / 2, maxY * 3 / 4, maxY] : escala(Math.max(...todos));
+  const topoY = ticks[ticks.length - 1];
+  const esq = Math.max(...ticks.map(t => larguraTexto(fmt(t)))) + 10, dir = 12;
+  const svg = el("svg", { viewBox: `0 0 ${W} ${H}`, height: H, role: "img" });
+  const n = rotulos.length;
+  const x = i => esq + (W - esq - dir) * (n === 1 ? 0.5 : i / (n - 1));
+  const y = v => H - base - (H - base - topo) * Math.max(0, v) / topoY;
+  ticks.forEach(t => {
+    el("line", { x1: esq, x2: W - dir, y1: y(t), y2: y(t), stroke: "var(--line)" }, svg);
+    const tx = el("text", { x: esq - 6, y: y(t) + 4, "text-anchor": "end" }, svg); tx.textContent = fmt(t);
+  });
+  const salto = Math.ceil(46 / ((W - esq - dir) / Math.max(1, n - 1)));
+  rotulos.forEach((r, i) => {
+    if ((n - 1 - i) % salto) return;
+    const t = el("text", { x: x(i), y: H - base + 18, "text-anchor": "middle" }, svg); t.textContent = fmtX(r);
+  });
+  if (faixa) {
+    const idx = faixa.inf.map((v, i) => v == null ? null : i).filter(i => i != null);
+    const d = idx.map((i, k) => `${k ? "L" : "M"}${x(i)},${y(faixa.sup[i])}`).join("") +
+              idx.slice().reverse().map(i => `L${x(i)},${y(faixa.inf[i])}`).join("") + "Z";
+    el("path", { d, fill: "var(--laranja)", opacity: .15 }, svg);
+  }
+  series.forEach(s => {
+    const segs = s.pontos.map((v, i) => v == null ? null : [x(i), y(v)]).filter(Boolean);
+    el("path", { d: segs.map((p, k) => `${k ? "L" : "M"}${p[0]},${p[1]}`).join(""), fill: "none",
+                 stroke: s.cor, "stroke-width": 2, "stroke-dasharray": s.tracejado ? "5 4" : "none" }, svg);
+    if (s.marcadores) s.pontos.forEach((v, i) => { if (v != null) el("circle", { cx: x(i), cy: y(v), r: 3, fill: s.cor }, svg); });
+  });
+  // camada de tooltip por posição
+  const alvo = el("rect", { x: esq, y: 0, width: W - esq - dir, height: H - base, fill: "transparent" }, svg);
+  alvo.addEventListener("mousemove", e => {
+    const caixa = svg.getBoundingClientRect(), px = (e.clientX - caixa.left) * W / caixa.width;
+    const i = Math.max(0, Math.min(n - 1, Math.round((px - esq) / ((W - esq - dir) / Math.max(1, n - 1)))));
+    const ls = series.filter(s => s.pontos[i] != null).map(s => `${s.nome}: ${fmt(s.pontos[i])}`);
+    if (faixa && faixa.inf[i] != null) ls.push(`Intervalo: ${fmt(faixa.inf[i])} a ${fmt(faixa.sup[i])}`);
+    if (ls.length) mostrarTip(e, fmtTitulo(rotulos[i]), ls);
+  });
+  alvo.addEventListener("mouseleave", esconderTip);
+  cont.replaceChildren(svg);
+}
+
+function legenda(id, itens) {
+  const cont = document.getElementById(id);
+  const d = document.createElement("div");
+  d.style.cssText = "display:flex;gap:14px;flex-wrap:wrap;font-size:12px;color:var(--muted);margin-top:6px";
+  itens.forEach(([cor, nome, tracejado]) => {
+    const s = document.createElement("span");
+    const m = document.createElement("span");
+    m.style.cssText = `display:inline-block;width:16px;height:0;border-top:3px ${tracejado ? "dashed" : "solid"} ${cor};margin-right:6px;vertical-align:middle`;
+    s.append(m, nome); d.appendChild(s);
+  });
+  cont.appendChild(d);
+}
+
+function tabela(id, cabecalho, linhas, numericas = []) {
+  const t = document.getElementById(id);
+  const thead = document.createElement("thead"), tr = document.createElement("tr");
+  cabecalho.forEach((c, i) => { const th = document.createElement("th"); th.textContent = c; if (numericas.includes(i)) th.className = "n"; tr.appendChild(th); });
+  thead.appendChild(tr);
+  const tbody = document.createElement("tbody");
+  linhas.forEach(l => {
+    const r = document.createElement("tr");
+    l.forEach((v, i) => {
+      const td = document.createElement("td");
+      if (v && typeof v === "object") { td.textContent = v.texto; if (v.classe) td.className = v.classe; }
+      else td.textContent = v;
+      if (numericas.includes(i)) td.classList.add("n");
+      r.appendChild(td);
+    });
+    tbody.appendChild(r);
+  });
+  if (!linhas.length) { const r = document.createElement("tr"), td = document.createElement("td"); td.colSpan = cabecalho.length; td.className = "vazio"; td.textContent = "Sem dados para o filtro selecionado."; r.appendChild(td); tbody.appendChild(r); }
+  t.replaceChildren(thead, tbody);
+}
+
+// ---------------------------------------------------------------- desenho
+function kpis(r) {
+  const margem = r.receita ? r.lucro / r.receita * 100 : 0;
+  const cards = [
+    ["Receita líquida", brlCurto(r.receita), "vendas concluídas"],
+    ["Pedidos concluídos", fmtNum.format(r.concluidos), `de ${fmtNum.format(r.pedidos)} pedidos`],
+    ["Ticket médio", brl(r.concluidos ? r.receita / r.concluidos : 0), "receita ÷ pedidos concluídos"],
+    ["Margem bruta", pct(margem), brlCurto(r.lucro) + " de lucro bruto"],
+    ["Taxa de cancelamento", pct(r.pedidos ? r.cancelados / r.pedidos * 100 : 0), fmtNum.format(r.cancelados) + " pedidos cancelados"],
+    ["Receita perdida", brlCurto(r.perdida), "em pedidos cancelados"],
+    ["Clientes compradores", fmtNum.format(r.cliente.size), "com compra concluída"],
+    ["Itens por pedido", fmt2.format(r.pedidos ? r.itens / r.pedidos : 0), fmtNum.format(r.unidades) + " unidades vendidas"],
+  ];
+  document.getElementById("kpis").replaceChildren(...cards.map(([rot, val, sub]) => {
+    const d = document.createElement("div"); d.className = "kpi";
+    for (const [cls, txt] of [["rot", rot], ["val", val], ["sub", sub]]) {
+      const s = document.createElement("div"); s.className = cls; s.textContent = txt; d.appendChild(s);
+    }
+    return d;
+  }));
+}
+
+function visaoGeral(r) {
+  const ultimo = D.meses.length - 1;
+  colunas("g-mensal", D.meses.map((m, i) => ({ m, i })).filter(o => o.i >= F.de && o.i <= F.ate).map(({ m, i }) => ({
+    rotulo: mesCurto(m), valor: r.mes[i],
+    cor: i === ultimo ? "var(--cinza)" : /-(11|12)$/.test(m) ? "var(--laranja)" : "var(--azul)",
+    tip: ["Receita: " + brl(r.mes[i])],
+  })));
+
+  const tot = r.receita || 1;
+  const porValor = (nomes, valores, campo, extra) => nomes.map((n, i) => ({ n, i, v: valores[i] }))
+    .sort((a, b) => b.v - a.v)
+    .map(({ n, i, v }) => ({
+      rotulo: n, valor: v, cor: F[campo] === i ? "var(--laranja)" : "var(--azul)",
+      tip: ["Receita: " + brl(v), "Participação: " + pct(v / tot * 100), ...(extra ? extra(i) : [])],
+      aoClicar: () => alternar(campo, i),
+    }));
+  barrasH("g-canal", porValor(D.canais, r.canal, "canal"));
+  barrasH("g-regiao", porValor(D.regioes, r.regiao, "regiao"));
+
+  const taxaGeral = r.pedidos ? r.cancelados / r.pedidos * 100 : 0;
+  barrasH("g-pag", D.pagamentos.map((n, i) => ({ n, i, t: r.pagPed[i] ? r.pagCanc[i] / r.pagPed[i] * 100 : 0 }))
+    .sort((a, b) => b.t - a.t)
+    .map(({ n, i, t }) => ({
+      rotulo: n, valor: t, texto: pct(t),
+      cor: F.pag === i ? "var(--laranja)" : t > taxaGeral * 1.5 ? "var(--vermelho)" : "var(--azul)",
+      tip: [`${fmtNum.format(r.pagCanc[i])} cancelados de ${fmtNum.format(r.pagPed[i])} pedidos`, "Taxa: " + pct(t)],
+      aoClicar: () => alternar("pag", i),
+    })), { ref: taxaGeral, fmt: pct });
+
+  const vend = D.vendedores.map((n, i) => ({ n, i })).filter(o => r.vendRec[o.i] > 0)
+    .sort((a, b) => r.vendRec[b.i] - r.vendRec[a.i]).slice(0, 10);
+  tabela("t-vendedores", ["#", "Vendedor", "Pedidos", "Receita", "Ticket médio"],
+    vend.map((o, k) => [k + 1, o.n, fmtNum.format(r.vendPed[o.i]), brl(r.vendRec[o.i]), brl(r.vendRec[o.i] / r.vendPed[o.i])]), [0, 2, 3, 4]);
+}
+
+function produtos(r) {
+  const tot = r.receita || 1;
+  const cats = D.categorias.map((n, i) => ({ n, i })).filter(o => r.catRec[o.i] > 0).sort((a, b) => r.catRec[b.i] - r.catRec[a.i]);
+  barrasH("g-cat-receita", cats.map(({ n, i }) => ({
+    rotulo: n, valor: r.catRec[i], cor: F.cat === i ? "var(--laranja)" : "var(--azul)",
+    tip: ["Receita: " + brl(r.catRec[i]), "Participação: " + pct(r.catRec[i] / tot * 100)],
+    aoClicar: () => alternar("cat", i),
+  })));
+  const margemGeral = r.receita ? r.lucro / r.receita * 100 : 0;
+  barrasH("g-cat-margem", cats.map(({ n, i }) => {
+    const m = r.catLucro[i] / r.catRec[i] * 100;
+    return { rotulo: n, valor: m, texto: pct(m), cor: m < margemGeral - 5 ? "var(--laranja)" : "var(--azul)",
+             tip: ["Margem: " + pct(m), "Lucro bruto: " + brl(r.catLucro[i])] };
+  }), { ref: margemGeral, fmt: pct });
+
+  const top = D.produtos.map((p, i) => ({ p, i })).filter(o => r.prodRec[o.i] > 0)
+    .sort((a, b) => r.prodRec[b.i] - r.prodRec[a.i]).slice(0, 10);
+  tabela("t-produtos", ["Produto", "Categoria", "Unidades", "Receita", "Margem"],
+    top.map(({ p, i }) => [p[0], D.categorias[p[1]], fmtNum.format(r.prodUn[i]), brl(r.prodRec[i]), pct(r.prodLucro[i] / r.prodRec[i] * 100)]), [2, 3, 4]);
+}
+
+function clientes(r) {
+  const vals = [...r.cliente.values()].sort((a, b) => b - a);
+  const cont = document.getElementById("g-pareto");
+  if (!vals.length) return vazio(cont);
+  const tot = vals.reduce((s, v) => s + v, 0);
+  const n = 21, rot = [], acum = [], diag = [];
+  for (let k = 0; k < n; k++) {
+    const q = k / (n - 1), qtd = Math.round(q * vals.length);
+    rot.push(Math.round(q * 100)); diag.push(q * 100);
+    acum.push(vals.slice(0, qtd).reduce((s, v) => s + v, 0) / tot * 100);
+  }
+  linhas("g-pareto", rot, [
+    { nome: "Receita acumulada", pontos: acum, cor: "var(--azul)" },
+    { nome: "Distribuição igual", pontos: diag, cor: "var(--cinza)", tracejado: true },
+  ], { fmt: v => fmtNum.format(v) + "%", fmtX: v => v + "%", fmtTitulo: v => v + "% dos clientes que mais compram", maxY: 100 });
+  legenda("g-pareto", [["var(--azul)", "Receita acumulada"], ["var(--cinza)", "Se todos comprassem igual", true]]);
+  const top20 = acum[4];
+  const p = document.createElement("p"); p.className = "nota"; p.style.marginTop = "8px";
+  p.textContent = `Os 20% de clientes que mais compram geram ${pct(top20)} da receita deste filtro (${fmtNum.format(vals.length)} clientes compradores).`;
+  cont.appendChild(p);
+}
+
+function estatico() {
+  const cores = { "Campeões": "var(--azul)", "Fiéis": "var(--verde)", "Ocasionais": "var(--amarelo)", "Inativos": "var(--vermelho)" };
+  barrasH("g-rfm", D.rfm.map(s => ({ rotulo: s[0], valor: s[5], texto: pct(s[5]) + " da receita", cor: cores[s[0]],
+    tip: [`${s[1]} clientes`, `Última compra há ${fmtNum.format(s[2])} dias (média)`, `${fmt1.format(s[3])} compras em média`, `Valor médio: ${brl(s[4])}`] })), { fmt: pct });
+  tabela("t-rfm", ["Segmento", "Clientes", "Recência (dias)", "Compras", "Valor por cliente"],
+    D.rfm.map(s => [s[0], s[1], fmtNum.format(s[2]), fmt1.format(s[3]), brl(s[4])]), [1, 2, 3, 4]);
+
+  tabela("t-estoque", ["Produto", "Estoque", "Venda/mês", "Cobertura (meses)"],
+    D.estoque.map(e => [e[0], e[1], fmt1.format(e[2]), { texto: fmt2.format(e[3]), classe: e[3] < 1 ? "alerta" : "" }]), [1, 2, 3]);
+
+  tabela("t-previsao", ["Mês", "Previsão", "Intervalo de 95%"],
+    D.previsao.map(p => [mesCurto(p[0]), brl(p[1]), `${brl(Math.max(0, p[2]))} a ${brl(p[3])}`]), [1, 2]);
+
+  for (const [id, lista] of [["l-insights", D.insights.insights], ["l-rec", D.insights.recomendacoes]]) {
+    document.getElementById(id).replaceChildren(...lista.map(([t, x]) => {
+      const li = document.createElement("li"), b = document.createElement("b"), s = document.createElement("span");
+      b.textContent = t; s.textContent = x; li.append(b, s); return li;
+    }));
+  }
+  document.getElementById("subtitulo").textContent =
+    `Vendas de ${mesCurto(D.meses[0])} a ${mesCurto(D.meses[D.meses.length - 1])} · ${fmtNum.format(D.pedidos.length)} pedidos · dados gerados em ${D.gerado_em}`;
+  document.getElementById("rodape").textContent =
+    "Fonte: base sintética da TechNova (gerador Java → MySQL/CSV → ETL Python → análise Python). " +
+    "Receita, ticket e margem consideram apenas vendas concluídas; margem bruta não inclui frete, impostos e despesas. " +
+    "Privacidade: o dashboard mostra apenas dados agregados e não contém nome nem e-mail de clientes.";
+}
+
+function previsao() {
+  const hist = D.historico, prev = D.previsao;
+  const rot = hist.map(h => h[0]).concat(prev.map(p => p[0]));
+  const nH = hist.length, nP = prev.length;
+  const real = hist.map(h => h[1]).concat(new Array(nP).fill(null));
+  const pv = new Array(nH - 1).fill(null).concat([hist[nH - 1][1]], prev.map(p => p[1]));
+  const inf = new Array(nH).fill(null).concat(prev.map(p => Math.max(0, p[2])));
+  const sup = new Array(nH).fill(null).concat(prev.map(p => p[3]));
+  linhas("g-previsao", rot, [
+    { nome: "Receita real", pontos: real, cor: "var(--azul)", marcadores: true },
+    { nome: "Previsão", pontos: pv, cor: "var(--laranja)", tracejado: true, marcadores: true },
+  ], { faixa: { inf, sup }, fmtX: mesCurto });
+  legenda("g-previsao", [["var(--azul)", "Receita real"], ["var(--laranja)", "Previsão", true]]);
+}
+
+// ---------------------------------------------------------------- abas
+let abaAtual = "geral";
+document.getElementById("abas").addEventListener("click", e => {
+  const b = e.target.closest("button"); if (!b) return;
+  abaAtual = b.dataset.aba;
+  document.querySelectorAll("#abas button").forEach(x => x.classList.toggle("ativa", x === b));
+  document.querySelectorAll("[data-painel]").forEach(p => { p.hidden = p.dataset.painel !== abaAtual; });
+  history.replaceState(null, "", "#" + abaAtual);
+  desenhar();
+});
+
+let ultimo = null;
+function atualizar() { ultimo = calcular(); sincronizarFiltros(); desenhar(); }
+function desenhar() {
+  const r = ultimo;
+  kpis(r);
+  if (abaAtual === "geral") visaoGeral(r);
+  if (abaAtual === "produtos") produtos(r);
+  if (abaAtual === "clientes") clientes(r);
+  if (abaAtual === "previsao") previsao();
+}
+let espera;
+window.addEventListener("resize", () => { clearTimeout(espera); espera = setTimeout(desenhar, 150); });
+
+estatico();
+const inicial = location.hash.slice(1);
+if (inicial && document.querySelector(`#abas button[data-aba="${inicial}"]`)) document.querySelector(`#abas button[data-aba="${inicial}"]`).click();
+atualizar();
+</script>
+</body>
+</html>

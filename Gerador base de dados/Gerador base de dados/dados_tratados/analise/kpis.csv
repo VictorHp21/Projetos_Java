@@ -1,0 +1,13 @@
+﻿kpi;nome;valor;unidade;valor_formatado
+K1;Receita líquida;15481230.2;R$;R$ 15.481.230,20
+K2;Pedidos concluídos;4254.0;pedidos;4.254
+K3;Ticket médio;3639.2172543488477;R$/pedido;R$ 3.639,22
+K4;Crescimento da receita (jan–set 2026 vs 2025);15.013509363508625;%;15,0%
+K5;Margem bruta;31.337557592806803;%;31,3%
+K6;Taxa de cancelamento;10.299999999999999;%;10,3%
+K7;Receita perdida em cancelamentos;1767673.5;R$;R$ 1.767.673,50
+K8;Itens por pedido;2.0884;itens/pedido;2,09
+K9;Participação do maior canal (Corporativo);47.608984588317796;%;47,6%
+K10;Clientes ativos (compra nos últimos 180 dias);68.4;%;68,4%
+K11;Receita dos 10% melhores clientes;43.16887362090902;%;43,2%
+K12;Produtos com cobertura de estoque < 1 mês;5.0;produtos;5

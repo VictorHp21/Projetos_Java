@@ -1,0 +1,501 @@
+﻿id_cliente;nome;email;cidade;estado;data_cadastro
+1;Pedro Souza;cliente1@email.com;Macapá;AP;2024-07-23
+2;Pedro Pereira;cliente2@email.com;Rondonópolis;MT;2024-12-16
+3;Fernanda Gomes;cliente3@email.com;Fortaleza;CE;2026-05-12
+4;Bruno Carvalho;cliente4@email.com;Uberlândia;MG;2024-11-04
+5;Bruno Araújo;cliente5@email.com;Arapiraca;AL;2022-06-21
+6;Victor Souza;cliente6@email.com;Arapiraca;AL;2024-04-11
+7;Ana Santos;cliente7@email.com;São Paulo;SP;2026-03-19
+8;Beatriz Rodrigues;cliente8@email.com;Teresina;PI;2026-06-17
+9;Pedro Pereira;cliente9@email.com;Caruaru;PE;2026-04-13
+10;Rafael Gomes;cliente10@email.com;Curitiba;PR;2026-02-27
+11;Fernanda Pereira;cliente11@email.com;Goiânia;GO;2021-11-09
+12;Amanda Martins;cliente12@email.com;Pelotas;RS;2023-07-04
+13;Isabela Souza;cliente13@email.com;Cruzeiro do Sul;AC;2023-06-15
+14;Matheus Barbosa;cliente14@email.com;Boa Vista;RR;2022-08-11
+15;Larissa Correia;cliente15@email.com;Curitiba;PR;2022-07-29
+16;Isabela Correia;cliente16@email.com;Cachoeiro de Itapemirim;ES;2024-06-06
+17;Felipe Martins;cliente17@email.com;Blumenau;SC;2022-08-10
+18;Amanda Correia;cliente18@email.com;Petrópolis;RJ;2025-09-17
+19;Larissa Lima;cliente19@email.com;Vitória da Conquista;BA;2023-12-27
+20;Lucas Silva;cliente20@email.com;Ananindeua;PA;2023-02-28
+21;Victor Martins;cliente21@email.com;Santarém;PA;2024-09-01
+22;Beatriz Gomes;cliente22@email.com;Brasília;DF;2026-02-11
+23;Matheus Correia;cliente23@email.com;Joinville;SC;2022-10-10
+24;Ana Ribeiro;cliente24@email.com;Belo Horizonte;MG;2025-04-22
+25;Juliana Barbosa;cliente25@email.com;Pelotas;RS;2025-08-27
+26;Pedro Silva;cliente26@email.com;Porto Velho;RO;2026-04-09
+27;Ana Fernandes;cliente27@email.com;Florianópolis;SC;2024-03-23
+28;Amanda Oliveira;cliente28@email.com;Vitória da Conquista;BA;2025-05-19
+29;Isabela Fernandes;cliente29@email.com;Aracaju;SE;2026-03-09
+30;Lucas Ribeiro;cliente30@email.com;Fortaleza;CE;2024-02-09
+31;Lucas Nascimento;cliente31@email.com;Anápolis;GO;2022-01-16
+32;Rafael Carvalho;cliente32@email.com;Arapiraca;AL;2023-12-17
+33;Larissa Oliveira;cliente33@email.com;Aracaju;SE;2022-10-30
+34;Matheus Carvalho;cliente34@email.com;Cachoeiro de Itapemirim;ES;2021-12-04
+35;Mariana Oliveira;cliente35@email.com;Uberlândia;MG;2025-05-28
+36;Larissa Almeida;cliente36@email.com;Manaus;AM;2026-07-16
+37;Carlos Souza;cliente37@email.com;São José dos Campos;SP;2024-12-21
+38;Beatriz Santos;cliente38@email.com;Goiânia;GO;2026-10-08
+39;Maria Ribeiro;cliente39@email.com;Florianópolis;SC;2025-12-12
+40;Victor Fernandes;cliente40@email.com;Joinville;SC;2022-04-04
+41;Carlos Barbosa;cliente41@email.com;Vila Velha;ES;2021-11-06
+42;Mariana Araújo;cliente42@email.com;Santos;SP;2024-05-07
+43;Juliana Fernandes;cliente43@email.com;Anápolis;GO;2025-03-16
+44;Maria Nascimento;cliente44@email.com;Santa Maria;RS;2024-08-21
+45;Rafael Barbosa;cliente45@email.com;Natal;RN;2026-06-09
+46;Lucas Lima;cliente46@email.com;Dourados;MS;2023-10-02
+47;Felipe Pereira;cliente47@email.com;Ananindeua;PA;2023-09-26
+48;Rafael Fernandes;cliente48@email.com;Maringá;PR;2022-06-05
+49;Lucas Cardoso;cliente49@email.com;Brasília;DF;2024-10-16
+50;Juliana Souza;cliente50@email.com;Anápolis;GO;2022-09-08
+51;Juliana Nascimento;cliente51@email.com;Pelotas;RS;2025-10-10
+52;Juliana Monteiro;cliente52@email.com;Aracaju;SE;2023-09-30
+53;Felipe Silva;cliente53@email.com;Feira de Santana;BA;2025-12-26
+54;Gabriel Nascimento;cliente54@email.com;Arapiraca;AL;2026-08-11
+55;Fernanda Fernandes;cliente55@email.com;Uberlândia;MG;2025-01-06
+56;Amanda Santos;cliente56@email.com;Salvador;BA;2025-12-24
+57;Larissa Gomes;cliente57@email.com;Manaus;AM;2023-06-06
+58;Felipe Almeida;cliente58@email.com;Anápolis;GO;2025-07-25
+59;Matheus Almeida;cliente59@email.com;Maceió;AL;2021-11-21
+60;Beatriz Araújo;cliente60@email.com;Joinville;SC;2025-05-07
+61;Lucas Rodrigues;cliente61@email.com;Rio de Janeiro;RJ;2025-05-13
+62;Gabriel Santos;cliente62@email.com;Juazeiro do Norte;CE;2021-11-01
+63;Pedro Ribeiro;cliente63@email.com;Caruaru;PE;2023-10-02
+64;Maria Pereira;cliente64@email.com;São Luís;MA;2023-09-28
+65;Fernanda Correia;cliente65@email.com;Petrolina;PE;2024-04-09
+66;Matheus Lima;cliente66@email.com;Manaus;AM;2022-10-04
+67;Carlos Almeida;cliente67@email.com;Anápolis;GO;2023-05-19
+68;Fernanda Rodrigues;cliente68@email.com;Goiânia;GO;2024-09-19
+69;Gabriel Fernandes;cliente69@email.com;Porto Alegre;RS;2026-09-06
+70;Lucas Rodrigues;cliente70@email.com;Santarém;PA;2026-09-27
+71;Beatriz Correia;cliente71@email.com;Salvador;BA;2024-03-14
+72;Pedro Rodrigues;cliente72@email.com;Montes Claros;MG;2024-04-20
+73;Mariana Araújo;cliente73@email.com;Uberaba;MG;2026-02-15
+74;Fernanda Oliveira;cliente74@email.com;Santos;SP;2025-08-22
+75;Ana Ribeiro;cliente75@email.com;Porto Alegre;RS;2023-04-05
+76;Beatriz Lima;cliente76@email.com;Cruzeiro do Sul;AC;2025-08-03
+77;Victor Lima;cliente77@email.com;Ananindeua;PA;2022-11-16
+78;Lucas Carvalho;cliente78@email.com;Ribeirão Preto;SP;2023-07-17
+79;Carlos Martins;cliente79@email.com;Joinville;SC;2025-01-19
+80;Amanda Gomes;cliente80@email.com;Londrina;PR;2025-06-22
+81;Beatriz Pereira;cliente81@email.com;Blumenau;SC;2021-11-07
+82;Gabriel Cardoso;cliente82@email.com;Arapiraca;AL;2024-09-16
+83;Lucas Oliveira;cliente83@email.com;Porto Velho;RO;2024-05-15
+84;Maria Monteiro;cliente84@email.com;Ananindeua;PA;2024-08-14
+85;Isabela Gomes;cliente85@email.com;Petrópolis;RJ;2026-07-11
+86;Juliana Martins;cliente86@email.com;Anápolis;GO;2023-04-06
+87;Camila Nascimento;cliente87@email.com;Petrópolis;RJ;2025-10-27
+88;Fernanda Cardoso;cliente88@email.com;Belo Horizonte;MG;2022-10-09
+89;Maria Barbosa;cliente89@email.com;Blumenau;SC;2025-07-09
+90;Lucas Carvalho;cliente90@email.com;Florianópolis;SC;2026-07-29
+91;Ana Monteiro;cliente91@email.com;Teresina;PI;2026-01-08
+92;Bruno Costa;cliente92@email.com;Feira de Santana;BA;2025-02-14
+93;Bruno Silva;cliente93@email.com;Salvador;BA;2022-07-19
+94;Matheus Santos;cliente94@email.com;Natal;RN;2024-09-07
+95;Juliana Martins;cliente95@email.com;Joinville;SC;2025-09-04
+96;João Carvalho;cliente96@email.com;Teresina;PI;2022-09-27
+97;João Almeida;cliente97@email.com;Vitória;ES;2026-05-19
+98;Amanda Santos;cliente98@email.com;Caruaru;PE;2023-12-30
+99;Gabriel Lima;cliente99@email.com;Rio Verde;GO;2026-04-18
+100;Isabela Rodrigues;cliente100@email.com;Salvador;BA;2023-12-02
+101;Larissa Monteiro;cliente101@email.com;Porto Velho;RO;2022-10-09
+102;Matheus Gomes;cliente102@email.com;Cascavel;PR;2022-06-03
+103;Pedro Oliveira;cliente103@email.com;Brasília;DF;2024-10-08
+104;Isabela Nascimento;cliente104@email.com;Vitória da Conquista;BA;2025-09-30
+105;Gabriel Almeida;cliente105@email.com;Dourados;MS;2022-06-30
+106;Juliana Nascimento;cliente106@email.com;Dourados;MS;2025-05-12
+107;Felipe Ribeiro;cliente107@email.com;São Luís;MA;2021-12-16
+108;Felipe Gomes;cliente108@email.com;João Pessoa;PB;2022-06-15
+109;Camila Nascimento;cliente109@email.com;Teresina;PI;2025-05-20
+110;Fernanda Santos;cliente110@email.com;Blumenau;SC;2025-09-28
+111;Felipe Cardoso;cliente111@email.com;São Paulo;SP;2023-09-30
+112;Felipe Cardoso;cliente112@email.com;João Pessoa;PB;2025-04-12
+113;Maria Oliveira;cliente113@email.com;Dourados;MS;2026-03-15
+114;Victor Cardoso;cliente114@email.com;Ananindeua;PA;2025-05-06
+115;Carlos Santos;cliente115@email.com;Santa Maria;RS;2023-02-10
+116;Maria Almeida;cliente116@email.com;Santos;SP;2023-08-19
+117;Gabriel Monteiro;cliente117@email.com;Santarém;PA;2024-01-31
+118;Fernanda Rodrigues;cliente118@email.com;Cachoeiro de Itapemirim;ES;2026-04-19
+119;Isabela Barbosa;cliente119@email.com;Maceió;AL;2024-04-14
+120;Victor Pereira;cliente120@email.com;Ananindeua;PA;2022-02-18
+121;Isabela Cardoso;cliente121@email.com;Parintins;AM;2022-10-28
+122;Pedro Almeida;cliente122@email.com;Ribeirão Preto;SP;2026-08-22
+123;Bruno Santos;cliente123@email.com;Blumenau;SC;2026-08-05
+124;Felipe Costa;cliente124@email.com;Maceió;AL;2025-05-04
+125;Felipe Costa;cliente125@email.com;São José dos Campos;SP;2022-05-02
+126;Larissa Barbosa;cliente126@email.com;São José dos Campos;SP;2025-06-03
+127;Pedro Araújo;cliente127@email.com;Juazeiro do Norte;CE;2024-01-12
+128;Carlos Martins;cliente128@email.com;São José dos Campos;SP;2023-04-07
+129;Felipe Martins;cliente129@email.com;Cuiabá;MT;2023-10-20
+130;Mariana Fernandes;cliente130@email.com;Uberaba;MG;2024-01-22
+131;Gabriel Martins;cliente131@email.com;Blumenau;SC;2022-06-27
+132;Camila Araújo;cliente132@email.com;Anápolis;GO;2024-03-15
+133;Matheus Oliveira;cliente133@email.com;Ji-Paraná;RO;2024-04-12
+134;João Araújo;cliente134@email.com;Juiz de Fora;MG;2026-04-03
+135;Pedro Ribeiro;cliente135@email.com;Teresina;PI;2022-10-19
+136;Victor Santos;cliente136@email.com;Parnaíba;PI;2022-11-17
+137;Pedro Rodrigues;cliente137@email.com;Goiânia;GO;2026-03-08
+138;Gabriel Pereira;cliente138@email.com;Parintins;AM;2025-09-10
+139;Larissa Barbosa;cliente139@email.com;São Paulo;SP;2023-11-30
+140;Felipe Almeida;cliente140@email.com;Uberaba;MG;2024-01-28
+141;Gabriel Lima;cliente141@email.com;Boa Vista;RR;2024-09-29
+142;Isabela Gomes;cliente142@email.com;Sobral;CE;2021-11-07
+143;Isabela Carvalho;cliente143@email.com;Petrópolis;RJ;2026-01-10
+144;Amanda Lima;cliente144@email.com;Imperatriz;MA;2026-04-13
+145;Felipe Oliveira;cliente145@email.com;Chapecó;SC;2026-04-20
+146;Bruno Araújo;cliente146@email.com;Juiz de Fora;MG;2025-06-21
+147;Felipe Costa;cliente147@email.com;São Luís;MA;2022-12-24
+148;Lucas Souza;cliente148@email.com;Campo Grande;MS;2022-06-05
+149;Amanda Souza;cliente149@email.com;Pelotas;RS;2023-02-03
+150;João Gomes;cliente150@email.com;Joinville;SC;2025-10-19
+151;Lucas Correia;cliente151@email.com;Rio de Janeiro;RJ;2022-05-04
+152;Mariana Ribeiro;cliente152@email.com;Montes Claros;MG;2026-03-23
+153;Matheus Oliveira;cliente153@email.com;Joinville;SC;2021-12-11
+154;Ana Lima;cliente154@email.com;Blumenau;SC;2026-05-03
+155;Larissa Nascimento;cliente155@email.com;Sinop;MT;2022-11-28
+156;Fernanda Nascimento;cliente156@email.com;Aracaju;SE;2026-04-02
+157;Isabela Almeida;cliente157@email.com;Porto Alegre;RS;2026-02-19
+158;Maria Monteiro;cliente158@email.com;Santarém;PA;2024-04-02
+159;Fernanda Oliveira;cliente159@email.com;Natal;RN;2021-12-13
+160;Felipe Fernandes;cliente160@email.com;Brasília;DF;2023-03-05
+161;Lucas Correia;cliente161@email.com;João Pessoa;PB;2026-07-25
+162;Beatriz Almeida;cliente162@email.com;Teresina;PI;2024-05-05
+163;Gabriel Cardoso;cliente163@email.com;Belém;PA;2024-08-28
+164;Pedro Barbosa;cliente164@email.com;Boa Vista;RR;2022-06-23
+165;Carlos Lima;cliente165@email.com;Florianópolis;SC;2022-10-07
+166;Fernanda Rodrigues;cliente166@email.com;Petrolina;PE;2026-05-31
+167;Matheus Almeida;cliente167@email.com;Petrópolis;RJ;2023-03-24
+168;Beatriz Silva;cliente168@email.com;Palmas;TO;2026-06-04
+169;Pedro Souza;cliente169@email.com;Curitiba;PR;2022-03-26
+170;Gabriel Nascimento;cliente170@email.com;Maringá;PR;2023-03-10
+171;Gabriel Santos;cliente171@email.com;Campinas;SP;2023-04-05
+172;Lucas Fernandes;cliente172@email.com;Montes Claros;MG;2021-12-16
+173;Maria Pereira;cliente173@email.com;Ananindeua;PA;2023-11-07
+174;Beatriz Carvalho;cliente174@email.com;Juazeiro do Norte;CE;2026-06-23
+175;Bruno Nascimento;cliente175@email.com;Campo Grande;MS;2022-03-20
+176;Amanda Almeida;cliente176@email.com;Goiânia;GO;2026-07-08
+177;Juliana Nascimento;cliente177@email.com;Rondonópolis;MT;2026-01-20
+178;Bruno Barbosa;cliente178@email.com;Rio Verde;GO;2025-07-16
+179;Juliana Pereira;cliente179@email.com;Ananindeua;PA;2022-06-24
+180;Camila Araújo;cliente180@email.com;Porto Alegre;RS;2022-01-28
+181;Amanda Ribeiro;cliente181@email.com;Ji-Paraná;RO;2026-06-08
+182;Mariana Cardoso;cliente182@email.com;Sinop;MT;2023-04-06
+183;Victor Costa;cliente183@email.com;Gurupi;TO;2024-02-25
+184;Camila Nascimento;cliente184@email.com;Macapá;AP;2026-02-11
+185;Rafael Gomes;cliente185@email.com;Sinop;MT;2024-05-18
+186;Isabela Martins;cliente186@email.com;Palmas;TO;2026-01-06
+187;Fernanda Oliveira;cliente187@email.com;Belo Horizonte;MG;2021-11-03
+188;Matheus Lima;cliente188@email.com;Goiânia;GO;2025-03-24
+189;Bruno Barbosa;cliente189@email.com;Dourados;MS;2022-12-28
+190;Juliana Monteiro;cliente190@email.com;Cuiabá;MT;2025-08-16
+191;Carlos Correia;cliente191@email.com;Chapecó;SC;2022-06-17
+192;Larissa Araújo;cliente192@email.com;Caruaru;PE;2026-09-23
+193;Fernanda Araújo;cliente193@email.com;São José dos Campos;SP;2024-04-09
+194;Pedro Ribeiro;cliente194@email.com;Rio Verde;GO;2021-12-17
+195;Juliana Silva;cliente195@email.com;Vitória da Conquista;BA;2025-01-02
+196;Mariana Barbosa;cliente196@email.com;Aracaju;SE;2024-04-14
+197;Pedro Fernandes;cliente197@email.com;Maceió;AL;2022-10-29
+198;Victor Lima;cliente198@email.com;Porto Velho;RO;2022-12-05
+199;João Oliveira;cliente199@email.com;Aracaju;SE;2025-03-16
+200;Beatriz Oliveira;cliente200@email.com;Sinop;MT;2023-02-19
+201;Mariana Fernandes;cliente201@email.com;Palmas;TO;2025-11-19
+202;Camila Araújo;cliente202@email.com;Manaus;AM;2024-08-12
+203;Bruno Souza;cliente203@email.com;Florianópolis;SC;2024-02-23
+204;Ana Martins;cliente204@email.com;Niterói;RJ;2023-01-05
+205;João Ribeiro;cliente205@email.com;Juiz de Fora;MG;2026-08-18
+206;Isabela Gomes;cliente206@email.com;Gurupi;TO;2024-02-17
+207;Amanda Fernandes;cliente207@email.com;Manaus;AM;2024-09-30
+208;Gabriel Fernandes;cliente208@email.com;Aracaju;SE;2023-12-08
+209;Victor Lima;cliente209@email.com;Feira de Santana;BA;2023-07-11
+210;Maria Silva;cliente210@email.com;Belém;PA;2021-11-29
+211;Victor Carvalho;cliente211@email.com;Cuiabá;MT;2025-11-16
+212;Mariana Nascimento;cliente212@email.com;Campina Grande;PB;2026-04-11
+213;Carlos Oliveira;cliente213@email.com;Imperatriz;MA;2026-01-18
+214;Rafael Cardoso;cliente214@email.com;Gurupi;TO;2022-06-13
+215;Camila Carvalho;cliente215@email.com;Belém;PA;2024-08-13
+216;Larissa Fernandes;cliente216@email.com;Sinop;MT;2025-12-27
+217;Lucas Araújo;cliente217@email.com;Santarém;PA;2025-03-20
+218;Beatriz Monteiro;cliente218@email.com;Maringá;PR;2026-06-16
+219;Juliana Rodrigues;cliente219@email.com;Niterói;RJ;2023-03-09
+220;Isabela Monteiro;cliente220@email.com;Cuiabá;MT;2022-11-07
+221;Ana Correia;cliente221@email.com;Salvador;BA;2022-02-08
+222;Matheus Souza;cliente222@email.com;Cascavel;PR;2024-07-26
+223;Lucas Costa;cliente223@email.com;Blumenau;SC;2023-02-27
+224;Juliana Souza;cliente224@email.com;Santa Maria;RS;2022-07-26
+225;Carlos Nascimento;cliente225@email.com;Joinville;SC;2025-07-03
+226;Isabela Costa;cliente226@email.com;Salvador;BA;2025-02-11
+227;João Santos;cliente227@email.com;Imperatriz;MA;2023-09-16
+228;Larissa Fernandes;cliente228@email.com;Vitória;ES;2024-06-09
+229;Isabela Fernandes;cliente229@email.com;Londrina;PR;2022-12-07
+230;Matheus Oliveira;cliente230@email.com;Parnaíba;PI;2024-03-18
+231;Ana Almeida;cliente231@email.com;Chapecó;SC;2025-05-08
+232;Victor Araújo;cliente232@email.com;Palmas;TO;2022-05-01
+233;Matheus Araújo;cliente233@email.com;Uberaba;MG;2024-11-06
+234;Bruno Cardoso;cliente234@email.com;Vitória;ES;2023-04-14
+235;Maria Pereira;cliente235@email.com;Teresina;PI;2024-06-12
+236;Gabriel Carvalho;cliente236@email.com;Rio Branco;AC;2025-02-28
+237;Rafael Nascimento;cliente237@email.com;Imperatriz;MA;2022-06-22
+238;Victor Lima;cliente238@email.com;Juiz de Fora;MG;2025-07-21
+239;Beatriz Gomes;cliente239@email.com;Caruaru;PE;2022-05-11
+240;João Cardoso;cliente240@email.com;Maceió;AL;2022-12-20
+241;Beatriz Costa;cliente241@email.com;Aracaju;SE;2024-05-25
+242;Felipe Almeida;cliente242@email.com;Uberaba;MG;2022-09-13
+243;Rafael Araújo;cliente243@email.com;Pelotas;RS;2022-05-18
+244;Camila Silva;cliente244@email.com;Ananindeua;PA;2025-07-21
+245;Juliana Barbosa;cliente245@email.com;Belo Horizonte;MG;2025-11-30
+246;Victor Nascimento;cliente246@email.com;Rio Branco;AC;2021-11-22
+247;Lucas Martins;cliente247@email.com;Blumenau;SC;2023-07-10
+248;Gabriel Nascimento;cliente248@email.com;Londrina;PR;2026-05-09
+249;Carlos Oliveira;cliente249@email.com;Ribeirão Preto;SP;2022-10-19
+250;Maria Oliveira;cliente250@email.com;Ribeirão Preto;SP;2026-07-31
+251;Bruno Silva;cliente251@email.com;Maceió;AL;2021-12-16
+252;Victor Barbosa;cliente252@email.com;Santa Maria;RS;2023-12-31
+253;Ana Martins;cliente253@email.com;Cascavel;PR;2026-07-24
+254;Camila Costa;cliente254@email.com;Macapá;AP;2022-12-29
+255;Bruno Rodrigues;cliente255@email.com;Florianópolis;SC;2025-02-16
+256;Gabriel Ribeiro;cliente256@email.com;Petrópolis;RJ;2022-11-27
+257;Matheus Santos;cliente257@email.com;Aracaju;SE;2025-10-29
+258;Isabela Carvalho;cliente258@email.com;Sobral;CE;2024-11-24
+259;Gabriel Barbosa;cliente259@email.com;Caxias do Sul;RS;2022-11-03
+260;Felipe Silva;cliente260@email.com;São José dos Campos;SP;2024-01-14
+261;Gabriel Oliveira;cliente261@email.com;Cascavel;PR;2022-04-04
+262;Carlos Santos;cliente262@email.com;Anápolis;GO;2023-06-04
+263;Mariana Oliveira;cliente263@email.com;Juiz de Fora;MG;2022-05-16
+264;Isabela Costa;cliente264@email.com;Londrina;PR;2026-10-05
+265;João Souza;cliente265@email.com;Natal;RN;2024-06-14
+266;Carlos Gomes;cliente266@email.com;São Paulo;SP;2026-01-31
+267;João Silva;cliente267@email.com;Londrina;PR;2025-05-25
+268;Mariana Almeida;cliente268@email.com;Imperatriz;MA;2024-11-06
+269;Felipe Carvalho;cliente269@email.com;Uberaba;MG;2023-10-06
+270;Amanda Almeida;cliente270@email.com;Cachoeiro de Itapemirim;ES;2024-04-15
+271;Carlos Lima;cliente271@email.com;Sobral;CE;2024-03-30
+272;Gabriel Ribeiro;cliente272@email.com;Porto Alegre;RS;2026-01-31
+273;Camila Oliveira;cliente273@email.com;Gurupi;TO;2026-08-24
+274;Carlos Silva;cliente274@email.com;Niterói;RJ;2024-05-05
+275;Rafael Cardoso;cliente275@email.com;Cruzeiro do Sul;AC;2025-07-17
+276;Felipe Fernandes;cliente276@email.com;Caruaru;PE;2025-06-28
+277;Lucas Carvalho;cliente277@email.com;Rio Branco;AC;2025-07-12
+278;Juliana Lima;cliente278@email.com;Santos;SP;2025-01-15
+279;João Souza;cliente279@email.com;Ji-Paraná;RO;2024-04-02
+280;Beatriz Silva;cliente280@email.com;Cuiabá;MT;2024-06-05
+281;Amanda Lima;cliente281@email.com;Belém;PA;2026-09-19
+282;Gabriel Cardoso;cliente282@email.com;Aracaju;SE;2023-08-08
+283;Ana Lima;cliente283@email.com;João Pessoa;PB;2023-07-09
+284;Bruno Gomes;cliente284@email.com;João Pessoa;PB;2024-05-30
+285;Rafael Rodrigues;cliente285@email.com;Anápolis;GO;2024-02-17
+286;Gabriel Barbosa;cliente286@email.com;João Pessoa;PB;2026-04-10
+287;Ana Silva;cliente287@email.com;Gurupi;TO;2026-06-08
+288;Isabela Martins;cliente288@email.com;São Paulo;SP;2026-07-08
+289;Carlos Souza;cliente289@email.com;Santarém;PA;2022-06-09
+290;Larissa Correia;cliente290@email.com;Manaus;AM;2026-02-26
+291;Camila Lima;cliente291@email.com;Juiz de Fora;MG;2025-05-03
+292;Amanda Silva;cliente292@email.com;Dourados;MS;2026-10-20
+293;Fernanda Correia;cliente293@email.com;Ananindeua;PA;2026-04-02
+294;Ana Correia;cliente294@email.com;Aracaju;SE;2025-06-17
+295;Camila Silva;cliente295@email.com;Santa Maria;RS;2025-10-17
+296;Matheus Araújo;cliente296@email.com;Cachoeiro de Itapemirim;ES;2024-08-20
+297;Carlos Ribeiro;cliente297@email.com;Vila Velha;ES;2026-01-28
+298;Matheus Araújo;cliente298@email.com;Joinville;SC;2023-11-14
+299;Amanda Rodrigues;cliente299@email.com;João Pessoa;PB;2024-05-15
+300;Camila Cardoso;cliente300@email.com;Ji-Paraná;RO;2026-06-26
+301;Isabela Santos;cliente301@email.com;Aracaju;SE;2026-09-13
+302;Fernanda Souza;cliente302@email.com;Vila Velha;ES;2022-07-08
+303;Maria Ribeiro;cliente303@email.com;Juazeiro do Norte;CE;2023-04-25
+304;Ana Almeida;cliente304@email.com;Arapiraca;AL;2025-02-13
+305;Fernanda Cardoso;cliente305@email.com;Joinville;SC;2023-12-26
+306;Fernanda Costa;cliente306@email.com;Belém;PA;2023-05-22
+307;Larissa Pereira;cliente307@email.com;Belém;PA;2026-01-18
+308;Mariana Barbosa;cliente308@email.com;São José dos Campos;SP;2022-01-31
+309;Bruno Araújo;cliente309@email.com;Chapecó;SC;2025-04-11
+310;Lucas Silva;cliente310@email.com;Recife;PE;2022-10-07
+311;Matheus Cardoso;cliente311@email.com;Juiz de Fora;MG;2023-03-21
+312;Camila Martins;cliente312@email.com;São José dos Campos;SP;2026-03-03
+313;Camila Santos;cliente313@email.com;Petrópolis;RJ;2021-12-27
+314;Gabriel Monteiro;cliente314@email.com;Goiânia;GO;2025-01-25
+315;Beatriz Pereira;cliente315@email.com;Aracaju;SE;2026-04-30
+316;Carlos Lima;cliente316@email.com;Parnaíba;PI;2022-09-20
+317;Larissa Monteiro;cliente317@email.com;Fortaleza;CE;2023-05-29
+318;Matheus Gomes;cliente318@email.com;Arapiraca;AL;2024-04-30
+319;Lucas Barbosa;cliente319@email.com;Teresina;PI;2026-07-11
+320;Pedro Souza;cliente320@email.com;Boa Vista;RR;2025-01-20
+321;Matheus Monteiro;cliente321@email.com;Londrina;PR;2022-08-18
+322;João Nascimento;cliente322@email.com;Uberaba;MG;2024-09-26
+323;Pedro Monteiro;cliente323@email.com;Chapecó;SC;2023-06-19
+324;Rafael Rodrigues;cliente324@email.com;Juiz de Fora;MG;2025-05-22
+325;Victor Almeida;cliente325@email.com;Cuiabá;MT;2024-03-09
+326;Felipe Souza;cliente326@email.com;Rio Branco;AC;2021-11-28
+327;Isabela Silva;cliente327@email.com;Campinas;SP;2024-06-03
+328;Rafael Gomes;cliente328@email.com;Parnaíba;PI;2025-12-11
+329;Juliana Pereira;cliente329@email.com;Uberlândia;MG;2026-02-19
+330;Beatriz Araújo;cliente330@email.com;Goiânia;GO;2023-06-23
+331;Maria Almeida;cliente331@email.com;Vitória da Conquista;BA;2024-12-27
+332;Matheus Fernandes;cliente332@email.com;Santarém;PA;2025-11-19
+333;Bruno Martins;cliente333@email.com;Natal;RN;2023-08-06
+334;Fernanda Martins;cliente334@email.com;Chapecó;SC;2023-10-23
+335;Ana Silva;cliente335@email.com;Maringá;PR;2026-04-21
+336;Pedro Pereira;cliente336@email.com;Cachoeiro de Itapemirim;ES;2022-05-13
+337;Bruno Gomes;cliente337@email.com;Petrolina;PE;2024-08-03
+338;Felipe Ribeiro;cliente338@email.com;Santarém;PA;2022-10-29
+339;Felipe Cardoso;cliente339@email.com;Londrina;PR;2026-10-26
+340;Isabela Fernandes;cliente340@email.com;Maceió;AL;2023-10-18
+341;Lucas Souza;cliente341@email.com;João Pessoa;PB;2024-03-03
+342;Fernanda Oliveira;cliente342@email.com;Parnaíba;PI;2023-09-29
+343;Ana Nascimento;cliente343@email.com;Joinville;SC;2022-08-11
+344;Ana Fernandes;cliente344@email.com;Belém;PA;2021-11-23
+345;Fernanda Santos;cliente345@email.com;Palmas;TO;2023-09-14
+346;Bruno Cardoso;cliente346@email.com;Maceió;AL;2025-08-26
+347;Beatriz Ribeiro;cliente347@email.com;Recife;PE;2022-01-26
+348;Larissa Souza;cliente348@email.com;Sobral;CE;2025-05-11
+349;Beatriz Correia;cliente349@email.com;Palmas;TO;2025-02-04
+350;Isabela Araújo;cliente350@email.com;Salvador;BA;2023-08-27
+351;Pedro Oliveira;cliente351@email.com;Ananindeua;PA;2024-09-13
+352;Camila Araújo;cliente352@email.com;Parnaíba;PI;2023-09-04
+353;Juliana Lima;cliente353@email.com;Goiânia;GO;2022-10-04
+354;Camila Silva;cliente354@email.com;Imperatriz;MA;2023-05-14
+355;Maria Nascimento;cliente355@email.com;Juazeiro do Norte;CE;2023-12-06
+356;Pedro Almeida;cliente356@email.com;Palmas;TO;2022-12-20
+357;Victor Gomes;cliente357@email.com;Campina Grande;PB;2024-07-04
+358;Mariana Rodrigues;cliente358@email.com;Cachoeiro de Itapemirim;ES;2024-06-14
+359;Bruno Ribeiro;cliente359@email.com;Arapiraca;AL;2025-10-04
+360;Fernanda Almeida;cliente360@email.com;Aracaju;SE;2023-07-26
+361;Rafael Monteiro;cliente361@email.com;Arapiraca;AL;2024-10-03
+362;Pedro Silva;cliente362@email.com;Rio de Janeiro;RJ;2024-07-13
+363;Bruno Araújo;cliente363@email.com;Ananindeua;PA;2025-05-16
+364;Juliana Araújo;cliente364@email.com;Rio de Janeiro;RJ;2025-08-28
+365;Carlos Gomes;cliente365@email.com;Sobral;CE;2022-07-10
+366;Victor Costa;cliente366@email.com;Vila Velha;ES;2022-10-20
+367;Juliana Nascimento;cliente367@email.com;Rio de Janeiro;RJ;2026-04-22
+368;Maria Cardoso;cliente368@email.com;Anápolis;GO;2022-10-29
+369;João Cardoso;cliente369@email.com;Anápolis;GO;2025-04-12
+370;Juliana Almeida;cliente370@email.com;Chapecó;SC;2022-09-15
+371;Victor Cardoso;cliente371@email.com;Cascavel;PR;2025-10-09
+372;Larissa Monteiro;cliente372@email.com;Recife;PE;2022-05-27
+373;Isabela Fernandes;cliente373@email.com;Londrina;PR;2024-01-22
+374;Maria Martins;cliente374@email.com;Gurupi;TO;2021-12-15
+375;Carlos Carvalho;cliente375@email.com;Mossoró;RN;2025-12-28
+376;Bruno Oliveira;cliente376@email.com;Curitiba;PR;2023-07-21
+377;Rafael Rodrigues;cliente377@email.com;Salvador;BA;2024-04-28
+378;Mariana Lima;cliente378@email.com;Macapá;AP;2022-01-23
+379;Victor Almeida;cliente379@email.com;Belém;PA;2023-11-24
+380;João Barbosa;cliente380@email.com;Cachoeiro de Itapemirim;ES;2025-01-04
+381;Larissa Fernandes;cliente381@email.com;Macapá;AP;2024-10-14
+382;Victor Pereira;cliente382@email.com;São Paulo;SP;2022-12-09
+383;Beatriz Souza;cliente383@email.com;Vitória da Conquista;BA;2024-01-27
+384;Juliana Carvalho;cliente384@email.com;Campo Grande;MS;2022-10-28
+385;Juliana Souza;cliente385@email.com;Parnaíba;PI;2022-11-11
+386;Gabriel Martins;cliente386@email.com;Sobral;CE;2023-03-12
+387;Mariana Lima;cliente387@email.com;Belo Horizonte;MG;2024-12-11
+388;Mariana Martins;cliente388@email.com;Blumenau;SC;2024-01-24
+389;Pedro Oliveira;cliente389@email.com;Cachoeiro de Itapemirim;ES;2022-02-16
+390;Pedro Barbosa;cliente390@email.com;Belém;PA;2024-05-07
+391;Bruno Santos;cliente391@email.com;Parnaíba;PI;2024-03-30
+392;Matheus Nascimento;cliente392@email.com;Blumenau;SC;2024-10-18
+393;Lucas Carvalho;cliente393@email.com;Campinas;SP;2024-12-23
+394;Mariana Pereira;cliente394@email.com;Aracaju;SE;2025-01-27
+395;Ana Nascimento;cliente395@email.com;Feira de Santana;BA;2021-11-01
+396;Carlos Costa;cliente396@email.com;Feira de Santana;BA;2026-10-04
+397;Rafael Rodrigues;cliente397@email.com;Rondonópolis;MT;2026-01-08
+398;Mariana Silva;cliente398@email.com;Goiânia;GO;2022-09-10
+399;Carlos Martins;cliente399@email.com;Recife;PE;2022-03-10
+400;Lucas Gomes;cliente400@email.com;Montes Claros;MG;2024-05-21
+401;Bruno Lima;cliente401@email.com;Florianópolis;SC;2025-06-09
+402;Isabela Almeida;cliente402@email.com;Juazeiro do Norte;CE;2022-11-16
+403;João Barbosa;cliente403@email.com;Campina Grande;PB;2025-12-18
+404;João Araújo;cliente404@email.com;Salvador;BA;2024-07-19
+405;Maria Pereira;cliente405@email.com;Dourados;MS;2023-04-21
+406;Beatriz Santos;cliente406@email.com;Dourados;MS;2022-01-26
+407;Matheus Oliveira;cliente407@email.com;Dourados;MS;2025-11-01
+408;Maria Nascimento;cliente408@email.com;Pelotas;RS;2025-04-30
+409;Maria Fernandes;cliente409@email.com;Pelotas;RS;2024-04-13
+410;Felipe Correia;cliente410@email.com;Rio de Janeiro;RJ;2026-04-02
+411;Larissa Araújo;cliente411@email.com;Fortaleza;CE;2025-05-11
+412;Bruno Almeida;cliente412@email.com;Cachoeiro de Itapemirim;ES;2024-10-25
+413;Fernanda Cardoso;cliente413@email.com;Belo Horizonte;MG;2021-11-19
+414;Carlos Rodrigues;cliente414@email.com;Ribeirão Preto;SP;2025-05-03
+415;Rafael Oliveira;cliente415@email.com;Uberlândia;MG;2025-06-25
+416;Beatriz Monteiro;cliente416@email.com;Parnaíba;PI;2025-01-16
+417;Maria Carvalho;cliente417@email.com;Petrolina;PE;2023-12-23
+418;Beatriz Almeida;cliente418@email.com;Pelotas;RS;2024-11-20
+419;Larissa Santos;cliente419@email.com;Petrolina;PE;2026-10-28
+420;Victor Carvalho;cliente420@email.com;Blumenau;SC;2026-08-02
+421;Camila Lima;cliente421@email.com;Cuiabá;MT;2024-04-03
+422;Lucas Costa;cliente422@email.com;Cruzeiro do Sul;AC;2025-02-17
+423;Carlos Monteiro;cliente423@email.com;Cachoeiro de Itapemirim;ES;2026-05-12
+424;Larissa Correia;cliente424@email.com;Belo Horizonte;MG;2022-09-16
+425;João Rodrigues;cliente425@email.com;Uberlândia;MG;2026-03-15
+426;Victor Silva;cliente426@email.com;Campinas;SP;2023-05-03
+427;Ana Nascimento;cliente427@email.com;Vila Velha;ES;2023-07-14
+428;Victor Pereira;cliente428@email.com;Santa Maria;RS;2024-05-08
+429;Isabela Araújo;cliente429@email.com;Vila Velha;ES;2025-07-07
+430;Camila Cardoso;cliente430@email.com;Imperatriz;MA;2026-02-04
+431;Camila Araújo;cliente431@email.com;Uberaba;MG;2023-03-29
+432;João Almeida;cliente432@email.com;Ribeirão Preto;SP;2025-04-19
+433;Matheus Barbosa;cliente433@email.com;Santa Maria;RS;2026-06-16
+434;Maria Pereira;cliente434@email.com;Cachoeiro de Itapemirim;ES;2023-05-13
+435;Rafael Gomes;cliente435@email.com;Uberaba;MG;2023-05-02
+436;Amanda Monteiro;cliente436@email.com;Ribeirão Preto;SP;2023-07-23
+437;Mariana Lima;cliente437@email.com;Brasília;DF;2026-06-13
+438;Pedro Oliveira;cliente438@email.com;Boa Vista;RR;2026-09-19
+439;Gabriel Souza;cliente439@email.com;Teresina;PI;2022-06-17
+440;Beatriz Gomes;cliente440@email.com;Campo Grande;MS;2025-09-09
+441;Lucas Araújo;cliente441@email.com;Maringá;PR;2024-12-20
+442;Beatriz Costa;cliente442@email.com;Joinville;SC;2026-01-16
+443;Camila Fernandes;cliente443@email.com;Caruaru;PE;2023-11-21
+444;Matheus Lima;cliente444@email.com;Belém;PA;2022-01-17
+445;Lucas Correia;cliente445@email.com;Campinas;SP;2023-07-26
+446;Carlos Cardoso;cliente446@email.com;Ananindeua;PA;2023-08-14
+447;Isabela Costa;cliente447@email.com;Belo Horizonte;MG;2021-12-10
+448;Matheus Nascimento;cliente448@email.com;Cruzeiro do Sul;AC;2025-08-03
+449;João Nascimento;cliente449@email.com;São José dos Campos;SP;2023-12-16
+450;Larissa Oliveira;cliente450@email.com;Cachoeiro de Itapemirim;ES;2025-08-31
+451;Matheus Ribeiro;cliente451@email.com;Sinop;MT;2025-06-13
+452;Ana Nascimento;cliente452@email.com;Montes Claros;MG;2023-03-02
+453;Mariana Fernandes;cliente453@email.com;Cruzeiro do Sul;AC;2021-12-23
+454;Gabriel Oliveira;cliente454@email.com;Vila Velha;ES;2023-07-02
+455;Victor Fernandes;cliente455@email.com;Blumenau;SC;2023-06-04
+456;Mariana Pereira;cliente456@email.com;Fortaleza;CE;2022-06-15
+457;Matheus Araújo;cliente457@email.com;Gurupi;TO;2024-05-04
+458;Bruno Araújo;cliente458@email.com;Caruaru;PE;2024-01-30
+459;Beatriz Correia;cliente459@email.com;Imperatriz;MA;2025-06-26
+460;Isabela Almeida;cliente460@email.com;Ananindeua;PA;2025-07-19
+461;Matheus Carvalho;cliente461@email.com;Rio Verde;GO;2024-04-23
+462;João Barbosa;cliente462@email.com;Londrina;PR;2022-04-27
+463;Pedro Gomes;cliente463@email.com;Parintins;AM;2021-12-08
+464;Amanda Correia;cliente464@email.com;Curitiba;PR;2024-07-29
+465;Isabela Costa;cliente465@email.com;Chapecó;SC;2024-03-30
+466;João Lima;cliente466@email.com;Mossoró;RN;2026-03-02
+467;Rafael Lima;cliente467@email.com;Aracaju;SE;2026-02-16
+468;Rafael Araújo;cliente468@email.com;Blumenau;SC;2025-04-09
+469;Juliana Carvalho;cliente469@email.com;Gurupi;TO;2022-03-23
+470;Lucas Gomes;cliente470@email.com;Feira de Santana;BA;2022-02-07
+471;Amanda Ribeiro;cliente471@email.com;Goiânia;GO;2024-02-23
+472;Maria Correia;cliente472@email.com;Boa Vista;RR;2023-09-16
+473;Carlos Almeida;cliente473@email.com;Palmas;TO;2023-02-25
+474;Maria Ribeiro;cliente474@email.com;Sinop;MT;2025-12-22
+475;Larissa Fernandes;cliente475@email.com;Parnaíba;PI;2026-05-22
+476;Juliana Monteiro;cliente476@email.com;Parnaíba;PI;2022-04-25
+477;Pedro Araújo;cliente477@email.com;Boa Vista;RR;2024-08-26
+478;Gabriel Barbosa;cliente478@email.com;Juazeiro do Norte;CE;2023-02-17
+479;Camila Silva;cliente479@email.com;Ji-Paraná;RO;2021-11-06
+480;Felipe Lima;cliente480@email.com;Rondonópolis;MT;2024-06-13
+481;Beatriz Martins;cliente481@email.com;Porto Alegre;RS;2024-10-07
+482;Rafael Correia;cliente482@email.com;Santa Maria;RS;2025-02-23
+483;Gabriel Correia;cliente483@email.com;Macapá;AP;2025-04-10
+484;Camila Souza;cliente484@email.com;Florianópolis;SC;2022-03-27
+485;Rafael Almeida;cliente485@email.com;Petrópolis;RJ;2026-05-01
+486;Larissa Fernandes;cliente486@email.com;Caxias do Sul;RS;2025-11-08
+487;Mariana Nascimento;cliente487@email.com;Campo Grande;MS;2025-07-02
+488;Matheus Gomes;cliente488@email.com;Rio Verde;GO;2023-07-16
+489;João Costa;cliente489@email.com;Maringá;PR;2023-08-10
+490;Rafael Araújo;cliente490@email.com;São Luís;MA;2024-12-05
+491;Fernanda Nascimento;cliente491@email.com;Blumenau;SC;2023-09-01
+492;João Monteiro;cliente492@email.com;Recife;PE;2025-01-07
+493;Carlos Pereira;cliente493@email.com;Palmas;TO;2022-01-06
+494;Gabriel Almeida;cliente494@email.com;Campinas;SP;2022-12-21
+495;Lucas Almeida;cliente495@email.com;Juazeiro do Norte;CE;2023-08-03
+496;Maria Araújo;cliente496@email.com;Santa Maria;RS;2024-12-12
+497;Rafael Almeida;cliente497@email.com;Belém;PA;2024-05-08
+498;Rafael Costa;cliente498@email.com;Vitória;ES;2026-05-14
+499;Fernanda Martins;cliente499@email.com;Cascavel;PR;2024-04-25
+500;Ana Oliveira;cliente500@email.com;Parintins;AM;2024-08-13
